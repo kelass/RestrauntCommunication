@@ -14,13 +14,6 @@
 
 <h2 align="center">User actions</h2>
 
-flowchart TB
-А --> B
-C --- D
-E -.-> F
-G ==> H
-I --o J
-K --x L
 
 
 <h2 align="center"> Waiter actions</h2>
