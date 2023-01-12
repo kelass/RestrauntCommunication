@@ -13,6 +13,7 @@
 
 
 <h2 align="center">User actions</h2>
+
 flowchart LR
 Scan QRCode-->Order dish-->Pay on terminal or cash
 
