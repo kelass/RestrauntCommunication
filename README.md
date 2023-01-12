@@ -1,7 +1,7 @@
 <h1 align="center">Restraunt communication</h1>
 
 <h2 align="center">About project</h2>
-<p></p>
+<p>this program is responsible for communication between the waiter and the buyer</p>
 
 
 <h2 align="center">Tasks</h2>
