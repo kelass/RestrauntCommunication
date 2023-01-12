@@ -8,5 +8,6 @@
 <li>Authentication and authorization </li>
 <li>CRUD operations of dishes</li>
 <li>CRUD operations of tables</li>
+<li>CRM</li>
 <li>Setting up relationships in the database</li>
 <li>Notification</li>
