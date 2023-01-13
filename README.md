@@ -18,7 +18,7 @@
 <li> Selects the menu</li>
 <li> How'll leave pays</li>
 
-<p align="center"><img width="658" height="20" alt="Customer" src="https://user-images.githubusercontent.com/69418373/212341649-4d439b79-dcba-4078-ac5c-4e276fab4ebb.jpg"></p>
+<p align="center"><img width="658" height="50" alt="Customer" src="https://user-images.githubusercontent.com/69418373/212341649-4d439b79-dcba-4078-ac5c-4e276fab4ebb.jpg"></p>
 
 <h2 align="center"> Waiter actions</h2>
 <li>Checks the CRM</li>
@@ -26,7 +26,7 @@
 <li>Serves the table</li>
 <li>Closes the table</li>
 
-<p align="center"><img width="658" height="20" alt="Screenshot 2023-01-12 at 15 05 20" src="https://user-images.githubusercontent.com/69418373/212168216-d250a49a-4a4f-43c8-9293-bb12d9122f1b.png"></p>
+<p align="center"><img width="658" height="50" alt="Screenshot 2023-01-12 at 15 05 20" src="https://user-images.githubusercontent.com/69418373/212168216-d250a49a-4a4f-43c8-9293-bb12d9122f1b.png"></p>
 
 
 <h2 align="center">Site map</h2>
