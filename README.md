@@ -13,9 +13,19 @@
 
 
 <h2 align="center">User actions</h2>
+<li> User sit down at the table</li>
+<li> Use QR code and link to the menu</li>
+<li> Selects the menu</li>
+<li> How'll leave pays</li>
+
 <p align="center"><img width="658" alt="Screenshot 2023-01-12 at 15 05 20 (2)" src="https://user-images.githubusercontent.com/69418373/212168228-4bdd0903-920a-4400-86ee-aebc1e63dad6.png"></p>
 
 <h2 align="center"> Waiter actions</h2>
+<li>Checks the CRM</li>
+<li>If notify about order'll go to the table and refines the order</li>
+<li>Serves the table</li>
+<li>Closes the table</li>
+
 <p align="center"><img width="658" alt="Screenshot 2023-01-12 at 15 05 20" src="https://user-images.githubusercontent.com/69418373/212168216-d250a49a-4a4f-43c8-9293-bb12d9122f1b.png"></p>
 
 
