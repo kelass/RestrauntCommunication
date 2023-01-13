@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restraunt.WebUI", "Restraunt.WebUI\Restraunt.WebUI.csproj", "{C0913F56-7BB0-4DFB-9282-691D1AC2A9AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restraunt.WebUI", "Restraunt.WebUI\Restraunt.WebUI.csproj", "{C0913F56-7BB0-4DFB-9282-691D1AC2A9AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restraunt.WebAPI", "Restraunt.WebAPI\Restraunt.WebAPI.csproj", "{320710EC-A54E-4B8B-8BB0-CF417B25D332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restraunt.WebAPI", "Restraunt.WebAPI\Restraunt.WebAPI.csproj", "{320710EC-A54E-4B8B-8BB0-CF417B25D332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restraunt.Core", "Restraunt.Core\Restraunt.Core.csproj", "{2EAA9C03-D238-4303-AB1B-4BB8DDEE4133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restraunt.Core", "Restraunt.Core\Restraunt.Core.csproj", "{2EAA9C03-D238-4303-AB1B-4BB8DDEE4133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restraunt.Services", "Restraunt.Services\Restraunt.Services.csproj", "{DC2F84CC-0870-4002-B791-A0D1B003765E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restraunt.Data", "Restraunt.Data\Restraunt.Data.csproj", "{2C21887B-360A-4FA4-A373-0E96D9E7C129}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{2EAA9C03-D238-4303-AB1B-4BB8DDEE4133}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EAA9C03-D238-4303-AB1B-4BB8DDEE4133}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAA9C03-D238-4303-AB1B-4BB8DDEE4133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC2F84CC-0870-4002-B791-A0D1B003765E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2F84CC-0870-4002-B791-A0D1B003765E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2F84CC-0870-4002-B791-A0D1B003765E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2F84CC-0870-4002-B791-A0D1B003765E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C21887B-360A-4FA4-A373-0E96D9E7C129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C21887B-360A-4FA4-A373-0E96D9E7C129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C21887B-360A-4FA4-A373-0E96D9E7C129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C21887B-360A-4FA4-A373-0E96D9E7C129}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
