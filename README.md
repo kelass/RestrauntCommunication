@@ -17,3 +17,10 @@
 
 <h2 align="center"> Waiter actions</h2>
 <p align="center"><img width="658" alt="Screenshot 2023-01-12 at 15 05 20" src="https://user-images.githubusercontent.com/69418373/212168216-d250a49a-4a4f-43c8-9293-bb12d9122f1b.png"></p>
+
+
+<h2 align="center">Site map</h2>
+<li>Main page</li>
+<li>QR menu</li>
+<li>CRM for waiter</li>
+<li>CRM for admin</li>
