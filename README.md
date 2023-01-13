@@ -18,7 +18,7 @@
 <li> Selects the menu</li>
 <li> How'll leave pays</li>
 
-<p align="center">![image](https://user-images.githubusercontent.com/69418373/212341467-4526d38e-5162-41c8-8dad-7fa22df3e6c3.png)</p>
+<p align="center"> ![photo_2023-01-13_16-20-33](https://user-images.githubusercontent.com/69418373/212341649-4d439b79-dcba-4078-ac5c-4e276fab4ebb.jpg)</p>
 
 <h2 align="center"> Waiter actions</h2>
 <li>Checks the CRM</li>
