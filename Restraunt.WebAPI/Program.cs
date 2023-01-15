@@ -7,7 +7,7 @@ string connect = builder.Configuration.GetConnectionString("PersonalConnection")
 
 builder.Services.AddIdentity<User, Role>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.WebAPI")));
 
 // Add services to the container.
 
