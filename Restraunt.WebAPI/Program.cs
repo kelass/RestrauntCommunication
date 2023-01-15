@@ -1,4 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Restraunt.Core;
+using Restraunt.Data;
 var builder = WebApplication.CreateBuilder(args);
+
+string connect = builder.Configuration.GetConnectionString("PersonalConnection");
+
+builder.Services.AddIdentity<User, Role>()
+.AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect));
 
 // Add services to the container.
 

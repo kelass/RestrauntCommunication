@@ -1,7 +1,14 @@
 Restraunt.WebUI/bin
 Restraunt.WebUI/obj
+
 Restraunt.WebAPI/obj
 Restraunt.WebAPI/bin
+
 Restraunt.Core/obj
 Restraunt.Core/bin
+
+Restraunt.Data/obj
+Restraunt.Data/bin
+
+Restraunt.Services/obj
 .vs/

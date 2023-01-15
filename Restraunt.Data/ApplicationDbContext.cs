@@ -8,13 +8,20 @@ using System.Threading.Tasks;
 
 namespace Restraunt.Data
 {
-    class ApplicationDbContext:DbContext
+    public class ApplicationDbContext:DbContext
     {
-        DbSet<Dish> Dishes { get; set; }
-        DbSet<Table> Tables { get; set; }
+       public DbSet<Dish> Dishes { get; set; }
+       public DbSet<Table> Tables { get; set; }
+       public DbSet<User> Users { get; set; }
+       public DbSet<Role> Roles { get; set; }
 
 
         // Migrate DB
 
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+
+            Database.EnsureCreated();
+        }
     }
 }
