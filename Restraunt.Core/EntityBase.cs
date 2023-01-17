@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restraunt.Core
 {
-    public class BaseObject
+    public class EntityBase
     {
         public Guid Id { get; set; }
 

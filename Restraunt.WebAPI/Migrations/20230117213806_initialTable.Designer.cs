@@ -12,8 +12,8 @@ using Restraunt.Data;
 namespace Restraunt.WebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230115203559_test")]
-    partial class test
+    [Migration("20230117213806_initialTable")]
+    partial class initialTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,7 +77,12 @@ namespace Restraunt.WebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tables");
                 });
@@ -133,6 +138,15 @@ namespace Restraunt.WebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Restraunt.Core.Table", b =>
+                {
+                    b.HasOne("Restraunt.Core.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="ZKWeb.Fork.QRCoder" Version="1.3.0" />
   </ItemGroup>
 
 </Project>

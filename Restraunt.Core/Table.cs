@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Restraunt.Core
 {
-    public class Table:BaseObject
+    public class Table:EntityBase
     {
-        
+       public User? User { get; set; }
     }
 }
