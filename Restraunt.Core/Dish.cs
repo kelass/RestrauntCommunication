@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restraunt.Core
 {
-    public class Dish:BaseObject
+    public class Dish:EntityBase
     {
         public string Description { get; set; }
 

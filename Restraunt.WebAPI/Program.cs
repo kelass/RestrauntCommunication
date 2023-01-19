@@ -1,14 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
 using Restraunt.Data;
-var builder = WebApplication.CreateBuilder(args);
+using Restraunt.Data.Interfaces;
+using Restraunt.Data.Repositories;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("Secrets.json");
 string connect = builder.Configuration.GetConnectionString("PersonalConnection");
 
 builder.Services.AddIdentity<User, Role>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.WebAPI")));
 
+builder.Services.AddScoped<IDishRepository, DishRepository>();
+builder.Services.AddScoped<ITableRepository, TableRepository>();
 // Add services to the container.
 
 builder.Services.AddControllers();
