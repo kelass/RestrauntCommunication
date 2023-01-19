@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
 using Restraunt.Data;
+using Restraunt.Data.Interfaces;
+using System.Data;
 
 namespace Restraunt.WebAPI.Controllers
 {
@@ -10,21 +12,14 @@ namespace Restraunt.WebAPI.Controllers
     [ApiController]
     public class TableController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ITableRepository _tableRepository;
 
-        private static List<Table> Tables = new List<Table>
-        {
-         new Table {Id = Guid.Parse("0ce6cde0-813c-441d-bdbd-05eaf34d6a7c"), Name="Table Test"}
-
-        };
+       
         //DI
-        public TableController(ApplicationDbContext db)
+        public TableController(ITableRepository tableRepository)
         {
-            _db = db;
+            _tableRepository= tableRepository;
 
-
-
-            var Tables = _db.Tables.AsNoTracking().ToList();
         }
 
         
@@ -34,7 +29,7 @@ namespace Restraunt.WebAPI.Controllers
         {
            
 
-            return Ok(Tables);
+            return Ok(await _tableRepository.Select());
 
         } 
        
@@ -42,12 +37,11 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<Table>> Get(Guid Id)
         {
-            var Table = Tables.Find(t => t.Id == Id);
+           
 
-            if (Table == null)
-                return BadRequest("Table not found");
+           
 
-            return Ok(Table);
+            return Ok(await _tableRepository.Get(Id));
 
         }  
 
@@ -56,38 +50,33 @@ namespace Restraunt.WebAPI.Controllers
          [HttpPost]
         public async Task<ActionResult<List<Table>>> AddTable(Table table)
         {
-            Tables.Add(table);
+           await _tableRepository.Create(table);
 
-            return Ok(Tables);
-
-        }
-
-
-        [HttpPut]
-
-        public async Task<ActionResult<List<Table>>> EditTable(Table Request)
-        {
-            var Table = Tables.Find(t => t.Id == Request.Id);
-
-            if (Table == null)
-                return BadRequest("Table not found");
-
-            Table.Name = Request.Name;
-
-            return Ok(Tables);
+            return Ok(await _tableRepository.Select());
 
         }
+
+
+        //[HttpPut]
+
+        //public async Task<ActionResult<List<Table>>> EditTable(Table Request)
+        //{
+        //    var Table = Tables.Find(t => t.Id == Request.Id);
+
+        //    if (Table == null)
+        //        return BadRequest("Table not found");
+
+        //    Table.Name = Request.Name;
+
+        //    return Ok(Tables);
+
+        //}
 
         [HttpDelete]
         public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
         {
-            var Table = Tables.Find(t => t.Id == Id);
-
-            if (Table == null)
-                return BadRequest("Table not found");
-
-            Tables.Remove(Table);
-            return Ok(Tables);
+          await _tableRepository.Delete(Id);
+            return Ok(await _tableRepository.Select());
 
         }
 
