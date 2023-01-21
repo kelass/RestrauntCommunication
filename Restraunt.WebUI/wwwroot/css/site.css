@@ -16,3 +16,59 @@ html {
 body {
   margin-bottom: 60px;
 }
+.formCareer {
+    
+    border: solid;
+    border-color: black;
+    border-radius: 10px;
+
+}
+
+.inputFormCareer {
+    border:none;
+
+}
+
+
+
+
+.contactus__input {
+    width: 100%;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #5678FF66;
+    padding-bottom: 3px;
+    color: var(--blue-color);
+}
+
+.contactus__policy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 52px;
+}
+
+.contactus__submit {
+    background-color: transparent;
+    color: var(--black-color);
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    width: 200px;
+    padding: 7px 0;
+    text-align: center;
+    border: 1px solid var(--blue-color);
+    border-radius: 7px;
+    text-transform: uppercase;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contactus__form {
+    padding: 124px 52px 124px 48px;
+    width: 570px;
+    border-radius: 20px;
+    border: 1px solid #0000;
+    background: -o-linear-gradient(var(--white-color), var(--white-color)) padding-box, -o-linear-gradient(left, var(--primary-color), var(--primary2-color)) border-box;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-color)), to(var(--white-color))) padding-box, -webkit-gradient(linear, left top, right top, from(var(--primary-color)), to(var(--primary2-color))) border-box;
+    background: linear-gradient(var(--white-color), var(--white-color)) padding-box, linear-gradient(90deg, var(--primary-color), var(--primary2-color)) border-box;
+}

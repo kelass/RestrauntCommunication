@@ -10,4 +10,18 @@
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Table\" />
+    <Folder Include="Views\Dish\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Views\Account\" />
+    <None Remove="Views\Table\" />
+    <None Remove="Views\Dish\" />
+  </ItemGroup>
 </Project>

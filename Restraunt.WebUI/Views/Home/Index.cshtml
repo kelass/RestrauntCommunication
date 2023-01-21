@@ -2,7 +2,54 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row p-4">
+    <div class="col-sm-6">
+        <div class="container">
+            <img class="img-fluid " src="../img/food_guide_visual_en.webp" />
+        </div>
+    </div>
+    <div class="col-sm-6 text-center">
+        <h1>H1 title</h1>
+        <h2>H2 title and some text</h2>
+        <h3>MMMM delishes</h3>
+    </div>
 </div>
+
+
+<div class="row p-4">
+    <div class="col-sm-6 text-center">
+        <h1>H1 title</h1>
+        <h2>H2 title and some text</h2>
+        <h3>MMMM delishes</h3>
+    </div>
+    <div class="col-sm-6">
+        <div class="container">
+            <img class="img-fluid" src="../img/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.webp" />
+        </div>
+    </div>
+
+</div>
+
+<div class="row p-4">
+    <div class="col-sm-6 text-center">
+        <h2>Do you want to work?</h2>
+        <h2>We'll recall to you!</h2>
+    </div>
+
+    <div class="col-sm-6">
+        <form method="post" class="contactus__form">
+            
+            <label for="contactus__name" class="contactus__label label label_required">Ім'я</label>
+            <input class="contactus__input contactus__input_name" type="text" placeholder="Ім'я" required="" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="">
+            <label for="contactus__email" class="contactus__label label label_required">Електронна пошта або телефон</label>
+            <input class="contactus__input contactus__input_email" type="email" placeholder="Електронна пошта або телефон" required="" data-val="true" data-val-required="The EmailOrPhone field is required." id="EmailOrPhone" name="EmailOrPhone" value="">
+            <label class="contactus__policy label">
+                <input type="checkbox" name="policy" id="contactus__policy" class="custom-checkbox" required="">
+                <p>Я даю згоду на обробку моїх персональних данніх згідно з <a href="policy.html" target="_blank">Політикою обробки персональних данних</a></p>
+            </label>
+            <button type="submit" class="contactus__submit">Надіслати</button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8CRUWjqPodFEmyRyaY6_DhwZJ9y56GRizW_ZZ2HnkKHF1skpOcdrA1KnhJfWQRAQp3rewwreZPUsQSn2zuESnhHVmLlqNFuYEO2l478Z2-rz_25TS7gTaoNQ0mRjgQQVag1kct4Zn7OYAe7QvynLoFg">
+        </form>
+    </div>
+</div>
+
