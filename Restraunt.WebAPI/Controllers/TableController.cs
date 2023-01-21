@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QRCoder;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
@@ -52,7 +53,12 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             { 
+
+           table.Link = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Table/{table.Id.ToString()}";
            await _tableRepository.Create(table);
+
+            
+
             }
             return Ok(await _tableRepository.Select());
 
