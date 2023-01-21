@@ -50,8 +50,10 @@ namespace Restraunt.WebAPI.Controllers
          [HttpPost]
         public async Task<ActionResult<List<Table>>> AddTable(Table table)
         {
+            if (ModelState.IsValid)
+            { 
            await _tableRepository.Create(table);
-
+            }
             return Ok(await _tableRepository.Select());
 
         }

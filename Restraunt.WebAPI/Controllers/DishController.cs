@@ -41,9 +41,12 @@ namespace Restraunt.WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Dish>>> Add(Dish dish)
         {
-            var Add = await _dishRepository.Create(dish);
+            if (ModelState.IsValid)
+            {
+                var Add = await _dishRepository.Create(dish);
+            }
 
-            return Ok(await _dishRepository.Select());
+            return await _dishRepository.Select();
 
         }
 

@@ -14,7 +14,6 @@
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Table\" />
     <Folder Include="Views\Dish\" />
