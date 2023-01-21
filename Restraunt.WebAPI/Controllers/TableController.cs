@@ -54,6 +54,7 @@ namespace Restraunt.WebAPI.Controllers
             if (ModelState.IsValid)
             { 
 
+
            table.Link = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Table/{table.Id.ToString()}";
            await _tableRepository.Create(table);
 
