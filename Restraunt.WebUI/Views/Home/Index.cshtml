@@ -2,15 +2,24 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row p-4 block">
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/fullpage.css" />
+
+<!-- This following line is optional. Only necessary if you use the option css3:false and you want to use other easing effects rather than "easeInOutCubic". -->
+<script src="~/js/fullpage.min.js"></script>
+
+<script type="text/javascript" src="~/js/fullpage.js"></script>
+</head>
+
+<div data-anchor="slide1" class=" row p-4 block" data-aos="fade-up"
+     data-aos-anchor-placement="top-center">
     <div class="col-sm-6">
         <div class="container">
             <img class="img-fluid " src="../img/food1.svg" />
         </div>
     </div>
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6 btn-group-vertical">
         <h1>Proper nutrition:</h1>
-       
         <h2>Have plenty of vegetables and fruits</h2>
         <h2>Eat protein foods</h2>
         <h2>Make water your drink of choice</h2>
@@ -19,12 +28,14 @@
 </div>
 
 
-<div class="row p-4 block">
-    <div class="col-sm-6 text-center center">
+<div data-anchor="slide2" class="row p-4 block text-center" data-aos="fade-up"
+     data-aos-anchor-placement="top-center"> 
+    <div class="col-sm-6 btn-group-vertical">
         <h1>Our restraunt have a good:</h1>
         <h2>Dishes</h2>
         <h2>Personal</h2>
     </div>
+
     <div class="col-sm-6">
         <div class="container">
             <img class="img-fluid" src="../img/food2.svg" />
@@ -32,36 +43,37 @@
     </div>
 
 </div>
-
-<div class="row p-4 block">
-    <div class="col-sm-6 text-center">
+ 
+<div data-anchor="slide3" class="block row mb-5" data-aos="fade-up"
+     data-aos-anchor-placement="top-center">
+    <div class="col-sm-6 btn-group-vertical">
         <h2>Do you want to work?</h2>
         <h2>We'll recall to you!</h2>
     </div>
 
     <div class="col-sm-6">
        <form>
-
-            <div class="row mb-3">
+           <div class="border-3">
+            <div class="mb-3">
                 <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Full name</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Prysukha Mykola">
                 </div>
             </div>
-            <div class="row mb-3">
+            <div class="mb-3">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
                     <input type="email" class="form-control" id="colFormLabel" placeholder="kelass2003@gmail.com">
                 </div>
             </div>
-            <div class="row">
-                
-                <div class="col-sm-10">
-                    <input type="submit" class="form-control form-control-lg">
-                </div>
-            </div>
 
+
+            <div>
+                 <input type="submit" class="btn-dark form-control w-25 form-control-lg">
+            </div>
+            </div>
        </form>
     </div>
 </div>
 
+           <script>AOS.init();</script>
