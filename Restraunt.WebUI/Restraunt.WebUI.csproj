@@ -10,7 +10,7 @@
 
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
 
-
+  </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
