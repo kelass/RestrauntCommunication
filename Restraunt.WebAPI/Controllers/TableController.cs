@@ -55,7 +55,9 @@ namespace Restraunt.WebAPI.Controllers
             {
                 
 
+
            table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
+
            await _tableRepository.Create(table);
 
                 QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M);
