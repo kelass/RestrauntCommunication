@@ -9,11 +9,16 @@
 <li>Authentication and authorization </li>
 <li>CRUD operations of dishes</li>
 <ol>Create Entity Dish</ol>
-<h2>CRUD operations of tables</h2>
+<ol>Create DishRepository</li>
+<li>CRUD operations of tables</li>
 <ol>Create QRCode</ol>
 <ol>Create Entity Table</ol>
+<ol>Create TableRepository</li>
 <li>CRM</li>
+<ol>CRM for administrator</ol>
+<ol>CRM for waiter</ol>
 <li>Notification</li>
+<ol>Notification on waiter's CRM<ol>
 
 
 <h2 align="center">User actions</h2>
