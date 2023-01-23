@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Restraunt.WebAPI\Restraunt.WebAPI.csproj" />
-  </ItemGroup>
+
+    <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
+
 
   <ItemGroup>
     <Content Remove="wwwroot\img\" />

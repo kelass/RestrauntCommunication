@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
     <ProjectReference Include="..\Restraunt.Data\Restraunt.Data.csproj" />
+    <ProjectReference Include="..\Restraunt.Services\Restraunt.Services.csproj" />
   </ItemGroup>
 
 </Project>

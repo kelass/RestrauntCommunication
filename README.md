@@ -2,15 +2,30 @@
 
 <h2 align="center">About project</h2>
 <p>This program is responsible for communication between the waiter and the customer. Waiter has CRM, that notify him about orders on tables</p>
+<p>User have a QR code on the Table. He scan and linked to QR menu. Next step order dish and pay</p>
 
 <h2 align="center">Tasks</h2>
 <li>Create DB</li>
 <li>Setting up relationships in the database</li>
+<ol>Users</ol>
+<ol>Dishes</ol>
+<ol>Tables</ol>
+<ol>Roles</ol>
 <li>Authentication and authorization </li>
+<ol>Read like working IdentityServer4</ol>
 <li>CRUD operations of dishes</li>
+<ol>Create Entity Dish</ol>
+<ol>Create DishRepository</ol>
 <li>CRUD operations of tables</li>
+<ol>Create QRCode</ol>
+<ol>Create Entity Table</ol>
+<ol>Create TableRepository</ol>
 <li>CRM</li>
+<ol>CRM for administrator</ol>
+<ol>CRM for waiter</ol>
 <li>Notification</li>
+<ol>Read like working SignalR (SSE protocol)</ol>
+<ol>Notification on waiter's CRM</ol>
 
 
 <h2 align="center">User actions</h2>
