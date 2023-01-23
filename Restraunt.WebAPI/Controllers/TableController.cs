@@ -5,8 +5,8 @@ using QRCoder;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
-using Restraunt.Services.Services;
 using System.Data;
+using System.Drawing;
 
 namespace Restraunt.WebAPI.Controllers
 {
@@ -59,8 +59,8 @@ namespace Restraunt.WebAPI.Controllers
            table.Link = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Table/{table.Id.ToString()}";
            await _tableRepository.Create(table);
 
-           QRCodeHelper.Generate(table.Link);
-
+                QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M);
+               
             }
             return Ok(await _tableRepository.Select());
 
