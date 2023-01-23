@@ -6,7 +6,12 @@
 <h2 align="center">Tasks</h2>
 <li>Create DB</li>
 <li>Setting up relationships in the database</li>
+<ol>Users</ol>
+<ol>Dishes</ol>
+<ol>Tables</ol>
+<ol>Roles</ol>
 <li>Authentication and authorization </li>
+<ol>Read like working IdentityServer4</ol>
 <li>CRUD operations of dishes</li>
 <ol>Create Entity Dish</ol>
 <ol>Create DishRepository</ol>
@@ -18,6 +23,7 @@
 <ol>CRM for administrator</ol>
 <ol>CRM for waiter</ol>
 <li>Notification</li>
+<ol>Read like working SignalR (SSE protocol)</ol>
 <ol>Notification on waiter's CRM<ol>
 
 
