@@ -25,7 +25,7 @@
 <ol>CRM for waiter</ol>
 <li>Notification</li>
 <ol>Read like working SignalR (SSE protocol)</ol>
-<ol>Notification on waiter's CRM<ol>
+<ol>Notification on waiter's CRM</ol>
 
 
 <h2 align="center">User actions</h2>
