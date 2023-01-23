@@ -8,7 +8,10 @@
 <li>Setting up relationships in the database</li>
 <li>Authentication and authorization </li>
 <li>CRUD operations of dishes</li>
-<li>CRUD operations of tables</li>
+<ol>Create Entity Dish</ol>
+<h2>CRUD operations of tables</h2>
+<ol>Create QRCode</ol>
+<ol>Create Entity Table</ol>
 <li>CRM</li>
 <li>Notification</li>
 
