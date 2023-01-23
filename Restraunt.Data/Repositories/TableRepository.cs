@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Restraunt.Core;
+using Restraunt.Core.Dto;
 using Restraunt.Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,10 @@ namespace Restraunt.Data.Repositories
         {
             _db = db;
         }
-        public async Task<bool> Create(Table entity)
+        public async Task<bool> Create(TableDto entity)
         {
-            await _db.Tables.AddAsync(entity);
+            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link, User = entity.User };
+            await _db.Tables.AddAsync(result);
             await _db.SaveChangesAsync();
 
             return true;
@@ -28,18 +30,18 @@ namespace Restraunt.Data.Repositories
 
         public async Task<bool> Delete(Guid Id)
         {
-            var entity = await _db.Tables.Where(d => Id == Id).FirstOrDefaultAsync();
+            var entity = await _db.Tables.Where(t => t.Id == Id).FirstOrDefaultAsync();
             _db.Tables.Remove(entity);
 
             await _db.SaveChangesAsync();
             return true;
         }
 
-        public async Task<Table> Get(Guid Id)
+        public async Task<Table> Get(Guid id)
         {
-            var entity = await _db.Tables.Where(d => Id == Id).FirstOrDefaultAsync();
+            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
 
-            return entity;
+            return table;
         }
 
         public async Task<List<Table>> Select()

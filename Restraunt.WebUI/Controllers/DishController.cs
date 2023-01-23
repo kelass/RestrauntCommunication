@@ -8,5 +8,11 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         }
+
+
+
+        public IActionResult Create() => View();
+
+
     }
 }
