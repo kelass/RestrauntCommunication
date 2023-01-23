@@ -5,6 +5,7 @@ using QRCoder;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
+using Restraunt.Services.Services;
 using System.Data;
 
 namespace Restraunt.WebAPI.Controllers
@@ -14,13 +15,13 @@ namespace Restraunt.WebAPI.Controllers
     public class TableController : ControllerBase
     {
         private readonly ITableRepository _tableRepository;
-
+        
        
         //DI
         public TableController(ITableRepository tableRepository)
         {
             _tableRepository= tableRepository;
-
+           
         }
 
         
@@ -52,13 +53,13 @@ namespace Restraunt.WebAPI.Controllers
         public async Task<ActionResult<List<Table>>> AddTable(Table table)
         {
             if (ModelState.IsValid)
-            { 
-
+            {
+                
 
            table.Link = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Table/{table.Id.ToString()}";
            await _tableRepository.Create(table);
 
-            
+           QRCodeHelper.Generate(table.Link);
 
             }
             return Ok(await _tableRepository.Select());
