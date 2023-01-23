@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
 using Restraunt.Core;
+using Restraunt.Core.Dto;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
 using Restraunt.Data.Repositories;
@@ -49,7 +50,7 @@ namespace Restraunt.WebAPI.Controllers
 
         
          [HttpPost]
-        public async Task<ActionResult<List<Table>>> AddTable(Table table)
+        public async Task<ActionResult<List<Table>>> AddTable(TableDto table)
         {
             if (ModelState.IsValid)
             {

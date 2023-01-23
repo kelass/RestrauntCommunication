@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
+using Restraunt.Core.Dto;
 using Restraunt.Data.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +19,10 @@ namespace Restraunt.Data.Repositories
             _db = db;
         }
 
-        public async Task<bool> Create(Dish entity)
+        public async Task<bool> Create(DishDto entity)
         {
-          await _db.AddAsync(entity);
+            var result = new Dish { Id= entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
+            await _db.Dishes.AddAsync(result);
           await _db.SaveChangesAsync();
 
             return true;

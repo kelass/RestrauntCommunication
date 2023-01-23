@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
+using Restraunt.Core.Dto;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
 
@@ -47,7 +48,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<List<Dish>>> Add(Dish dish)
+        public async Task<ActionResult<List<Dish>>> Add(DishDto dish)
         {
             if (ModelState.IsValid)
             {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Restraunt.Core;
+using Restraunt.Core.Dto;
 using Restraunt.Data.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,10 @@ namespace Restraunt.Data.Repositories
         {
             _db = db;
         }
-        public async Task<bool> Create(Table entity)
+        public async Task<bool> Create(TableDto entity)
         {
-            await _db.Tables.AddAsync(entity);
+            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link, User = entity.User };
+            await _db.Tables.AddAsync(result);
             await _db.SaveChangesAsync();
 
             return true;
