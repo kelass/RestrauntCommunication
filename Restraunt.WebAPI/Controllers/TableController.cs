@@ -5,6 +5,7 @@ using QRCoder;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Data.Interfaces;
+using Restraunt.Data.Repositories;
 using System.Data;
 using System.Drawing;
 
@@ -29,8 +30,6 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Table>>> Get()
         {
-           
-
             return Ok(await _tableRepository.Select());
 
         } 
@@ -39,9 +38,9 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<Table>> Get(Guid Id)
         {
-           
-
-           
+            var entity = await _tableRepository.Get(Id);
+            if (entity == null)
+                return BadRequest("Entity not found");
 
             return Ok(await _tableRepository.Get(Id));
 
@@ -56,7 +55,7 @@ namespace Restraunt.WebAPI.Controllers
             {
                 
 
-           table.Link = $"{HttpContext.Request.Scheme}://{HttpContext.Request.Host}/Table/{table.Id.ToString()}";
+           table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
            await _tableRepository.Create(table);
 
                 QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M);
@@ -85,7 +84,11 @@ namespace Restraunt.WebAPI.Controllers
         [HttpDelete]
         public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
         {
-          await _tableRepository.Delete(Id);
+            var entity = await _tableRepository.Get(Id);
+            if (entity == null)
+                return BadRequest("Id not found");
+
+            await _tableRepository.Delete(Id);
             return Ok(await _tableRepository.Select());
 
         }

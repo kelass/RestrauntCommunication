@@ -27,10 +27,10 @@ namespace Restraunt.Data.Repositories
 
         public async Task<bool> Delete(Guid Id)
         {
-            var entity = await _db.Dishes.Where(d => Id == Id).FirstOrDefaultAsync();
-            _db.Remove(entity);
+            var entity = await _db.Dishes.Where(d => d.Id == Id).FirstOrDefaultAsync();
+            _db.Remove<Dish>(entity);
            await _db.SaveChangesAsync();
-
+            
             return true;
         }
 

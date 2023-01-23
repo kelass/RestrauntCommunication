@@ -28,18 +28,18 @@ namespace Restraunt.Data.Repositories
 
         public async Task<bool> Delete(Guid Id)
         {
-            var entity = await _db.Tables.Where(d => Id == Id).FirstOrDefaultAsync();
+            var entity = await _db.Tables.Where(t => t.Id == Id).FirstOrDefaultAsync();
             _db.Tables.Remove(entity);
 
             await _db.SaveChangesAsync();
             return true;
         }
 
-        public async Task<Table> Get(Guid Id)
+        public async Task<Table> Get(Guid id)
         {
-            var entity = await _db.Tables.Where(d => Id == Id).FirstOrDefaultAsync();
+            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
 
-            return entity;
+            return table;
         }
 
         public async Task<List<Table>> Select()

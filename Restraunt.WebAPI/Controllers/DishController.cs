@@ -24,7 +24,7 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Dish>>> Select()
         {
-            var Select =  await _dishRepository.Select();
+            var Select = await _dishRepository.Select();
             return Ok(Select);
 
         }
@@ -32,7 +32,14 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<Dish>> Get(Guid Id)
         {
-            var Get = await _dishRepository.Get(Id);
+            var entity = await _dishRepository.Get(Id);
+            if (entity == null)
+            {
+                return BadRequest("Entity not found");
+            }
+            
+                var Get = await _dishRepository.Get(Id);
+           
             return Ok(Get);
 
         }
@@ -57,7 +64,7 @@ namespace Restraunt.WebAPI.Controllers
             var entity = await _dishRepository.Get(Id);
 
             if (entity == null)
-                return BadRequest("Table not found");
+                return BadRequest("Id not found");
 
            await _dishRepository.Delete(Id);
             return Ok(await _dishRepository.Select());
