@@ -13,12 +13,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
     <ProjectReference Include="..\Restraunt.Data\Restraunt.Data.csproj" />
+    <ProjectReference Include="..\Restraunt.Services\Restraunt.Services.csproj" />
   </ItemGroup>
 
 </Project>
