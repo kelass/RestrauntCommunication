@@ -1,6 +1,5 @@
 using Restraunt.Core;
-using Restraunt.Data.Interfaces;
-using Restraunt.Data.Repositories;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
