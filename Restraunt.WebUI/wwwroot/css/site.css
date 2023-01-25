@@ -39,8 +39,12 @@ background-color:black;
 
 .block {
     min-height:100vh;
+   
 }
 .blockMain {
-    background-image: url('../img/foodMain.svg');
-    min-height: 100vh;
+   background-image: url('../img/restraunt.svg');
+}
+
+.frame {
+    background-image:url('../img/Frame 1.svg');
 }

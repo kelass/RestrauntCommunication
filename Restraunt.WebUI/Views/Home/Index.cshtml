@@ -3,69 +3,121 @@
 }
 
 
-
-<div data-anchor="slide1" class=" row p-4 block" data-aos="fade-up"
-     data-aos-anchor-placement="top-center">
-    <div class="col-sm-6">
-        <div class="container">
-            <img class="img-fluid " src="../img/food1.svg" />
+<div class="customContainer">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="~/img/restraunt.svg" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/img/restraunt.svg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/img/restraunt.svg" alt="Third slide">
+                
+            </div>
         </div>
-    </div>
-    <div class="col-sm-6 btn-group-vertical">
-        <h1>Proper nutrition:</h1>
-        <h2>Have plenty of vegetables and fruits</h2>
-        <h2>Eat protein foods</h2>
-        <h2>Make water your drink of choice</h2>
-        <h2>Choose whole grain foods</h2>
+        <a class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            
+        </a>
+        <a class="carousel-control-next" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            
+        </a>
     </div>
 </div>
 
-
-<div data-anchor="slide2" class="row p-4 block text-center" data-aos="fade-up"
-     data-aos-anchor-placement="top-center"> 
-    <div class="col-sm-6 btn-group-vertical">
-        <h1>Our restraunt have a good:</h1>
-        <h2>Dishes</h2>
-        <h2>Personal</h2>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="container">
-            <img class="img-fluid" src="../img/food2.svg" />
+<div class="customContainer">
+    <h1 class="text-center">What do you do?</h1>
+    <div class="row frame" data-aos="fade-up"
+         data-aos-anchor-placement="top-center">
+        <div class="col-sm-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
+                <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z" />
+                <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z" />
+                <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z" />
+                <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z" />
+                <path d="M12 9h2V8h-2v1Z" />
+            </svg>
+            <h2>Scan QR Code</h2>
         </div>
-    </div>
+        <div class="col-sm-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+            <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <h2>Order the dish</h2>
+        </div>
+        <div class="col-sm-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+            <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"/>
+            </svg>
+            <h2>Delicious to eat</h2>
+        </div>
 
-</div>
- 
-<div data-anchor="slide3" class="block row mb-5" data-aos="fade-up"
-     data-aos-anchor-placement="top-center">
-    <div class="col-sm-6 btn-group-vertical">
-        <h2>Do you want to work?</h2>
-        <h2>We'll recall to you!</h2>
-    </div>
-
-    <div class="col-sm-6">
-       <form>
-           <div class="border-3">
-            <div class="mb-3">
-                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Full name</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Prysukha Mykola">
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="colFormLabel" placeholder="kelass2003@gmail.com">
-                </div>
-            </div>
-
-
-            <div>
-                 <input type="submit" class="btn-dark form-control w-25 form-control-lg">
-            </div>
-            </div>
-       </form>
     </div>
 </div>
+
+<div class="customContainer">
+   
+    <div class="row">
+        <div class="col-6 align-content-lg-center" data-aos="fade-right">
+            <img class="img-fluid" src="~/img/photo1.svg"/>
+        </div>
+        <div class="col-6 btn-group-vertical" data-aos="fade-left">
+           <div class="container">
+            <h1>Proper nutrition implies that the body regularly,</h1>
+            <h1>in the required quantity and optimal ratios,</h1>
+            <h1> must receive many nutrients - proteins,</h1>
+            <h1> carbohydrates, fats, water, minerals and vitamins.</h1>
+           </div>
+        </div>
+
+    </div> 
+</div>
+
+<div class="customContainer">
+
+    <div class="row">
+        <div class="col-6 btn-group-vertical" data-aos="fade-right">
+            <div class="container text-center">
+            <h1>Our restraunt have a good menu.</h1>
+            <h1>You can check</h1>
+                <h1><a asp-controller="Table" asp-action="Menu">CLICK HERE</a></h1>
+            </div>
+        </div>
+        <div class="col-6 align-content-lg-center" data-aos="fade-left">
+           <img class="img-fluid" src="img/flat-lay-batch-cooking-composition_23-2148765597.webp"/>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="customContainer">
+    <div class="row m-5">
+        <div class="col-6 align-content-lg-center" data-aos="zoom-in-right">
+            <div class="row m-5">
+                <form method="post">
+                <div class="col p-1">
+                    <input type="text" class="form-control" placeholder="Full name" aria-label="Full name">
+                </div>
+                <div class="col p-1">
+                    <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                </div>
+                <div class="col p-1">
+                    <input type="submit" value="Send" class="btn-dark form-control w-25 form-control-lg" />
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-6 btn-group-vertical" data-aos="zoom-in-left">
+           <h1>Do you want work with us?</h1>
+        </div>
+
+    </div>
+</div>
+
            <script>AOS.init();</script>
