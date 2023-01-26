@@ -23,7 +23,7 @@ namespace Restraunt.Data.Repositories
         {
             var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link, User = entity.User };
             await _db.Tables.AddAsync(result);
-            await _db.SaveChangesAsync();
+            
 
             return true;
         }
@@ -33,7 +33,7 @@ namespace Restraunt.Data.Repositories
             var entity = await _db.Tables.Where(t => t.Id == Id).FirstOrDefaultAsync();
             _db.Tables.Remove(entity);
 
-            await _db.SaveChangesAsync();
+            
             return true;
         }
 
@@ -44,9 +44,9 @@ namespace Restraunt.Data.Repositories
             return table;
         }
 
-        public async Task<List<Table>> Select()
+        public async Task<IEnumerable<Table>> Select()
         {
-            return await _db.Tables.ToListAsync();
+            return _db.Tables;
         }
     }
 }

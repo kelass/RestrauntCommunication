@@ -16,22 +16,20 @@ namespace Restraunt.WebAPI.Controllers
     [ApiController]
     public class TableController : ControllerBase
     {
-        private readonly ITableRepository _tableRepository;
-        
-       
-        //DI
-        public TableController(ITableRepository tableRepository)
+        private readonly UnitOfWork _unitOfWork;
+
+
+        public TableController(UnitOfWork unitOfWork)
         {
-            _tableRepository= tableRepository;
-           
+            _unitOfWork = unitOfWork;
         }
 
-        
+
 
         [HttpGet]
         public async Task<ActionResult<List<Table>>> Get()
         {
-            return Ok(await _tableRepository.Select());
+            return Ok(await _unitOfWork.Tables.Select());
 
         } 
        
@@ -39,11 +37,11 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<Table>> Get(Guid Id)
         {
-            var entity = await _tableRepository.Get(Id);
+            var entity = await _unitOfWork.Tables.Get(Id);
             if (entity == null)
                 return BadRequest("Entity not found");
 
-            return Ok(await _tableRepository.Get(Id));
+            return Ok(await _unitOfWork.Tables.Get(Id));
 
         }  
 
@@ -54,17 +52,14 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
 
+              // string qr = QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M).ToString();
 
-           table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
-
-           await _tableRepository.Create(table);
-
-                QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M);
-               
+                await _unitOfWork.Tables.Create(table);
+                _unitOfWork.Save();
             }
-            return Ok(await _tableRepository.Select());
+            return Ok(await _unitOfWork.Tables.Select());
 
         }
 
@@ -87,12 +82,13 @@ namespace Restraunt.WebAPI.Controllers
         [HttpDelete]
         public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
         {
-            var entity = await _tableRepository.Get(Id);
+            var entity = await _unitOfWork.Tables.Get(Id);
             if (entity == null)
                 return BadRequest("Id not found");
 
-            await _tableRepository.Delete(Id);
-            return Ok(await _tableRepository.Select());
+            await _unitOfWork.Tables.Delete(Id);
+            _unitOfWork.Save();
+            return Ok(await _unitOfWork.Tables.Select());
 
         }
 

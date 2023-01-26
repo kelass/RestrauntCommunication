@@ -14,7 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
-
+builder.Services.AddScoped<UnitOfWork>();
 // Add services to the container.
 
 builder.Services.AddControllers();

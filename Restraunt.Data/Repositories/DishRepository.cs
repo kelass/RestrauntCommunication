@@ -23,8 +23,9 @@ namespace Restraunt.Data.Repositories
         {
             var result = new Dish { Id= entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
             await _db.Dishes.AddAsync(result);
-          await _db.SaveChangesAsync();
+          
 
+           
             return true;
         }
 
@@ -44,9 +45,9 @@ namespace Restraunt.Data.Repositories
                 return Dish;
         }
 
-        public Task<List<Dish>> Select()
+        public async Task<IEnumerable<Dish>> Select()
         {
-            return _db.Dishes.ToListAsync();
+            return _db.Dishes;
         }
     }
 }

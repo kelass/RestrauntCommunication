@@ -13,7 +13,7 @@ namespace Restraunt.Data.Interfaces
         
         Task<bool> Delete(Guid Id);
         
-        Task<List<T>> Select();
+        Task<IEnumerable<T>> Select();
         Task<T> Get(Guid Id);
     }
 }
