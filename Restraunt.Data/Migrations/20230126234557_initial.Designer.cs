@@ -9,11 +9,11 @@ using Restraunt.Data;
 
 #nullable disable
 
-namespace Restraunt.WebAPI.Migrations
+namespace Restraunt.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230121170625_tableLink")]
-    partial class tableLink
+    [Migration("20230126234557_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

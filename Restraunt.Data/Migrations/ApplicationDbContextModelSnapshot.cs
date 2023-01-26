@@ -8,7 +8,7 @@ using Restraunt.Data;
 
 #nullable disable
 
-namespace Restraunt.WebAPI.Migrations
+namespace Restraunt.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
