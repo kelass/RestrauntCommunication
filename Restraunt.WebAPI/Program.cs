@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
+using Restraunt.Core.Interfaces;
 using Restraunt.Data;
-using Restraunt.Data.Interfaces;
 using Restraunt.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);

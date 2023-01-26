@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
 using Restraunt.Core.Dto;
-using Restraunt.Data.Interfaces;
+using Restraunt.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

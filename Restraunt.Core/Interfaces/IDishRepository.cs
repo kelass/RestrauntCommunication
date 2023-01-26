@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Restraunt.Data.Interfaces
+namespace Restraunt.Core.Interfaces
 {
     public interface IDishRepository:IBaseRepository<Dish>
     {

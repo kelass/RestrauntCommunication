@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restraunt.Core.Interfaces;
+using System;
 namespace Restraunt.Data.Interfaces
 {
 	public interface IUnitOfWorks
