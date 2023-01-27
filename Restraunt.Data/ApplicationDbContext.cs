@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
+using Restraunt.Data.Configurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,15 @@ namespace Restraunt.Data
         {
 
             Database.Migrate();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            base.OnModelCreating(modelbuilder);
+
+
+            modelbuilder.ApplyConfiguration(new RolesConfiguration());
+
         }
     }
 }

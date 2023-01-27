@@ -38,11 +38,12 @@ background-color:black;
 }
 
 .block {
-    min-height:100vh;
+    min-height:50vh;
    
 }
 .blockMain {
-   background-image: url('../img/restraunt.svg');
+    min-height: 100vh;
+    background-image: url('../img/chopping-board-surrounded-with-vegetables-eggs-rice-grains-desk_23-2148062361.webp');
 }
 
 .frame {
