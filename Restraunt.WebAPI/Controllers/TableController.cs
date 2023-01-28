@@ -50,15 +50,17 @@ namespace Restraunt.WebAPI.Controllers
          [HttpPost]
         public async Task<ActionResult<List<Table>>> AddTable(TableDto table)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
-
-               string qr = QRCodeHelper.GetQRCode(table.Link,20,Color.Black,Color.White,QRCodeGenerator.ECCLevel.M).ToString();
-
-                await _unitOfWork.Tables.Create(table);
-                _unitOfWork.Save();
+                
             }
+            table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
+
+            //string qr = QRCodeHelper.GetQRCode(table.Link, 20, Color.Black, Color.White, QRCodeGenerator.ECCLevel.M).ToString();
+
+            await _unitOfWork.Tables.Create(table);
+            _unitOfWork.Save();
+
             return Ok(await _unitOfWork.Tables.Select());
 
         }
