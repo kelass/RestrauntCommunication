@@ -12,6 +12,16 @@ namespace Restraunt.WebUI.Controllers
 
             return View();
         }
-  
+
+        public IActionResult Manu()
+        {
+            return View();
+        }
+
+        public IActionResult Menu(Guid id)
+        {
+            return View();
+        }
+
     }
 }
