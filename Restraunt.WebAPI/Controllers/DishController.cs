@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
@@ -10,7 +11,7 @@ namespace Restraunt.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+   
     
     public class DishController : ControllerBase
     {

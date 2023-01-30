@@ -1,12 +1,10 @@
 ﻿
+<form method="post">
+    <input id="DishId" hidden value="@Guid.NewGuid()" />
+    <input id="DishName"/>
+    <input id="Description"/>
+    <input id="DishPrice"/>
+<input id="submit" type="submit" />
+</form>
 
-@Html.BeginForm(FormMethod.Post)
-{
-
-    <input hidden value="@Guid.NewGuid()" />
-    <input/>
-    <input/>
-    <input/>
-<input type="submit" />
-}
-
+<script src="../js/Dish.js"></script>
