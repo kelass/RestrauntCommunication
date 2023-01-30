@@ -2,9 +2,13 @@
 <form method="post">
     <input id="DishId" hidden value="@Guid.NewGuid()" />
     <input id="DishName"/>
-    <input id="Description"/>
+    <input id="DishDescription"/>
     <input id="DishPrice"/>
 <input id="submit" type="submit" />
 </form>
 
+
+@section Scripts{
+
 <script src="../js/Dish.js"></script>
+}

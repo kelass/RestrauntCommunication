@@ -49,7 +49,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<List<Dish>>> Add(DishDto dish)
+        public async Task<ActionResult<List<Dish>>> Add([FromBody] DishDto dish)
         {
             if (ModelState.IsValid)
             {

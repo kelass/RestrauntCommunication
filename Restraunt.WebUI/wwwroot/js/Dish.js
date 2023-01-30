@@ -1,28 +1,26 @@
-﻿document.getElementById("submit").addEventListener("click", send);
+﻿$(document).ready(() => {
+    $('#submit').click(async () => await send());
+});
 
-
-const data = {
-    Id: document.getElementById("DishId").value,
-    Name: document.getElementById("DishName").value,
-    Description: document.getElementById("DishDescription").value,
-    Price: document.getElementById("DishPrice").value
-};
-
-
-async function send(data)
+async function send()
 {
-    const response = async (data) => await fetch("https://localhost:7167/api/Dish", {
+    const data =
+    {
+        Id: $("#DishId").val(),
+        Name: $("#DishName").val(),
+        Description: $("#DishDescription").val(),
+        Price: $("#DishPrice").val()
+    };
+
+    const response = await fetch("https://localhost:7167/api/Dish", {
 
         method: "POST",
-        body: JSON.stringify({ data }),
+        body: JSON.stringify(data),
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"
         }
 
     });
-    
+
 }
-
-
-
