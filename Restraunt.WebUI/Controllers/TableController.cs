@@ -1,7 +1,9 @@
+
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 using Microsoft.AspNetCore.Mvc;
 using QRCoder;
+
 using Restraunt.Core.Dto;
 
 namespace Restraunt.WebUI.Controllers
@@ -32,6 +34,7 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         }
+
 
         public IActionResult Menu(Guid id)
         {

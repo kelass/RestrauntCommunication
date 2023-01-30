@@ -1,5 +1,6 @@
 ﻿document.getElementById("submit").addEventListener("click", send);
 
+
 const data = {
     Id: document.getElementById("DishId").value,
     Name: document.getElementById("DishName").value,

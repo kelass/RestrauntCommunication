@@ -52,6 +52,7 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
+
                 return BadRequest("Problem.."); 
             }
             table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
@@ -60,6 +61,7 @@ namespace Restraunt.WebAPI.Controllers
             _unitOfWork.Save();
 
             return Ok(table.Link);
+
 
         }
 
