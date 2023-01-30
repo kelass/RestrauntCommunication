@@ -4,6 +4,11 @@
 <p>This program is responsible for communication between the waiter and the customer. Waiter has CRM, that notify him about orders on tables</p>
 <p>User have a QR code on the Table. He scan and linked to QR menu. Next step order dish and pay</p>
 
+<h2>Stack</h2>
+<li>ASP.NET Core MVC + API</li>
+<li>Bootstrap</li>
+<li>EntityFramework Core 6</li>
+
 <h2 align="center">Tasks</h2>
 <li>Create DB</li>
 <li>Setting up relationships in the database</li>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
@@ -10,22 +11,22 @@ namespace Restraunt.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+   
     
     public class DishController : ControllerBase
     {
-        private readonly IDishRepository _dishRepository;
+        private readonly UnitOfWork _unitOfWork;
+        
        
-       
-        public DishController(IDishRepository dishRepository)
+        public DishController(UnitOfWork unitOfWork)
         {
-          _dishRepository= dishRepository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Dish>>> Select()
+        public async Task<ActionResult<IEnumerable<Dish>>> Select()
         {
-            var Select = await _dishRepository.Select();
+            var Select = await _unitOfWork.Dishes.Select();
             return Ok(Select);
 
         }
@@ -33,13 +34,13 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet("{Id}")]
         public async Task<ActionResult<Dish>> Get(Guid Id)
         {
-            var entity = await _dishRepository.Get(Id);
+            var entity = await _unitOfWork.Dishes.Get(Id);
             if (entity == null)
             {
                 return BadRequest("Entity not found");
             }
             
-                var Get = await _dishRepository.Get(Id);
+                var Get = await _unitOfWork.Dishes.Get(Id);
            
             return Ok(Get);
 
@@ -52,23 +53,26 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Add = await _dishRepository.Create(dish);
+                var Add = await _unitOfWork.Dishes.Create(dish);
+                _unitOfWork.Save();
             }
 
-            return await _dishRepository.Select();
+
+            return Ok(_unitOfWork.Dishes.Select());
 
         }
 
         [HttpDelete]
         public async Task<ActionResult<List<Dish>>> Delete(Guid Id)
         {
-            var entity = await _dishRepository.Get(Id);
+            var entity = await _unitOfWork.Dishes.Get(Id);
 
             if (entity == null)
                 return BadRequest("Id not found");
 
-           await _dishRepository.Delete(Id);
-            return Ok(await _dishRepository.Select());
+           await _unitOfWork.Dishes.Delete(Id);
+            _unitOfWork.Save();
+            return Ok(await _unitOfWork.Dishes.Select());
 
         }
 

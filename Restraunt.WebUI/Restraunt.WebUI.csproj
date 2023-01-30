@@ -10,7 +10,7 @@
 
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj" />
 
-
+  </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
@@ -23,5 +23,9 @@
     <None Remove="Views\Account\" />
     <None Remove="Views\Table\" />
     <None Remove="Views\Dish\" />
+    <None Remove="QRCoder" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="QRCoder" Version="1.4.1" />
   </ItemGroup>
 </Project>

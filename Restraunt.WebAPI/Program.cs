@@ -1,8 +1,11 @@
+using IdentityServer4.Models;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
+using Restraunt.Core.Interfaces;
 using Restraunt.Data;
-using Restraunt.Data.Interfaces;
 using Restraunt.Data.Repositories;
+using IdentityServer4.Models;
+using Restraunt.WebAPI.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("Secrets.json");
@@ -10,11 +13,33 @@ string connect = builder.Configuration.GetConnectionString("PersonalConnection")
 
 builder.Services.AddIdentity<User, Role>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.WebAPI")));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
+
+//builder.Services.AddIdentityServer()
+//    .AddInMemoryApiResources(Configuration.ApiResources)
+//    .AddInMemoryIdentityResources(Configuration.IdentityResources)
+//    .AddInMemoryApiScopes(Configuration.ApiScopes)
+//    .AddInMemoryClients(Configuration.Clients)
+//    .AddDeveloperSigningCredential();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.WithOrigins("https://localhost:45591",
+            "https://localhost:7567")
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowAnyOrigin();
+
+    });
+    
+});
+
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
-
+builder.Services.AddScoped<UnitOfWork>();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -30,11 +55,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 app.UseHttpsRedirection();
+//app.UseIdentityServer();
 
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapDefaultControllerRoute();
+
 
 app.Run();
