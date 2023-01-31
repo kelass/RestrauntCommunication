@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.IdentityModel.Tokens;
 using Restraunt.Core;
 using Restraunt.Core.Dto;
 using Restraunt.Core.Interfaces;
@@ -19,9 +20,9 @@ namespace Restraunt.Data.Repositories
         {
             _db = db;
         }
-        public async Task<bool> Create(TableDto entity)
+        public async Task<bool> Create(TableDto? entity)
         {
-            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link, User = entity.User };
+            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
             await _db.Tables.AddAsync(result);
             
 
@@ -39,7 +40,8 @@ namespace Restraunt.Data.Repositories
 
         public async Task<Table> Get(Guid id)
         {
-            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
+
+            var table = await _db.Tables.Where(t => t.Id == id).SingleOrDefaultAsync();
 
             return table;
         }

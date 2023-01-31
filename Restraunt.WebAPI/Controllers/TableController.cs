@@ -48,21 +48,24 @@ namespace Restraunt.WebAPI.Controllers
 
         
          [HttpPost]
-        public async Task<ActionResult<List<Table>>> AddTable(TableDto table)
+        public async Task<ActionResult<List<Table>>> AddTable([FromBody] TableDto? table)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
 
-                return BadRequest("Problem.."); 
+
+                var entity = _unitOfWork.Tables.Get(table.Id);
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Link.ToString()}";
+
+                    await _unitOfWork.Tables.Create(table);
+                    _unitOfWork.Save();
+                    return Ok(table.Link);
             }
-            table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
-
-            await _unitOfWork.Tables.Create(table);
-            _unitOfWork.Save();
-
-            return Ok(table.Link);
-
-
+            else
+            {
+              return BadRequest("Problem..");
+            }
+            
         }
 
 
