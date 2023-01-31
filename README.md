@@ -6,6 +6,7 @@
 
 <h2>Stack</h2>
 <li>ASP.NET Core MVC + API</li>
+<li>JavaScript, jQuery</li>
 <li>Bootstrap</li>
 <li>EntityFramework Core 6</li>
 
