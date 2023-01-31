@@ -34,7 +34,10 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         }
-
+        public IActionResult WaiterTables()
+        {
+            return View();
+        }
 
         public IActionResult Menu(Guid id)
         {

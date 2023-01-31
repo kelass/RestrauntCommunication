@@ -9,16 +9,17 @@ namespace Restraunt.WebUI.Controllers
 {
     public class PanelController : Controller
     {
-        // GET: /<controller>/
+      
         public IActionResult AdminPanel()
+        {
+            return View();
+        } 
+        public IActionResult WaiterPanel()
         {
             return View();
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
     }
 }
 

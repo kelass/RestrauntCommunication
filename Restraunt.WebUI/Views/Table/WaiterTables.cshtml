@@ -1,11 +1,11 @@
 ﻿@{
-    Layout = "_AdminLayout";
+    Layout = "_WaiterLayout";
 }
 
 <div>
     <div class="col-lg-12 mt-5 pt-5">
-        <h2 class="section-title">All dishes</h2>
-        <div><a asp-controller="Dish" asp-action="create" class="basic-button col-1">Add</a></div>
+        <h2 class="section-title">Waiter tables</h2>
+        <div><a asp-controller="Table" asp-action="create" class="basic-button col-1">Add</a></div>
         <h5 class="danger-text">@TempData["Error"]</h5>
         <div class="overflow-auto text-nowrap">
             <table class="table basic-table">
@@ -19,7 +19,7 @@
                         </th>
 
                         <th>
-                            @Html.Label("Price")
+                            @Html.Label("Active")
                         </th>
 
                         <th></th>
@@ -29,19 +29,19 @@
 
                     <tr>
                         <td>
-                            Dish id
+                            Table id
                         </td>
                         <td>
-                            Dish name
+                            Table name
                         </td>
                         <td>
-                            Dish price
+                            Waiter name
                         </td>
 
 
                         <td class="crud-block">
-                            <a asp-controller="Dish" asp-action="Edit" asp-route-id="3" class="basic-link">Edit</a> |
-                            <a asp-controller="Dish" asp-action="Delete" asp-route-id="3" class="basic-link">Delete</a>
+                            <a asp-controller="Table" asp-action="Edit" asp-route-id="3" class="basic-link">Edit</a> |
+                            <a asp-controller="Table" asp-action="Delete" asp-route-id="3" class="basic-link">Delete</a>
                         </td>
                     </tr>
 

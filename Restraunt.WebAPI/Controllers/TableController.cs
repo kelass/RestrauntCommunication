@@ -52,8 +52,6 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
                 var entity = _unitOfWork.Tables.Get(table.Id);
                 table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Link.ToString()}";
 
