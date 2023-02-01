@@ -14,7 +14,6 @@ namespace Restraunt.Data
 		public UnitOfWork(ApplicationDbContext db)
 		{
 			_db = db;
-            
 		}
 
         
@@ -35,9 +34,9 @@ namespace Restraunt.Data
             }
         }
 
-        public void Save()
+        public async Task Save()
         {
-            _db.SaveChanges();
+          await _db.SaveChangesAsync();
         }
     }
 }

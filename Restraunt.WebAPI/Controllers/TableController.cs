@@ -52,11 +52,11 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var entity = _unitOfWork.Tables.Get(table.Id);
-                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Link.ToString()}";
+               
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
 
-                    await _unitOfWork.Tables.Create(table);
-                    _unitOfWork.Save();
+                   await _unitOfWork.Tables.Create(table);
+                   await _unitOfWork.Save();
                     return Ok(table.Link);
             }
             else

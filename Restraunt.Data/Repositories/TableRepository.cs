@@ -22,10 +22,10 @@ namespace Restraunt.Data.Repositories
         }
         public async Task<bool> Create(TableDto? entity)
         {
-            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
+           var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
+
             await _db.Tables.AddAsync(result);
             
-
             return true;
         }
 
@@ -48,7 +48,7 @@ namespace Restraunt.Data.Repositories
 
         public async Task<IEnumerable<Table>> Select()
         {
-            return _db.Tables;
+            return _db.Tables.ToList();
         }
     }
 }
