@@ -5,7 +5,6 @@ using Restraunt.Core.Interfaces;
 using Restraunt.Data;
 using Restraunt.Data.Repositories;
 using IdentityServer4.Models;
-using Restraunt.WebAPI.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("Secrets.json");
@@ -15,12 +14,7 @@ builder.Services.AddIdentity<User, Role>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
 
-//builder.Services.AddIdentityServer()
-//    .AddInMemoryApiResources(Configuration.ApiResources)
-//    .AddInMemoryIdentityResources(Configuration.IdentityResources)
-//    .AddInMemoryApiScopes(Configuration.ApiScopes)
-//    .AddInMemoryClients(Configuration.Clients)
-//    .AddDeveloperSigningCredential();
+
 
 builder.Services.AddCors(options =>
 {
@@ -39,7 +33,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
-builder.Services.AddScoped<UnitOfWork>();
+builder.Services.AddTransient<UnitOfWork>();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -56,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-//app.UseIdentityServer();
+
 
 app.UseCors();
 app.UseAuthorization();

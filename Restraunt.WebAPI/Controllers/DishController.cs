@@ -53,11 +53,9 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var Add = await _unitOfWork.Dishes.Create(dish);
-                _unitOfWork.Save();
+                await _unitOfWork.Dishes.Create(dish);
+                await _unitOfWork.Save();
             }
-
-
             return Ok(_unitOfWork.Dishes.Select());
 
         }

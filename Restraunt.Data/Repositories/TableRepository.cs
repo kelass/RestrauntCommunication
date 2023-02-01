@@ -22,10 +22,10 @@ namespace Restraunt.Data.Repositories
         }
         public async Task<bool> Create(TableDto? entity)
         {
-            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
+           var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
+
             await _db.Tables.AddAsync(result);
             
-
             return true;
         }
 
@@ -41,14 +41,27 @@ namespace Restraunt.Data.Repositories
         public async Task<Table> Get(Guid id)
         {
 
-            var table = await _db.Tables.Where(t => t.Id == id).SingleOrDefaultAsync();
+            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
 
             return table;
         }
 
         public async Task<IEnumerable<Table>> Select()
         {
-            return _db.Tables;
+            return _db.Tables.ToList();
+        }
+
+        public async Task<Table> Edit(TableDto entity)
+        {
+            var table = await _db.Tables.Where(t => t.Id == entity.Id).FirstOrDefaultAsync();
+
+            if(table != null)
+            {
+                table.Name = entity.Name; table.User = entity.User;
+
+                _db.Update(table);
+            }
+            return table;
         }
     }
 }

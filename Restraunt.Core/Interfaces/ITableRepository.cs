@@ -11,5 +11,6 @@ namespace Restraunt.Core.Interfaces
     public interface ITableRepository:IBaseRepository<Table>
     {
         Task<bool> Create(TableDto entity);
+        Task<Table> Edit(TableDto entity);
     }
 }

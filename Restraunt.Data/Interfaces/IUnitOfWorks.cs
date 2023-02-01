@@ -6,7 +6,7 @@ namespace Restraunt.Data.Interfaces
 	{
 		IDishRepository Dishes { get; }
 		ITableRepository Tables { get; }
-		void Save();
+		Task Save();
 	}
 }
 

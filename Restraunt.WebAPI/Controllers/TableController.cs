@@ -52,11 +52,11 @@ namespace Restraunt.WebAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var entity = _unitOfWork.Tables.Get(table.Id);
-                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Link.ToString()}";
+               
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
 
-                    await _unitOfWork.Tables.Create(table);
-                    _unitOfWork.Save();
+                   await _unitOfWork.Tables.Create(table);
+                   await _unitOfWork.Save();
                     return Ok(table.Link);
             }
             else
@@ -67,20 +67,13 @@ namespace Restraunt.WebAPI.Controllers
         }
 
 
-        //[HttpPut]
-
-        //public async Task<ActionResult<List<Table>>> EditTable(Table Request)
-        //{
-        //    var Table = Tables.Find(t => t.Id == Request.Id);
-
-        //    if (Table == null)
-        //        return BadRequest("Table not found");
-
-        //    Table.Name = Request.Name;
-
-        //    return Ok(Tables);
-
-        //}
+        [HttpPut]
+        public async Task<ActionResult<List<Table>>> EditTable(TableDto table)
+        {
+            await _unitOfWork.Tables.Edit(table);
+            await _unitOfWork.Save();
+            return Ok(table);
+        }
 
         [HttpDelete]
         public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
@@ -94,11 +87,6 @@ namespace Restraunt.WebAPI.Controllers
             return Ok(await _unitOfWork.Tables.Select());
 
         }
-
-
-
-
-
 
     }
 }
