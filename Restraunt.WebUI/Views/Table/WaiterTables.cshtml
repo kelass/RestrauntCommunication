@@ -11,9 +11,7 @@
             <table class="table basic-table">
                 <thead class="table-headers">
                     <tr>
-                        <th>
-                            @Html.Label("Id")
-                        </th>
+                       
                         <th>
                             @Html.Label("Name")
                         </th>
@@ -25,28 +23,15 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody class="table-records">
-
-                    <tr>
-                        <td>
-                            Table id
-                        </td>
-                        <td>
-                            Table name
-                        </td>
-                        <td>
-                            Waiter name
-                        </td>
-
-
-                        <td class="crud-block">
-                            <a asp-controller="Table" asp-action="Edit" asp-route-id="3" class="basic-link">Edit</a> |
-                            <a asp-controller="Table" asp-action="Delete" asp-route-id="3" class="basic-link">Delete</a>
-                        </td>
-                    </tr>
-
+                <tbody id="tbody" class="table-records">
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+
+@section Scripts
+{
+    <script src="../js/TableGet.js"></script>
+}

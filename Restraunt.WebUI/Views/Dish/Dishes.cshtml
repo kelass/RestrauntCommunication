@@ -25,26 +25,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody class="table-records">
-
-                    <tr>
-                        <td>
-                            Dish id
-                        </td>
-                        <td>
-                            Dish name
-                        </td>
-                        <td>
-                            Dish price
-                        </td>
-
-
-                        <td class="crud-block">
-                            <a asp-controller="Dish" asp-action="Edit" asp-route-id="3" class="basic-link">Edit</a> |
-                            <a asp-controller="Dish" asp-action="Delete" asp-route-id="3" class="basic-link">Delete</a>
-                        </td>
-                    </tr>
-
+                <tbody id="tbody" class="table-records">
                 </tbody>
             </table>
         </div>

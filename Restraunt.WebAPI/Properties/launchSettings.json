@@ -12,7 +12,6 @@
     "Restraunt.WebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7167",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
