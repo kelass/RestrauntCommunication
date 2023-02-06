@@ -84,7 +84,7 @@ namespace Restraunt.WebAPI.Controllers
 
             await _unitOfWork.Tables.Delete(Id);
             _unitOfWork.Save();
-            return Ok(await _unitOfWork.Tables.Select());
+            return Ok("Table delete");
 
         }
 

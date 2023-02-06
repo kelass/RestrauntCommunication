@@ -70,7 +70,7 @@ namespace Restraunt.WebAPI.Controllers
 
            await _unitOfWork.Dishes.Delete(Id);
             _unitOfWork.Save();
-            return Ok(await _unitOfWork.Dishes.Select());
+            return Ok("Dish delete");
 
         }
 

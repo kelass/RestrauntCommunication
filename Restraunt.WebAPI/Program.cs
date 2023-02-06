@@ -10,10 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("Secrets.json");
 string connect = builder.Configuration.GetConnectionString("PersonalConnection");
 
-builder.Services.AddIdentity<User, Role>()
-.AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddIdentity<User, Role>()
+//.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
-
 
 
 builder.Services.AddCors(options =>
