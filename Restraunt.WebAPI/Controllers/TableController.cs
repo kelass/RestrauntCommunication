@@ -53,7 +53,7 @@ namespace Restraunt.WebAPI.Controllers
             if (ModelState.IsValid)
             {
                
-                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:45591/Table/Menu/{table.Id.ToString()}";
 
                    await _unitOfWork.Tables.Create(table);
                    await _unitOfWork.Save();
