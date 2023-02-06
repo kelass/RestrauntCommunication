@@ -49,9 +49,10 @@ namespace Restraunt.Identity.Controllers
 
 
                         await _signInManager.SignInAsync(user, false);
-                        //return RedirectToAction("Index", "Home");
+
                         return Redirect("https://localhost:45591/Home/Index");
                         
+
                     }
                 }
             }

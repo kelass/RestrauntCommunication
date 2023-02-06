@@ -30,7 +30,7 @@
 <ol>CRM for administrator</ol>
 <ol>CRM for waiter</ol>
 <li>Notification</li>
-<ol>Read like working SignalR (SSE protocol)</ol>
+<ol>Read like working SignalR</ol>
 <ol>Notification on waiter's CRM</ol>
 
 
