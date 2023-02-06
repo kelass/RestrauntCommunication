@@ -33,7 +33,7 @@ namespace Restraunt.Data.Repositories
         {
             var entity = await _db.Dishes.Where(d => d.Id == Id).FirstOrDefaultAsync();
             _db.Remove<Dish>(entity);
-           await _db.SaveChangesAsync();
+           
             
             return true;
         }

@@ -15,11 +15,9 @@
     <Content Remove="wwwroot\img\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Dish\" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Views\Account\" />
     <None Remove="Views\Table\" />
     <None Remove="Views\Dish\" />
     <None Remove="QRCoder" />
