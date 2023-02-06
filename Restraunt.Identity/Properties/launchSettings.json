@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:52479",
+      "applicationUrl": "https://localhost:52479",
       "sslPort": 44346
     }
   },
@@ -11,7 +11,9 @@
     "Restraunt.Identity": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:16819",
+
+      "applicationUrl": "https://localhost:16819",
+
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

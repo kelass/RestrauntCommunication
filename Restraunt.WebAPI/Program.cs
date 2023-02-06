@@ -4,7 +4,6 @@ using Restraunt.Core;
 using Restraunt.Core.Interfaces;
 using Restraunt.Data;
 using Restraunt.Data.Repositories;
-using IdentityServer4.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("Secrets.json");
@@ -28,7 +27,6 @@ builder.Services.AddCors(options =>
     });
     
 });
-
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
