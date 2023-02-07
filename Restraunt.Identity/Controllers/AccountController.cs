@@ -60,6 +60,35 @@ namespace Restraunt.Identity.Controllers
             return View(model);
         }
 
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginDto model)
+        {
+            var user = await _userManager.FindByNameAsync(model.UserName);
+
+            if(user!= null)
+            {
+              var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password,false,false);
+                if (result.Succeeded)
+                {
+                    return Redirect("https://localhost:45591/Home/Index");
+                }
+
+            }
+            else
+            {
+                return View(model);
+            }
+
+            return View();
+        }
+
+
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();

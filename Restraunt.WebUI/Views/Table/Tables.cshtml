@@ -3,7 +3,7 @@
 }
 <div>
     <div class="col-lg-12 mt-5 pt-5">
-        <h2 class="section-title">Waiter tables</h2>
+        <h2 class="section-title">All tables</h2>
         <div><a asp-controller="Table" asp-action="create" class="basic-button col-1">Add</a></div>
         <h5 class="danger-text">@TempData["Error"]</h5>
         <div class="overflow-auto text-nowrap">
@@ -53,13 +53,5 @@
 
 @section Scripts
 {
-    <script src="../js/TableGet.js"></script>
-}
-
-
-
-
-
-@section Scripts{
     <script src="../js/TableGet.js"></script>
 }

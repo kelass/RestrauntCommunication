@@ -1,5 +1,17 @@
 ﻿
 @model Restraunt.Core.Dto.RegisterDto
+
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Restraunt.Identity</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Restraunt.Identity.styles.css" asp-append-version="true" />
+</head>
 <div class="blocklogin btn-group-vertical">
     <div class="container text-center">
         <form method="post" asp-controller="Account" asp-action="Register" class="p-5 pb-5">
