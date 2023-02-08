@@ -16,7 +16,7 @@ namespace Restraunt.Data
        public DbSet<Table> Tables { get; set; }
        public DbSet<User> Users { get; set; }
        public DbSet<Role> Roles { get; set; }
-
+      
 
         // Migrate DB
 

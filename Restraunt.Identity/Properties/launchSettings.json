@@ -11,9 +11,7 @@
     "Restraunt.Identity": {
       "commandName": "Project",
       "launchBrowser": true,
-
       "applicationUrl": "https://localhost:16819",
-
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

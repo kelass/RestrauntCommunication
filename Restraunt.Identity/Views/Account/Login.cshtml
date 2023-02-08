@@ -1,9 +1,22 @@
-﻿<div class="blocklogin btn-group-vertical">
+﻿@model Restraunt.Core.Dto.LoginDto
+@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Restraunt.Identity</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Restraunt.Identity.styles.css" asp-append-version="true" />
+</head>
+<div class="blocklogin btn-group-vertical">
     <div class="container text-center">
-        <form class="p-5 pb-5">
-            <input placeholder="Login" class="w-50 form-control-sm" id="login" /><br />
-            <input placeholder="Password" class="w-50 form-control-sm" id="password" /><br />
+        <form class="p-5" method="post" asp-controller="Account" asp-action="Login">
+            <input placeholder="Login" class="w-50 form-control-sm" asp-for="UserName" /><br />
+            <input placeholder="Password" class="w-50 form-control-sm" asp-for="Password"/><br />
             <input  type="submit" class="btn btn-dark" value="Login"/>
         </form>
+        <a class="text-center" asp-controller="Account" asp-action="Register">Didn't have a account?</a>
     </div>
 </div>

@@ -15,8 +15,12 @@ async function send() {
 
     var dishes = await response;
 
-    dishes.forEach(function (element)
-    {
+    await Table(dishes);
+    
+}
+
+async function Table(dishes) {
+    dishes.forEach(function (element) {
         var Idtd = document.createElement('td');
         var Nametd = document.createElement('td');
         var Pricetd = document.createElement('td');
@@ -33,5 +37,4 @@ async function send() {
         tr.appendChild(Pricetd);
         document.getElementById('tbody').appendChild(tr)
     });
-    
 }
