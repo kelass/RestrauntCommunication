@@ -32,6 +32,9 @@ namespace Restraunt.WebUI.Controllers
             return View();
         }
 
+        
+
+
         public IActionResult Tables()
         {
             return View();
@@ -42,7 +45,7 @@ namespace Restraunt.WebUI.Controllers
         }
         public IActionResult Delete(Guid id)
         {
-            return View();
+            return RedirectToAction("Tables", "Table");
         }
         public IActionResult WaiterTables()
         {

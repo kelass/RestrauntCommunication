@@ -17,12 +17,12 @@ async function send() {
 
     dishes.forEach(function (element) {
         var div = document.createElement('div');
-        //div.classList('col')
+        div.setAttribute('class', 'col');
         var Name = document.createElement('h1');
         var Price = document.createElement('h2');
         var Desc = document.createElement('h3');
         var input = document.createElement('input');
-        
+        input.setAttribute('class', 'btn-dark btn');
         
         input.append('Order');
         //input.className('btn-dark btn');

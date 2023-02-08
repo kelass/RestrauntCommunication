@@ -1,7 +1,4 @@
-﻿//$(document).ready(() => {
-//    $('#submit').click(async () => await send());
-//});
-$(document).ready(send());
+﻿$(document).ready(send());
 
 async function send() {
 
@@ -17,10 +14,18 @@ async function send() {
 
     var tables = await response;
 
+    await Table(tables);
+    
+    
+}
+
+async function Table(tables) {
     tables.forEach(function (element) {
+        var linkEdit = 'https://localhost:45591/Table/Edit/' + element.id;
+        var linkDelete = 'https://localhost:45591/Table/Delete/' + element.id;
         var Idtd = document.createElement('td');
         var LinkTd = document.createElement('td');
-        
+        var a = document.createElement('a');
         var EditLink = document.createElement('a');
         var DeleteLink = document.createElement('a');
         var Nametd = document.createElement('td');
@@ -35,18 +40,22 @@ async function send() {
         Usertd.append(element.user);
 
         EditLink.append('Edit');
-        //EditLink.href:"https://localhost:45591/Table/Edit/" + element.id;
+        a.append(' | ');
+        EditLink.setAttribute('href', linkEdit)
+        EditLink.setAttribute('id', 'submitEdit')
         DeleteLink.append('Delete');
-        //DeleteLink.href: "https://localhost:45591/Table/Delete/" + element.id;
-       
+        DeleteLink.setAttribute('href', linkDelete)
+        DeleteLink.setAttribute('id', 'submitDelete')
+
         LinkTd.appendChild(EditLink);
+        LinkTd.appendChild(a);
         LinkTd.appendChild(DeleteLink);
 
         tr.appendChild(Idtd);
         tr.appendChild(Nametd);
         tr.appendChild(Usertd);
         tr.appendChild(LinkTd);
-        
+
 
         document.getElementById('tbody').appendChild(tr)
     });
