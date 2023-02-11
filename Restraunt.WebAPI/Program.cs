@@ -13,6 +13,13 @@ string connect = builder.Configuration.GetConnectionString("PersonalConnection")
 //.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
 
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", config =>
+    {
+        config.Authority = "https://localhost:16819";
+
+        config.Audience = "ApiTwo";
+    });
 
 builder.Services.AddCors(options =>
 {
@@ -50,6 +57,7 @@ app.UseHttpsRedirection();
 
 
 app.UseCors();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

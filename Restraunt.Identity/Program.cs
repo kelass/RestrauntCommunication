@@ -1,7 +1,9 @@
 using System.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Restraunt.Core;
 using Restraunt.Data;
+using Restraunt.Identity.IdentityServer4;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,12 +25,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddIdentityServer()
-//    .AddInMemoryApiResources(Configuration.ApiResources)
-//    .AddInMemoryIdentityResources(Configuration.IdentityResources)
-//    .AddInMemoryApiScopes(Configuration.ApiScopes)
-//    .AddInMemoryClients(Configuration.Clients)
-//    .AddDeveloperSigningCredential();
+builder.Services.AddIdentityServer()
+      .AddInMemoryApiResources(Configuration.GetApis())
+      .AddInMemoryClients(Configuration.GetClients())
+      .AddDeveloperSigningCredential();
 
 var app = builder.Build();
 
@@ -44,7 +44,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-//app.UseIdentityServer();
+app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapControllerRoute(

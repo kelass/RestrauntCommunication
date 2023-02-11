@@ -4,9 +4,26 @@ namespace Restraunt.WebUI.Controllers
 {
     public class AccountController : Controller
     {
-        public IActionResult Login()
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public AccountController(IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _httpClientFactory = httpClientFactory;
+        }
+
+        public async Task<IActionResult> Login()
+        {
+
+            //retrieve access token
+            var serverClient = _httpClientFactory.CreateClient();
+
+            //retrieve secret data
+
+
+            return Ok(new
+            {
+
+            });
         } 
         public IActionResult Register()
         {

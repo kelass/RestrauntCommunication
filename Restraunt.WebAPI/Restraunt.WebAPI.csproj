@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6394df1a-63cd-451a-8e98-8667954abb3a</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,8 @@
     </PackageReference>
     <PackageReference Include="QRCoder" Version="1.4.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.13" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,4 +26,8 @@
     <ProjectReference Include="..\Restraunt.Data\Restraunt.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="IdentityModel" />
+  </ItemGroup>
 </Project>
