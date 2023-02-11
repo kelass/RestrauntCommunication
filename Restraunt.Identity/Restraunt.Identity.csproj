@@ -24,6 +24,6 @@
     <Folder Include="IdentityServer4\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="IdentityServer4" Version="3.0.2" />
   </ItemGroup>
 </Project>

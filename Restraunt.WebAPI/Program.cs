@@ -6,6 +6,8 @@ using Restraunt.Data;
 using Restraunt.Data.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 builder.Configuration.AddJsonFile("Secrets.json");
 string connect = builder.Configuration.GetConnectionString("PersonalConnection");
 
@@ -13,26 +15,28 @@ string connect = builder.Configuration.GetConnectionString("PersonalConnection")
 //.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
 
+
+            //Auth
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", config =>
     {
         config.Authority = "https://localhost:16819";
-
-        config.Audience = "ApiTwo";
+        config.Audience = "ApiOne";
     });
+
+
 
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("https://localhost:45591",
-            "https://localhost:7567")
+        policy.WithOrigins("https://localhost:45591")
         .AllowAnyHeader()
         .AllowAnyMethod()
         .AllowAnyOrigin();
 
     });
-    
+
 });
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();

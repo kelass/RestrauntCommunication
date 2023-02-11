@@ -8,13 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-
+            //Auth
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", config =>
     {
         config.Authority = "https://localhost:16819";
 
-        config.Audience = "ApiOne";
+        config.Audience = "ApiTwo";
     });
 
 builder.Services.AddHttpClient();

@@ -8,6 +8,8 @@ using Restraunt.Identity.IdentityServer4;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllersWithViews();
+
 builder.Configuration.AddJsonFile("Secrets.json");
 string connect = builder.Configuration.GetConnectionString("PersonalConnection");
 
@@ -45,6 +47,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseIdentityServer();
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

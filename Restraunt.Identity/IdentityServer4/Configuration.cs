@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 using IdentityModel;
 using IdentityServer4.Models;
 namespace Restraunt.Identity.IdentityServer4
@@ -20,11 +21,12 @@ namespace Restraunt.Identity.IdentityServer4
 					ClientSecrets={ new Secret("client_secret".ToSha256())},
 					AllowedGrantTypes = GrantTypes.ClientCredentials,
 
-
 					AllowedScopes = {"ApiOne"}
 					
 				}
 			};
+
+		
 	}
 }
 
