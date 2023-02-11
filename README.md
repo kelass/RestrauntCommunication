@@ -18,7 +18,7 @@
 <ol>Tables</ol>
 <ol>Roles</ol>
 <li>Authentication and authorization </li>
-<ol>Read like working IdentityServer4</ol>
+<ol>Read how working IdentityServer4</ol>
 <li>CRUD operations of dishes</li>
 <ol>Create Entity Dish</ol>
 <ol>Create DishRepository</ol>
