@@ -5,13 +5,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.ConfigureApplicationCookie(config =>
-{
-    config.LoginPath = "https://localhost:16819/Account/Login";
-});
 
+
+
+//Auth
+builder.Services.AddAuthentication(config =>
+{
+    config.DefaultScheme = "Cookie";
+    config.DefaultChallengeScheme = "oidc";
+})
+    .AddCookie("Cookie")
+    .AddOpenIdConnect("oidc", config =>
+    {
+        config.Authority = "https://localhost:16819";
+        config.ClientId = "client_id_mvc";
+        config.ClientSecret = "client_secret_mvc";
+        config.SaveTokens = true;
+
+        config.ResponseType = "code";
+
+    });
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 
@@ -25,9 +41,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
