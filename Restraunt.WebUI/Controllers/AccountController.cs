@@ -37,7 +37,7 @@ namespace Restraunt.WebUI.Controllers
 
            var response = await apiClient.GetAsync("https://localhost:7167/Secret");
 
-            var content = await response.Content.ReadAsStringAsync();
+           var content = await response.Content.ReadAsStringAsync();
 
             return Ok(new
             {

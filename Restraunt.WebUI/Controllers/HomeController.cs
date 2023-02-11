@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Restraunt.Core;
 using Restraunt.WebUI.Models;
 using System.Diagnostics;
@@ -18,6 +19,13 @@ namespace Restraunt.WebUI.Controllers
         public IActionResult Index()
         {
             
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Secret()
+        {
+
             return View();
         }
 

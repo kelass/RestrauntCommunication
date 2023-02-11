@@ -1,6 +1,7 @@
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Identity.IdentityServer4;
@@ -29,6 +30,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddIdentityServer()
       .AddInMemoryApiResources(Configuration.GetApis())
+      .AddInMemoryIdentityResources(Configuration.GetIdentityRecourses())
       .AddInMemoryClients(Configuration.GetClients())
       .AddDeveloperSigningCredential();
 
