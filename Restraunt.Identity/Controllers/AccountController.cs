@@ -23,9 +23,9 @@ namespace Restraunt.Identity.Controllers
         }
 
 
-        public IActionResult Register()
+        public IActionResult Register(string returnUrl)
         {
-            return View();
+            return View(new RegisterDto { ReturnUrl = returnUrl});
         }
         [HttpPost]
         public async Task<IActionResult> Register(RegisterDto model)
@@ -50,7 +50,7 @@ namespace Restraunt.Identity.Controllers
 
                         await _signInManager.SignInAsync(user, false);
 
-                        return Redirect("https://localhost:45591/Home/Index");
+                        return Redirect(model.ReturnUrl);
                         
 
                     }
@@ -61,30 +61,31 @@ namespace Restraunt.Identity.Controllers
         }
 
 
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
-            return View();
+            return View(new LoginDto { ReturnUrl = returnUrl });
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto model)
         {
-            var user = await _userManager.FindByNameAsync(model.UserName);
+            
+                var user = await _userManager.FindByNameAsync(model.UserName);
 
-            if(user!= null)
-            {
-              var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password,false,false);
-                if (result.Succeeded)
+                if (user != null)
                 {
-                    return Redirect("https://localhost:45591/Home/Index");
+                    var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
+                    if (result.Succeeded)
+                    {
+                        return Redirect(model.ReturnUrl);
+                    }
+
                 }
-
-            }
-            else
-            {
-                return View(model);
-            }
-
+                else
+                {
+                    return View(model);
+                }
+            
             return View();
         }
 

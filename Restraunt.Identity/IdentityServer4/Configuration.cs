@@ -51,7 +51,8 @@ namespace Restraunt.Identity.IdentityServer4
 						IdentityServerConstants.StandardScopes.OpenId,
 
                         IdentityServerConstants.StandardScopes.Profile
-                    }
+                    },
+					RequireConsent = false
 
                 }
 

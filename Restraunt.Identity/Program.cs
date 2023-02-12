@@ -8,6 +8,8 @@ using Restraunt.Identity.IdentityServer4;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -23,12 +25,20 @@ builder.Services.AddIdentity<User, Role>(config =>
 
 })
 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.ConfigureApplicationCookie(config =>
+{
+    config.Cookie.Name = "IdentityServer.Cookie";
+    config.LoginPath = "/Account/Login";
+});
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b => b.MigrationsAssembly("Restraunt.Data")));
 
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddIdentityServer()
+      .AddAspNetIdentity<User>()
       .AddInMemoryApiResources(Configuration.GetApis())
       .AddInMemoryIdentityResources(Configuration.GetIdentityRecourses())
       .AddInMemoryClients(Configuration.GetClients())
