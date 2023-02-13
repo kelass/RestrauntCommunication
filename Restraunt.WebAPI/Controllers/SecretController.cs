@@ -15,6 +15,7 @@ namespace Restraunt.WebAPI.Controllers
         
         
         [Authorize]
+        [HttpGet]
         public string Index()
         {
             return "secret";

@@ -16,26 +16,32 @@ async function send() {
     var dishes = await response;
 
     dishes.forEach(function (element) {
+        var col = document.createElement('div');
+        col.setAttribute('class', 'col')
         var div = document.createElement('div');
-        div.setAttribute('class', 'col');
-        var Name = document.createElement('h1');
-        var Price = document.createElement('h2');
-        var Desc = document.createElement('h3');
-        var input = document.createElement('input');
+        var divBody = document.createElement('div')
+        divBody.setAttribute('class', 'card-body')
+        div.setAttribute('class', 'card');
+        var Name = document.createElement('h5');
+        Name.setAttribute('class', 'card-title')
+
+        var Desc = document.createElement('p');
+        Desc.setAttribute('class', 'card-text')
+
+        var input = document.createElement('button');
         input.setAttribute('class', 'btn-dark btn');
-        
-        input.append('Order');
-        //input.className('btn-dark btn');
+        input.append(element.price);
+        input.setAttribute('value', element.id);
 
         Name.append(element.name);
-        Price.append(element.price);
         Desc.append(element.description);
+        col.appendChild(div);
+        div.appendChild(divBody);
+        divBody.appendChild(Name)
+        divBody.appendChild(Desc)
+        divBody.appendChild(input);
 
-        div.appendChild(Name)
-        div.appendChild(Desc)
-        div.appendChild(Price)
-        div.appendChild(input);
-        document.getElementById('menuPage').appendChild(div)
+        document.getElementById('menuPage').appendChild(col)
     });
 
 }

@@ -24,8 +24,9 @@ builder.Services.AddAuthentication(config =>
 
         config.ResponseType = "code";
 
+
     });
-builder.Services.AddControllersWithViews();
+     builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
 var app = builder.Build();

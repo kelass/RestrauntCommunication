@@ -22,6 +22,7 @@ builder.Services.AddAuthentication("Bearer")
     {
         config.Authority = "https://localhost:16819";
         config.Audience = "ApiOne";
+        
     });
 
 
