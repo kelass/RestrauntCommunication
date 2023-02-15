@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -77,7 +78,14 @@ namespace Restraunt.Identity.Controllers
                     var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(model.ReturnUrl);
+                       _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
+                        .GetAwaiter().GetResult();
+
+                    _userManager.AddClaimAsync(user,
+                        new Claim("rc.api", "big.api.cookie"))
+                        .GetAwaiter().GetResult();
+
+                    return Redirect(model.ReturnUrl);
                     }
 
                 }

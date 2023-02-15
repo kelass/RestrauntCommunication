@@ -25,7 +25,7 @@ builder.Services.AddAuthentication("Bearer")
         
     });
 
-
+builder.Services.AddHttpClient();
 
 builder.Services.AddCors(options =>
 {

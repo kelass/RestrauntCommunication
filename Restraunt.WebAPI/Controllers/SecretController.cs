@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +11,33 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Restraunt.WebAPI.Controllers
 {
-    [Route("/Secret")]
+    [Route("controller")]
     public class SecretController : ControllerBase
     {
-        
-        
+
+
+        private readonly IHttpClientFactory _httpClientFactory;
+
+
+
+        public SecretController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
+
+
+
+        [Route("/Secret")]
         [Authorize]
         [HttpGet]
         public string Index()
         {
+            var claims = User.Claims.ToList();
             return "secret";
         }
+
+
     }
 }
 

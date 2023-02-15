@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Restraunt.WebUI.Controllers
 {
@@ -10,7 +11,7 @@ namespace Restraunt.WebUI.Controllers
         }
 
 
-
+        
         public IActionResult Create() => View();
 
 

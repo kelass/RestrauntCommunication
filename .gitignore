@@ -358,6 +358,9 @@ Restraunt.WebAPI/bin
 Restraunt.Core/obj
 Restraunt.Core/bin
 
+Restraunt.WebAPI/Secrets.json
+Restraunt.Identity/Secrets.json
+
 Restraunt.Data/obj
 Restraunt.Data/bin
 

@@ -13,14 +13,22 @@ namespace Restraunt.Identity.IdentityServer4
 			new List<IdentityResource>
 			{
 				new IdentityResources.OpenId(),
-				new IdentityResources.Profile()
+				new IdentityResources.Profile(),
 
+				new IdentityResource
+				{
+					Name = "rc.scope",
+					UserClaims =
+					{
+                        "rc.user"
+                    }
+				}
 			};
 
 		public static IEnumerable<ApiResource> GetApis() =>
 			new List<ApiResource>
 			{
-				new ApiResource("ApiOne"),
+				new ApiResource("ApiOne", new string[] {"rc.api"}),
 				new ApiResource("ApiTwo")
 			};
 
@@ -50,8 +58,13 @@ namespace Restraunt.Identity.IdentityServer4
 						"ApiTwo", 
 						IdentityServerConstants.StandardScopes.OpenId,
 
-                        IdentityServerConstants.StandardScopes.Profile
+						IdentityServerConstants.StandardScopes.Profile,
+						"rc.scope"
                     },
+					
+					//puts all the claims in the id token
+					AlwaysIncludeUserClaimsInIdToken= true,
+
 					RequireConsent = false
 
                 }

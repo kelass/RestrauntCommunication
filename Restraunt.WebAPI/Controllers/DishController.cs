@@ -16,11 +16,12 @@ namespace Restraunt.WebAPI.Controllers
     public class DishController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-        
+        private readonly IHttpClientFactory _httpClientFactory;
        
-        public DishController(UnitOfWork unitOfWork)
+        public DishController(UnitOfWork unitOfWork, IHttpClientFactory httpClientFactory)
         {
             _unitOfWork = unitOfWork;
+            _httpClientFactory = httpClientFactory;
         }
 
         [HttpGet]
