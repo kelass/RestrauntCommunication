@@ -24,6 +24,7 @@ builder.Services.AddAuthentication(config =>
         config.SaveTokens = true;
 
         config.ResponseType = "code";
+        config.SignedOutCallbackPath = "/Home/Index";
 
         //configure cookie claims mapping 
         //config.ClaimActions.DeleteClaim("amr");

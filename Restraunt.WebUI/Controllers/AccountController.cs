@@ -2,6 +2,7 @@
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Restraunt.WebUI.Controllers
 {
@@ -13,7 +14,7 @@ namespace Restraunt.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        [Authorize]
         public async Task<IActionResult> Login()
         {
 
@@ -47,17 +48,20 @@ namespace Restraunt.WebUI.Controllers
             //    access_token = tokenResponse.AccessToken,
             //    message = content
             // });
-            var access_token = await HttpContext.GetTokenAsync("access_token");
-            var idToken = await HttpContext.GetTokenAsync("id_token");
-            var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
 
-            var claims = User.Claims.ToList();
-            var _acessToken = new JwtSecurityTokenHandler().ReadJwtToken(access_token);
-            var _idToken = new JwtSecurityTokenHandler().ReadJwtToken(idToken);
 
-            var result = await GetSecret(access_token);
 
-            return View();
+            //var access_token = await HttpContext.GetTokenAsync("access_token");
+            //var idToken = await HttpContext.GetTokenAsync("id_token");
+            //var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
+
+            //var claims = User.Claims.ToList();
+            //var _acessToken = new JwtSecurityTokenHandler().ReadJwtToken(access_token);
+            //var _idToken = new JwtSecurityTokenHandler().ReadJwtToken(idToken);
+
+            //var result = await GetSecret(access_token);
+
+            return Redirect("/");
         } 
         public IActionResult Register()
         {
@@ -77,6 +81,11 @@ namespace Restraunt.WebUI.Controllers
             var content = await response.Content.ReadAsStringAsync();
 
             return content;
+        }
+
+        public IActionResult LogOut()
+        {
+            return SignOut("Cookie","oidc");
         }
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Restraunt.Core;
@@ -16,11 +17,13 @@ namespace Restraunt.Identity.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IIdentityServerInteractionService _interactionService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interactionService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _interactionService = interactionService;
         }
 
 
@@ -97,11 +100,20 @@ namespace Restraunt.Identity.Controllers
             return View();
         }
 
-
-        public async Task<IActionResult> LogOut()
+        [HttpGet]
+        public async Task<IActionResult> LogOut(string logoutId)
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+
+            var logoutRequest = await _interactionService.GetLogoutContextAsync(logoutId);
+
+            if (string.IsNullOrEmpty(logoutRequest.PostLogoutRedirectUri))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return Redirect(logoutRequest.PostLogoutRedirectUri);
+            
         }
     }
 }

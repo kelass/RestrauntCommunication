@@ -17,7 +17,7 @@ async function send() {
 
     dishes.forEach(function (element) {
         var col = document.createElement('div');
-        col.setAttribute('class', 'col')
+        col.setAttribute('class', 'col-sm-3')
         var div = document.createElement('div');
         var divBody = document.createElement('div')
         divBody.setAttribute('class', 'card-body')

@@ -1,8 +1,10 @@
-﻿<input id="DishId" hidden value="@Guid.NewGuid()" />
+﻿
+    <input id="DishId" hidden value="@Guid.NewGuid()" />
     <input id="DishName"/>
     <input id="DishDescription"/>
     <input id="DishPrice"/>
-<a asp-controller="Dish" asp-action="Dishes"><input id="submit" type="submit"/></a>
+    <a asp-controller="Dish" asp-action="Dishes"><input id="submit" type="submit"/></a>
+
 
 
 @section Scripts{

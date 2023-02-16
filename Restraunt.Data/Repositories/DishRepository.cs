@@ -21,11 +21,9 @@ namespace Restraunt.Data.Repositories
 
         public async Task<bool> Create(DishDto entity)
         {
-            var result = new Dish { Id= entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
+            var result = new Dish { Id = entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
             await _db.Dishes.AddAsync(result);
-          
 
-           
             return true;
         }
 

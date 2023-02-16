@@ -52,6 +52,7 @@ namespace Restraunt.Identity.IdentityServer4
                     ClientSecrets={ new Secret("client_secret_mvc".ToSha256())},
                     AllowedGrantTypes = GrantTypes.Code,
 					RedirectUris = {"https://localhost:45591/signin-oidc"},
+					PostLogoutRedirectUris = { "https://localhost:45591/Home/Index" },
                     AllowedScopes = 
 					{
 						"ApiOne",

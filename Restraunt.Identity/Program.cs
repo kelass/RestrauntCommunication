@@ -30,6 +30,7 @@ builder.Services.ConfigureApplicationCookie(config =>
 {
     config.Cookie.Name = "IdentityServer.Cookie";
     config.LoginPath = "/Account/Login";
+    config.LogoutPath= "/Account/LogOut";
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b => b.MigrationsAssembly("Restraunt.Data")));
