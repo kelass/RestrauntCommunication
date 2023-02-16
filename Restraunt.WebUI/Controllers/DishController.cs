@@ -11,8 +11,13 @@ namespace Restraunt.WebUI.Controllers
         }
 
 
-        
-        public IActionResult Create() => View();
+
+        public IActionResult Create()
+        {
+
+            return View();
+        }
+
 
 
         public IActionResult Dishes() => View();

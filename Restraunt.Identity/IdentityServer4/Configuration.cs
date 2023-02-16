@@ -14,7 +14,7 @@ namespace Restraunt.Identity.IdentityServer4
 			{
 				new IdentityResources.OpenId(),
 				new IdentityResources.Profile(),
-
+				new IdentityResource("roles", new[] {"role"}),
 				new IdentityResource
 				{
 					Name = "rc.scope",
@@ -60,11 +60,13 @@ namespace Restraunt.Identity.IdentityServer4
 						IdentityServerConstants.StandardScopes.OpenId,
 
 						IdentityServerConstants.StandardScopes.Profile,
-						"rc.scope"
+						"rc.scope",
+						"roles"
                     },
 					
 					//puts all the claims in the id token
 					AlwaysIncludeUserClaimsInIdToken= true,
+					
 
 					RequireConsent = false
 

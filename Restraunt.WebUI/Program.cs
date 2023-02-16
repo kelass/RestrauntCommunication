@@ -27,16 +27,16 @@ builder.Services.AddAuthentication(config =>
         config.SignedOutCallbackPath = "/Home/Index";
 
         //configure cookie claims mapping 
-        //config.ClaimActions.DeleteClaim("amr");
-        //config.ClaimActions.DeleteClaim("s_hash");
-        //config.ClaimActions.MapUniqueJsonKey("IdentityServer.RC", "rc.user");
+        config.ClaimActions.DeleteClaim("amr");
+        config.ClaimActions.DeleteClaim("s_hash");
+        config.ClaimActions.MapUniqueJsonKey("IdentityServer.RC", "rc.user");
 
         config.GetClaimsFromUserInfoEndpoint= true;
 
-        //configure scope
-        //config.Scope.Clear();
+       // config.Scope.Clear();
         config.Scope.Add("openid");
         config.Scope.Add("rc.scope");
+        config.Scope.Add("roles");
         config.Scope.Add("ApiOne");
 
     });

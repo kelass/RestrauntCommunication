@@ -17,49 +17,15 @@ namespace Restraunt.WebUI.Controllers
         [Authorize]
         public async Task<IActionResult> Login()
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            var idToken = await HttpContext.GetTokenAsync("id_token");
+            var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
 
-            // //retrieve access token
-            // var serverClient = _httpClientFactory.CreateClient();
+            var claims = User.Claims.ToList();
+            var _acessToken = new JwtSecurityTokenHandler().ReadJwtToken(access_token);
+            var _idToken = new JwtSecurityTokenHandler().ReadJwtToken(idToken);
 
-
-            // var discoveryDocument = await serverClient.GetDiscoveryDocumentAsync("https://localhost:16819/");
-
-            //var tokenResponse = await serverClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
-            // {
-            //    Address = discoveryDocument.TokenEndpoint,
-            //    ClientId = "client_id",
-            //    ClientSecret = "client_secret",
-
-            //    Scope = "ApiOne",
-            // });
-
-            // //retrieve secret data
-            // var apiClient = _httpClientFactory.CreateClient();
-
-            // apiClient.SetBearerToken(tokenResponse.AccessToken);
-
-
-            //var response = await apiClient.GetAsync("https://localhost:7167/Secret");
-
-            //var content = await response.Content.ReadAsStringAsync();
-
-            // return Ok(new
-            // {
-            //    access_token = tokenResponse.AccessToken,
-            //    message = content
-            // });
-
-
-
-            //var access_token = await HttpContext.GetTokenAsync("access_token");
-            //var idToken = await HttpContext.GetTokenAsync("id_token");
-            //var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
-
-            //var claims = User.Claims.ToList();
-            //var _acessToken = new JwtSecurityTokenHandler().ReadJwtToken(access_token);
-            //var _idToken = new JwtSecurityTokenHandler().ReadJwtToken(idToken);
-
-            //var result = await GetSecret(access_token);
+            var result = await GetSecret(access_token);
 
             return Redirect("/");
         } 

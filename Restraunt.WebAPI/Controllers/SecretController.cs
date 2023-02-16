@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Restraunt.WebAPI.Controllers
 {
     [Route("controller")]
+    [Authorize]
     public class SecretController : ControllerBase
     {
 
@@ -29,7 +30,6 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [Route("/Secret")]
-        [Authorize]
         [HttpGet]
         public string Index()
         {

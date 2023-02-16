@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
@@ -48,6 +49,7 @@ namespace Restraunt.WebAPI.Controllers
 
         
          [HttpPost]
+       //[Authorize]
         public async Task<ActionResult<List<Table>>> AddTable([FromBody] TableDto? table)
         {
             if (ModelState.IsValid)
@@ -68,6 +70,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPut]
+       // [Authorize]
         public async Task<ActionResult<List<Table>>> EditTable(TableDto table)
         {
             await _unitOfWork.Tables.Edit(table);
@@ -76,6 +79,7 @@ namespace Restraunt.WebAPI.Controllers
         }
 
         [HttpDelete]
+       // [Authorize]
         public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
         {
             var entity = await _unitOfWork.Tables.Get(Id);

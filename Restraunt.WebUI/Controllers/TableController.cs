@@ -1,6 +1,7 @@
 
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QRCoder;
 
@@ -10,16 +11,16 @@ namespace Restraunt.WebUI.Controllers
 {
     public class TableController : Controller
     {
-        
+        [Authorize(Roles ="Admin")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult QrLink(Guid Id)
         {
             QRCodeGenerator qrcodeGenerator = new QRCodeGenerator();
-            var qr = qrcodeGenerator.CreateQrCode("https://localhost:45591/Table/Menu/" +Id.ToString(), QRCodeGenerator.ECCLevel.Q);
+            var qr = qrcodeGenerator.CreateQrCode("https://localhost:45591/Table/Menu/" + Id.ToString(), QRCodeGenerator.ECCLevel.Q);
             QRCode qrcode = new QRCode(qr);
             using (MemoryStream ms = new MemoryStream())
             {
@@ -31,7 +32,7 @@ namespace Restraunt.WebUI.Controllers
             }
             return View();
         }
-
+    
         
 
 
@@ -39,6 +40,7 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Edit(Guid id)
         {
             return View();
@@ -47,11 +49,13 @@ namespace Restraunt.WebUI.Controllers
         {
             return RedirectToAction("Tables", "Table");
         }
+        [Authorize(Roles = "Waiter")]
+        [Authorize(Roles = "Admin")]
         public IActionResult WaiterTables()
         {
             return View();
         }
-
+        [AllowAnonymous]
         public IActionResult Menu(Guid id)
         {
             return View();

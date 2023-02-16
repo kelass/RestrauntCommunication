@@ -16,6 +16,7 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         } 
+
         public IActionResult WaiterPanel()
         {
             return View();
