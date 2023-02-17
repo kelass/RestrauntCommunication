@@ -49,8 +49,7 @@ namespace Restraunt.WebUI.Controllers
         {
             return RedirectToAction("Tables", "Table");
         }
-        [Authorize(Roles = "Waiter")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Waiter, Admin")]
         public IActionResult WaiterTables()
         {
             return View();

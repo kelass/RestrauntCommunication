@@ -31,14 +31,14 @@
                         @if (User.IsInRole("Admin"))
                         {
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Admin panel</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Panel" asp-action="Adminpanel">Admin panel</a>
                         </li>
 
                         }
                         else if(User.IsInRole("Waiter"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Waiter panel</a>
+                                <a class="nav-link text-white" asp-area="" asp-controller="Panel" asp-action="Waiterpanel">Waiter panel</a>
                             </li>
                         }
                        

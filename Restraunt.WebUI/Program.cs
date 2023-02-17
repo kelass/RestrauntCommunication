@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Localization;
 using Restraunt.Core;
-
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 
 //Auth
@@ -43,11 +44,28 @@ builder.Services.AddAuthentication(config =>
 
 builder.Services.AddHttpClient();
 
-     builder.Services.AddControllersWithViews();
+     builder.Services.AddControllersWithViews().AddViewLocalization();
+
+
+
+
 
 builder.Services.AddHttpClient();
 var app = builder.Build();
 
+
+var supportedCultures = new[]
+{
+    new CultureInfo("en"),
+    new CultureInfo("uk"),
+    new CultureInfo("de")
+};
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("uk"),
+    SupportedCultures = supportedCultures,
+    SupportedUICultures= supportedCultures
+}) ;
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
