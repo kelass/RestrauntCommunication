@@ -1,7 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 <div class="container-fluid">
-    <h1 class="text-center">Hello, we have a good menu for you:</h1>
+    <h1 class="text-center">@Localizer["Hello, we have a good menu for you:"]</h1>
 </div>
 
 <div class="container-fluid">
@@ -12,5 +13,5 @@
 
 @section Scripts
 {
-    <script src="../js/Menu.js"></script>
+    <script src="/js/Menu.js"></script>
 }

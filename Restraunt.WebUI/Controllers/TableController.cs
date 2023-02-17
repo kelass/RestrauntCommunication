@@ -54,11 +54,9 @@ namespace Restraunt.WebUI.Controllers
         {
             return View();
         }
-        [AllowAnonymous]
-        public IActionResult Menu(Guid id)
-        {
-            return View();
-        }
+        
+        public IActionResult Menu(Guid id) => View();
+        //public IActionResult Menu() => View();
 
     }
 }

@@ -1,11 +1,14 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+@{
     Layout = "_WaiterLayout";
     ViewData["Title"] = "Waiter panel";
 }
 
 <div>
     <div class="col-lg-12 mt-5 pt-5">
-        <h2 class="section-title">Waiter tables</h2>
+        <h2 class="section-title">@Localizer["Waiter tables"]</h2>
         
         <h5 class="danger-text">@TempData["Error"]</h5>
         <div class="overflow-auto text-nowrap">
@@ -14,11 +17,11 @@
                     <tr>
                        
                         <th>
-                            @Html.Label("Name")
+                            @Localizer["Name"]
                         </th>
 
                         <th>
-                            @Html.Label("Active")
+                            @Localizer["Active"]
                         </th>
 
                         <th></th>

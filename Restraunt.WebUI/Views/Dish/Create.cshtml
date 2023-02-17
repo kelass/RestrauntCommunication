@@ -1,9 +1,11 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
     <input id="DishId" hidden value="@Guid.NewGuid()" />
-    <input id="DishName"/>
-    <input id="DishDescription"/>
-    <input id="DishPrice"/>
-    <a asp-controller="Dish" asp-action="Dishes"><input id="submit" type="submit"/></a>
+    <input placeholder="@Localizer["Name of the dish"]" id="DishName"/>
+<input placeholder="@Localizer["Description of the dish"]" id="DishDescription" />
+<input placeholder="@Localizer["Price of the dish"]" id="DishPrice" />
+    <a asp-controller="Dish" asp-action="Dishes"><input id="submit" value="@Localizer["Create"]" type="submit"/></a>
 
 
 
