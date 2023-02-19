@@ -51,7 +51,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPost]
-       // [Authorize]
+        [Authorize]
         public async Task<ActionResult<List<Dish>>> Add([FromBody] DishDto dish)
         {
             if (ModelState.IsValid)
@@ -64,7 +64,7 @@ namespace Restraunt.WebAPI.Controllers
         }
 
         [HttpDelete]
-       // [Authorize]
+        [Authorize]
         public async Task<ActionResult<List<Dish>>> Delete(Guid Id)
         {
             var entity = await _unitOfWork.Dishes.Get(Id);

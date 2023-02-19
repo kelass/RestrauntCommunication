@@ -1,6 +1,7 @@
 
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using QRCoder;
@@ -12,8 +13,10 @@ namespace Restraunt.WebUI.Controllers
     public class TableController : Controller
     {
         [Authorize(Roles ="Admin")]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
             return View();
         }
         [Authorize(Roles = "Admin")]

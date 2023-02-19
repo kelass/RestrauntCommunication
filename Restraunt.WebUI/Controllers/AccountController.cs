@@ -3,6 +3,7 @@ using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace Restraunt.WebUI.Controllers
 {
@@ -18,6 +19,9 @@ namespace Restraunt.WebUI.Controllers
         public async Task<IActionResult> Login()
         {
             var access_token = await HttpContext.GetTokenAsync("access_token");
+
+            
+
             var idToken = await HttpContext.GetTokenAsync("id_token");
             var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
 
