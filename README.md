@@ -19,6 +19,9 @@
 <ol>Roles</ol>
 <li>Authentication and authorization </li>
 <ol>Read how working IdentityServer4</ol>
+<ol>IdentityServer4 authentication and authorization</ol>
+<ol>Claims</ol>
+<ol>Access and refresh tokens</ol>
 <li>CRUD operations of dishes</li>
 <ol>Create Entity Dish</ol>
 <ol>Create DishRepository</ol>
@@ -30,7 +33,7 @@
 <ol>CRM for administrator</ol>
 <ol>CRM for waiter</ol>
 <li>Notification</li>
-<ol>Read like working SignalR</ol>
+<ol>Read how working SignalR</ol>
 <ol>Notification on waiter's CRM</ol>
 
 
