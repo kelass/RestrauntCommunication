@@ -31,6 +31,7 @@ async function send() {
         var input = document.createElement('button');
         input.setAttribute('class', 'btn-dark btn');
         input.append(element.price);
+        input.setAttribute('id', "submit");
         input.setAttribute('value', element.id);
 
         Name.append(element.name);

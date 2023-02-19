@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Restraunt.Core;
 using System.Globalization;
@@ -7,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
 
 
 //Auth
@@ -44,9 +45,22 @@ builder.Services.AddAuthentication(config =>
 
 builder.Services.AddHttpClient();
 
-     builder.Services.AddControllersWithViews().AddViewLocalization();
 
+builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+builder.Services.AddControllersWithViews().AddViewLocalization();
 
+//Localization
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+                {
+                    new CultureInfo("en"),
+                    new CultureInfo("uk")
+                };
+    options.DefaultRequestCulture = new RequestCulture("uk");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
 
 
 
@@ -54,18 +68,6 @@ builder.Services.AddHttpClient();
 var app = builder.Build();
 
 
-var supportedCultures = new[]
-{
-    new CultureInfo("en"),
-    new CultureInfo("uk"),
-    new CultureInfo("de")
-};
-app.UseRequestLocalization(new RequestLocalizationOptions
-{
-    DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("uk"),
-    SupportedCultures = supportedCultures,
-    SupportedUICultures= supportedCultures
-}) ;
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -74,7 +76,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+app.UseRequestLocalization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
