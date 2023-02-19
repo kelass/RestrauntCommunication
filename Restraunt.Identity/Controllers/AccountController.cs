@@ -65,7 +65,7 @@ namespace Restraunt.Identity.Controllers
         }
 
 
-        public IActionResult Login(string returnUrl)
+        public IActionResult Login(string? returnUrl)
         {
             return View(new LoginDto { ReturnUrl = returnUrl });
         }
@@ -90,7 +90,11 @@ namespace Restraunt.Identity.Controllers
                         .GetAwaiter().GetResult();
 
                     return Redirect(model.ReturnUrl);
-                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login or password");
+                }
 
                 }
                 else

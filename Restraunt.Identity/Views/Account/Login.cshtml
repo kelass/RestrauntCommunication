@@ -1,4 +1,6 @@
-﻿@model Restraunt.Core.Dto.LoginDto
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@model Restraunt.Core.Dto.LoginDto
 @{
     Layout = null;
 }
@@ -13,12 +15,14 @@
 <div class="blocklogin btn-group-vertical">
     <div class="container text-center">
         <form class="p-5" method="post" asp-controller="Account" asp-action="Login">
+            <div asp-validation-summary="ModelOnly"></div>
             <input type="hidden" asp-for="ReturnUrl" />
-            <input placeholder="Login" class="w-50 form-control-sm" asp-for="UserName" /><br />
-            <input placeholder="Password" class="w-50 form-control-sm" asp-for="Password"/><br />
-            <input  type="submit" class="btn btn-dark" value="Login"/>
+            <input placeholder="@Localizer["Login"]" class="w-50 form-control-sm" asp-for="UserName" /><br />
+            <input type="password" placeholder="@Localizer["Password"]" class="w-50 form-control-sm" asp-for="Password"/><br />
+            <input type="submit" class="btn btn-dark" value="@Localizer["Sign in"]"/>
+           
         </form>
         <a class="text-center" asp-controller="Account" asp-action="Register" 
-        asp-route-returnUrl="@Model.ReturnUrl">Didn't have a account?</a>
+        asp-route-returnUrl="@Model.ReturnUrl">@Localizer["Didn't have a account?"]</a>
     </div>
 </div>

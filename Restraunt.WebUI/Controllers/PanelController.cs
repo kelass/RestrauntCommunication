@@ -8,15 +8,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Restraunt.WebUI.Controllers
 {
-    [Authorize]
+    
     public class PanelController : Controller
     {
-      
+        [Authorize(Roles = "Admin")]
         public IActionResult AdminPanel()
         {
             return View();
-        } 
-
+        }
+        [Authorize(Roles = "Waiter, Admin")]
         public IActionResult WaiterPanel()
         {
             return View();
