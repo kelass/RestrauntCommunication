@@ -39,19 +39,27 @@ namespace Restraunt.WebUI.Controllers
         
 
 
-        public IActionResult Tables()
+        public async Task<IActionResult> Tables()
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
             return View();
         }
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
             return View();
         }
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
             return RedirectToAction("Tables", "Table");
         }
+
+
         [Authorize(Roles = "Waiter, Admin")]
         public IActionResult WaiterTables()
         {

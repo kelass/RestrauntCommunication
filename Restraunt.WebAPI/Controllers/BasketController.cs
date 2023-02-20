@@ -14,8 +14,16 @@ namespace Restraunt.WebAPI.Controllers
         [HttpPost]
         public ActionResult AddDishToBasket([FromBody] DishDtoToBasket model)
         {
+            var dish = _basket.FirstOrDefault(i => i.Id == model.Id);
+            if (dish == null)
+            {
                 var result = new Basket { Id = model.Id, Name = model.Name, Price = model.Price, Quantity = 1 };
                 _basket.Add(result);
+            }
+            else
+            {
+                dish.Quantity += model.Quantity;
+            }
             
             return Ok(_basket.ToList());
         }

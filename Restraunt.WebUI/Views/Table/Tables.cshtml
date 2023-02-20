@@ -8,6 +8,7 @@
 }
 <div>
     <div class="col-lg-12 mt-5 pt-5">
+        <input hidden value="@ViewBag.access_token" id="access" />
         <h2 class="section-title">@Localizer["All tables"]</h2>
         <div><a asp-controller="Table" asp-action="Create" class="basic-button col-1">@Localizer["Add"]</a></div>
         <h5 class="danger-text">@TempData["Error"]</h5>
@@ -40,5 +41,5 @@
 @section Scripts
 {
     <script src="/js/TableGet.js"></script>
-    <script src="/js/TableDeleteEdit.js"></script>
+    <script src="/js/DeleteTable.js"></script>
 }

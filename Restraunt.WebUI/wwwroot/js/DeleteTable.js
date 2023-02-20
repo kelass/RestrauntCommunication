@@ -1,12 +1,10 @@
 ﻿$(document).ready(() => {
-    $('#submitDelete').click(async () => await Delete());
+    $('#Delete').click(async () => await Delete());
 });
-$(document).ready(() => {
-    $('#submitEdit').click(async () => await Edit());
-});
-
 
 async function Delete() {
+    var accessToken = $("#access").val();
+
     const data =
     {
         Id: $("#TableId").val()
@@ -17,9 +15,12 @@ async function Delete() {
         method: "DELETE",
         body: JSON.stringify(data),
         headers: {
+            Authorization: `Bearer ${accessToken}`,
             "Accept": "application/json",
             "Content-Type": "application/json"
         }
     });
 
 }
+
+
