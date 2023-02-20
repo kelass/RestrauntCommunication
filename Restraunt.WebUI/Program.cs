@@ -33,9 +33,9 @@ builder.Services.AddAuthentication(config =>
         config.ClaimActions.DeleteClaim("s_hash");
         config.ClaimActions.MapUniqueJsonKey("IdentityServer.RC", "rc.user");
 
-        config.GetClaimsFromUserInfoEndpoint= true;
+        config.GetClaimsFromUserInfoEndpoint = true;
 
-       // config.Scope.Clear();
+        // config.Scope.Clear();
         config.Scope.Add("openid");
         config.Scope.Add("rc.scope");
         config.Scope.Add("roles");

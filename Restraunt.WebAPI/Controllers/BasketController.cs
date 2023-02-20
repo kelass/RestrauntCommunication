@@ -48,14 +48,9 @@ namespace Restraunt.WebAPI.Controllers
             var dishes = _basket.ToList();
             var totalPrice = _basket.Sum(i => i.Price * i.Quantity);
 
-            var viewModel = new BasketDto
-            {
-                
-                BasketList = dishes,
-                Price = totalPrice
-            };
+           
 
-            return Ok(viewModel);
+            return Ok(dishes);
         }
 
         

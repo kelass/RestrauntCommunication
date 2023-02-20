@@ -66,7 +66,8 @@ namespace Restraunt.WebUI.Controllers
             return View();
         }
         
-        public IActionResult Menu(Guid id) => View();
+        public IActionResult Menu(Guid id) => View(id);
+        public IActionResult Basket(Guid id) => View();
         //public IActionResult Menu() => View();
 
     }

@@ -67,10 +67,11 @@ namespace Restraunt.Identity.IdentityServer4
 					//puts all the claims in the id token
 					AlwaysIncludeUserClaimsInIdToken= true,
 					
-
+					
 					RequireConsent = false
 
-                }
+                },
+                
 
             };
 

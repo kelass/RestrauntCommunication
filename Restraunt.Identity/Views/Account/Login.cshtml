@@ -22,6 +22,10 @@
             <input type="submit" class="btn btn-dark" value="@Localizer["Sign in"]"/>
            
         </form>
+        <div class="container text-center">
+            <a class="btn btn-default" href="/signin-google">Log in with Google</a>
+            </div>
+
         <a class="text-center" asp-controller="Account" asp-action="Register" 
         asp-route-returnUrl="@Model.ReturnUrl">@Localizer["Didn't have a account?"]</a>
     </div>

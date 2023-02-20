@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Restraunt.Core;
 using Restraunt.Data;
 using Restraunt.Identity.IdentityServer4;
+using IdentityServer4;
+using Microsoft.AspNetCore.Authentication.Google;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,17 @@ builder.Services.ConfigureApplicationCookie(config =>
    
 });
 
+//Add google authentication
+//builder.Services.AddAuthentication()
+//    .AddGoogle(options =>
+//    {
+       
+//        //options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+//        options.ClientId = "937172952204-tm8qh7anmv6dbifhsseslmi7mrlnqpni.apps.googleusercontent.com";
+//        options.ClientSecret = "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";
+//    });
+
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b => b.MigrationsAssembly("Restraunt.Data")));
 
 //Localization
@@ -51,7 +64,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 
-builder.Services.AddControllersWithViews().AddViewLocalization();
 
 builder.Services.AddIdentityServer()
       .AddAspNetIdentity<User>()
@@ -59,6 +71,9 @@ builder.Services.AddIdentityServer()
       .AddInMemoryIdentityResources(Configuration.GetIdentityRecourses())
       .AddInMemoryClients(Configuration.GetClients())
       .AddDeveloperSigningCredential();
+
+
+builder.Services.AddControllersWithViews().AddViewLocalization();
 
 var app = builder.Build();
 
@@ -75,7 +90,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseIdentityServer();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
