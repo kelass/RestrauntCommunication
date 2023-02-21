@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
@@ -18,11 +19,12 @@ namespace Restraunt.WebAPI.Controllers
     public class TableController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-
+       
 
         public TableController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+          
         }
 
 
@@ -32,8 +34,8 @@ namespace Restraunt.WebAPI.Controllers
         {
             return Ok(await _unitOfWork.Tables.Select());
 
-        } 
-       
+        }
+
 
         [HttpGet("{Id}")]
         public async Task<ActionResult<Table>> Get(Guid Id)
@@ -44,28 +46,28 @@ namespace Restraunt.WebAPI.Controllers
 
             return Ok(await _unitOfWork.Tables.Get(Id));
 
-        }  
+        }
 
 
-        
-         [HttpPost]
-         [Authorize]
+
+        [HttpPost]
+        [Authorize]
         public async Task<ActionResult<List<Table>>> AddTable([FromBody] TableDto? table)
         {
             if (ModelState.IsValid)
             {
-               
+
                 table.Link = $"{HttpContext.Request.Scheme}://localhost:45591/Table/Menu/{table.Id.ToString()}";
 
-                   await _unitOfWork.Tables.Create(table);
-                   await _unitOfWork.Save();
-                    return Ok(table.Link);
+                await _unitOfWork.Tables.Create(table);
+                await _unitOfWork.Save();
+                return Ok(table.Link);
             }
             else
             {
-              return BadRequest("Problem..");
+                return BadRequest("Problem..");
             }
-            
+
         }
 
 
@@ -91,6 +93,15 @@ namespace Restraunt.WebAPI.Controllers
             return Ok("Table delete");
 
         }
+        [HttpPatch]
+        [Authorize]
+        public async Task<ActionResult<List<Table>>> BindUserToTable(BindUserToTableDto model)
+        {
+            await _unitOfWork.Tables.BindUserToTable(model);
+            await _unitOfWork.Save();
+            return Ok("User bind to table");
+        }
+
 
     }
 }

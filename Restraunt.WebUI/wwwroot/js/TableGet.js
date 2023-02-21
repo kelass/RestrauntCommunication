@@ -34,14 +34,21 @@ async function Table(tables) {
 
         
 
-
+        
 
         if (element.user === null) {
             element.user = "CLEAR";
+            Usertd.append(element.user);
         }
+        else {
+            Usertd.append(element.user.userName);
+        }
+        
+
+
         Idtd.append(element.id)
         Nametd.append(element.name);
-        Usertd.append(element.user);
+        
 
         
 

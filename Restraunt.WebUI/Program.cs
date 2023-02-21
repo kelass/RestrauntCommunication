@@ -35,7 +35,7 @@ builder.Services.AddAuthentication(config =>
 
         config.GetClaimsFromUserInfoEndpoint = true;
 
-        // config.Scope.Clear();
+        //config.Scope.Clear();
         config.Scope.Add("openid");
         config.Scope.Add("rc.scope");
         config.Scope.Add("roles");
@@ -44,7 +44,6 @@ builder.Services.AddAuthentication(config =>
     });
 
 builder.Services.AddHttpClient();
-
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddControllersWithViews().AddViewLocalization();
@@ -62,9 +61,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 
-
-
-builder.Services.AddHttpClient();
 var app = builder.Build();
 
 
@@ -84,6 +80,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Panel}/{action=WaiterPanel}/{id?}");
 
 app.Run();

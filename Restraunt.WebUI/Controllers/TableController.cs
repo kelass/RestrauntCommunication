@@ -1,9 +1,11 @@
 
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using QRCoder;
 
 using Restraunt.Core.Dto;
@@ -61,8 +63,17 @@ namespace Restraunt.WebUI.Controllers
 
 
         [Authorize(Roles = "Waiter, Admin")]
-        public IActionResult WaiterTables()
+        public async Task<IActionResult> WaiterTables()
         {
+            
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
+
+            var user = HttpContext.User;
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier).Value;
+            ViewBag.UserId = userId;
+            
+            
             return View();
         }
         

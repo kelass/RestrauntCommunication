@@ -12,5 +12,7 @@ namespace Restraunt.Core.Interfaces
     {
         Task<bool> Create(TableDto entity);
         Task<Table> Edit(TableDto entity);
+
+        Task<Table> BindUserToTable(BindUserToTableDto model);
     }
 }
