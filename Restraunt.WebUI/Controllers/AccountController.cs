@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using IdentityModel.Client;
+using Microsoft.AspNetCore.Authentication;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+
 namespace Restraunt.WebUI.Controllers
 {
     public class AccountController : Controller
@@ -10,44 +15,48 @@ namespace Restraunt.WebUI.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        [Authorize]
         public async Task<IActionResult> Login()
         {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
 
-            //retrieve access token
-            var serverClient = _httpClientFactory.CreateClient();
+            
 
+            var idToken = await HttpContext.GetTokenAsync("id_token");
+            var RefreshToken = await HttpContext.GetTokenAsync("refresh_token");
 
-            var discoveryDocument = await serverClient.GetDiscoveryDocumentAsync("https://localhost:16819/");
+            var claims = User.Claims.ToList();
+            var _acessToken = new JwtSecurityTokenHandler().ReadJwtToken(access_token);
+            var _idToken = new JwtSecurityTokenHandler().ReadJwtToken(idToken);
 
-           var tokenResponse = await serverClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
-            {
-               Address = discoveryDocument.TokenEndpoint,
-               ClientId = "client_id",
-               ClientSecret = "client_secret",
+            var result = await GetSecret(access_token);
 
-               Scope = "ApiOne",
-            });
-
-            //retrieve secret data
-            var apiClient = _httpClientFactory.CreateClient();
-
-            apiClient.SetBearerToken(tokenResponse.AccessToken);
-
-
-           var response = await apiClient.GetAsync("https://localhost:7167/Secret");
-
-           var content = await response.Content.ReadAsStringAsync();
-
-            return Ok(new
-            {
-               access_token = tokenResponse.AccessToken,
-               message = content
-            });
+            return Redirect("/");
         } 
         public IActionResult Register()
         {
             return View();
         }
+
+
+        public async Task<string> GetSecret(string access_token)
+        {
+            var apiClient = _httpClientFactory.CreateClient();
+
+            apiClient.SetBearerToken(access_token);
+
+
+            var response = await apiClient.GetAsync("https://localhost:7167/Secret");
+
+            var content = await response.Content.ReadAsStringAsync();
+
+            return content;
+        }
+
+        public IActionResult LogOut()
+        {
+            return SignOut("Cookie","oidc");
+        }
+
     }
 }

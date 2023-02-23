@@ -21,34 +21,54 @@ async function send() {
 
 async function Table(tables) {
     tables.forEach(function (element) {
-        var linkEdit = 'https://localhost:45591/Table/Edit/' + element.id;
-        var linkDelete = 'https://localhost:45591/Table/Delete/' + element.id;
+        var linkEdit = element.id;
+        var linkDelete = element.id;
         var Idtd = document.createElement('td');
         var LinkTd = document.createElement('td');
-        var a = document.createElement('a');
-        var EditLink = document.createElement('a');
-        var DeleteLink = document.createElement('a');
+
+        var EditLink = document.createElement('button');
+        var DeleteLink = document.createElement('button');
         var Nametd = document.createElement('td');
         var Usertd = document.createElement('td');
         var tr = document.createElement('tr');
 
+        
+
+        
+
         if (element.user === null) {
             element.user = "CLEAR";
+            Usertd.append(element.user);
         }
+        else {
+            Usertd.append(element.user.userName);
+        }
+        
+
+
         Idtd.append(element.id)
         Nametd.append(element.name);
-        Usertd.append(element.user);
+        
 
+        
+
+        EditLink.setAttribute('value', linkEdit)
+        EditLink.setAttribute('class', 'btn btn-primary')
+        EditLink.setAttribute('id', 'Edit')
         EditLink.append('Edit');
-        a.append(' | ');
-        EditLink.setAttribute('href', linkEdit)
-        EditLink.setAttribute('id', 'submitEdit')
+
+
+
+        
+        DeleteLink.setAttribute('value', linkDelete)
+        DeleteLink.setAttribute('id', 'Delete')
+        DeleteLink.setAttribute('class', 'btn btn-danger')
         DeleteLink.append('Delete');
-        DeleteLink.setAttribute('href', linkDelete)
-        DeleteLink.setAttribute('id', 'submitDelete')
+
+
 
         LinkTd.appendChild(EditLink);
-        LinkTd.appendChild(a);
+
         LinkTd.appendChild(DeleteLink);
 
         tr.appendChild(Idtd);

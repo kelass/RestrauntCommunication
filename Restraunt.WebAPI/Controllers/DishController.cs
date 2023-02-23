@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,11 +17,12 @@ namespace Restraunt.WebAPI.Controllers
     public class DishController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-        
+       
        
         public DishController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            
         }
 
         [HttpGet]
@@ -49,6 +51,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<List<Dish>>> Add([FromBody] DishDto dish)
         {
             if (ModelState.IsValid)
@@ -56,11 +59,12 @@ namespace Restraunt.WebAPI.Controllers
                 await _unitOfWork.Dishes.Create(dish);
                 await _unitOfWork.Save();
             }
-            return Ok(_unitOfWork.Dishes.Select());
-
+            return Ok();
+                
         }
 
         [HttpDelete]
+        [Authorize]
         public async Task<ActionResult<List<Dish>>> Delete(Guid Id)
         {
             var entity = await _unitOfWork.Dishes.Get(Id);

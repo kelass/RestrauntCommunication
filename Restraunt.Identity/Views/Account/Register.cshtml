@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @model Restraunt.Core.Dto.RegisterDto
 
 @{
@@ -16,12 +17,12 @@
     <div class="container text-center">
         <form method="post" asp-controller="Account" asp-action="Register" class="p-5 pb-5">
             <input type="hidden" asp-for="ReturnUrl" />
-            <input placeholder="Login" class="w-50 form-control-sm" asp-for="UserName" /><br />
+            <input placeholder="@Localizer["Login"]" class="w-50 form-control-sm" asp-for="UserName" /><br />
             <input placeholder="Id" hidden class="w-50 form-control-sm" asp-for="Id" value="@Guid.NewGuid()" /><br />
-            <input placeholder="Email" class="w-50 form-control-sm" asp-for="Email" /><br />
-            <input placeholder="Password" type="password" class="w-50 form-control-sm" asp-for="Password" /><br />
-            <input placeholder="Password confirm" type="password" class="w-50 form-control-sm" asp-for="ConfirmPassword" /><br />
-            <input type="submit" class="btn btn-dark" value="Register" />
+            <input placeholder="@Localizer["Email"]" class="w-50 form-control-sm" asp-for="Email" /><br />
+            <input placeholder="@Localizer["Password"]" type="password" class="w-50 form-control-sm" asp-for="Password" /><br />
+            <input placeholder="@Localizer["Password confirm"]" type="password" class="w-50 form-control-sm" asp-for="ConfirmPassword" /><br />
+            <input type="submit" class="btn btn-dark" value="@Localizer["Register"]" />
             
         </form>
     </div>

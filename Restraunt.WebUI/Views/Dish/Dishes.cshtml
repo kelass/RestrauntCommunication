@@ -1,11 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     Layout = "_AdminLayout";
 }
 
 <div>
     <div class="col-lg-12 mt-5 pt-5">
-        <h2 class="section-title">All dishes</h2>
-        <div><a asp-controller="Dish" asp-action="create" class="basic-button col-1">Add</a></div>
+        <h2 class="section-title">@Localizer["All dishes"]</h2>
+        <div><a asp-controller="Dish" asp-action="create" class="basic-button col-1">@Localizer["Add"]</a></div>
         <h5 class="danger-text">@TempData["Error"]</h5>
         <div class="overflow-auto text-nowrap">
             <table class="table basic-table">
@@ -15,11 +17,11 @@
                             @Html.Label("Id")
                         </th>
                         <th>
-                            @Html.Label("Name")
+                            @Localizer["Name"]
                         </th>
 
                         <th>
-                            @Html.Label("Price")
+                            @Localizer["Price"]
                         </th>
 
                         <th></th>
@@ -33,5 +35,5 @@
 </div>
 
 @section Scripts{
-    <script src="../js/DishGet.js"></script>
+    <script src="/js/DishGet.js"></script>
 }

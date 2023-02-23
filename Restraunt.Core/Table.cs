@@ -8,7 +8,7 @@ namespace Restraunt.Core
 {
     public class Table:EntityBase
     {
-        public string? Link { get; set; }
+       public string? Link { get; set; }
        public User? User { get; set; }
     }
 }

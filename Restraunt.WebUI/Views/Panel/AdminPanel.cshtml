@@ -1,10 +1,11 @@
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 ﻿@{
     Layout = "_AdminLayout";
 }
 
 <div class="vh-100 vw-100 btn-group-vertical">
     <div class="container vw-100 text-center">
-        <h1 class="text-center">Hello to the admin panel!</h1>
+        <h1 class="text-center">@Localizer["Hello to the admin panel!"]</h1>
     </div>
 </div>

@@ -21,17 +21,27 @@ async function send() {
 
 async function Table(tables) {
     tables.forEach(function (element) {
-     
+        
+        
+
         var Nametd = document.createElement('td');
         var Usertd = document.createElement('td');
         var tr = document.createElement('tr');
 
+        var UserName = document.createElement('button');
+        UserName.setAttribute('type', 'submit');
+        UserName.setAttribute('class', 'btn btn-dark')
+        UserName.setAttribute('value', element.id)
+        UserName.setAttribute('id', 'Id')
+
         if (element.user === null) {
-            element.user = "CLEAR";
+            UserName.append("CLEAR");
         }
-       
+        else {
+            UserName.append(element.user.userName);
+        }
         Nametd.append(element.name);
-        Usertd.append(element.user);
+        Usertd.append(UserName);
 
        
 

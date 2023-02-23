@@ -48,20 +48,39 @@ namespace Restraunt.Data.Repositories
 
         public async Task<IEnumerable<Table>> Select()
         {
-            return _db.Tables.ToList();
+            return _db.Tables.Include(u=>u.User).ToList();
         }
 
         public async Task<Table> Edit(TableDto entity)
         {
             var table = await _db.Tables.Where(t => t.Id == entity.Id).FirstOrDefaultAsync();
 
-            if(table != null)
+            if (table != null)
             {
-                table.Name = entity.Name; table.User = entity.User;
+                table.Name = entity.Name;
 
                 _db.Update(table);
             }
             return table;
         }
+
+        public async Task<Table> BindUserToTable(BindUserToTableDto model)
+        {
+            Table? table = await _db.Tables.Where(t => t.Id == model.Id).FirstOrDefaultAsync();
+
+            User? user = await _db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
+
+            if(table != null)
+            {
+                table.User = user;
+
+
+                _db.Update(table);
+            }
+            return table;
+            
+        }
+
+
     }
 }

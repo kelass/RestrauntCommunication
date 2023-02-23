@@ -3,6 +3,8 @@
 });
 
 async function send() {
+    var accessToken = $("#access").val();
+
     const data =
     {
         Id: $("#TableId").val(),
@@ -17,6 +19,7 @@ async function send() {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
+            Authorization: `Bearer ${accessToken}`,
             "Accept": "application/json",
             "Content-Type": "application/json"
         }

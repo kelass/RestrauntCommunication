@@ -1,9 +1,15 @@
-﻿<input id="DishId" hidden value="@Guid.NewGuid()" />
-    <input id="DishName"/>
-    <input id="DishDescription"/>
-    <input id="DishPrice"/>
-<a asp-controller="Dish" asp-action="Dishes"><input id="submit" type="submit"/></a>
-
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    var link = Guid.NewGuid();
+}
+<input hidden value="@ViewBag.access_token" id="access" />
+    <input id="DishId" hidden value="@Guid.NewGuid()" />
+    <input placeholder="@Localizer["Name of the dish"]" id="DishName"/>
+<input placeholder="@Localizer["Description of the dish"]" id="DishDescription" />
+<input placeholder="@Localizer["Price of the dish"]" id="DishPrice" />
+    <a href="/Dish/Completed/@link"><input id="submit" type="submit" value="@Localizer["Create"]"/></a>
+    
 
 @section Scripts{
 

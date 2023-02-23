@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using IdentityServer4.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Restraunt.Core;
@@ -15,11 +19,13 @@ namespace Restraunt.Identity.Controllers
 
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IIdentityServerInteractionService _interactionService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interactionService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _interactionService = interactionService;
         }
 
 
@@ -61,7 +67,8 @@ namespace Restraunt.Identity.Controllers
         }
 
 
-        public IActionResult Login(string returnUrl)
+
+        public IActionResult Login(string? returnUrl)
         {
             return View(new LoginDto { ReturnUrl = returnUrl });
         }
@@ -77,8 +84,20 @@ namespace Restraunt.Identity.Controllers
                     var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Redirect(model.ReturnUrl);
-                    }
+                       _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
+                        .GetAwaiter().GetResult();
+                    _userManager.AddClaimAsync(user, new Claim("roles", "big.roles.cookie"))
+                        .GetAwaiter().GetResult();
+                    _userManager.AddClaimAsync(user,
+                        new Claim("rc.api", "big.api.cookie"))
+                        .GetAwaiter().GetResult();
+
+                    return Redirect(model.ReturnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid login or password");
+                }
 
                 }
                 else
@@ -89,11 +108,20 @@ namespace Restraunt.Identity.Controllers
             return View();
         }
 
-
-        public async Task<IActionResult> LogOut()
+        [HttpGet]
+        public async Task<IActionResult> LogOut(string logoutId)
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+
+            var logoutRequest = await _interactionService.GetLogoutContextAsync(logoutId);
+
+            if (string.IsNullOrEmpty(logoutRequest.PostLogoutRedirectUri))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return Redirect(logoutRequest.PostLogoutRedirectUri);
+            
         }
     }
 }

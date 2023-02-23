@@ -1,4 +1,5 @@
 using IdentityServer4.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Restraunt.Core;
 using Restraunt.Core.Interfaces;
@@ -25,7 +26,7 @@ builder.Services.AddAuthentication("Bearer")
         
     });
 
-
+builder.Services.AddHttpClient();
 
 builder.Services.AddCors(options =>
 {
@@ -43,6 +44,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
 builder.Services.AddTransient<UnitOfWork>();
+
 // Add services to the container.
 
 builder.Services.AddControllers();
