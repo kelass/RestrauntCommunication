@@ -5,7 +5,7 @@
 
         const data =
         {
-            Id: $(input).siblings('#Id').val(),
+            Id: $(input).val(),
             UserId: $('#userId').val()
         };
 
