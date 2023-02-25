@@ -53,6 +53,15 @@ namespace Restraunt.WebAPI.Controllers
             return Ok(dishes);
         }
 
+        [HttpPatch]
+        public ActionResult RemoveBasket()
+        {
+          
+            _basket.RemoveRange(0, _basket.Count);
+
+
+            return Ok("Dishes on basket deleted!");
+        }
         
     }
 }

@@ -4,11 +4,21 @@ namespace Restraunt.WebUI.Hubs
 {
     public class ChatHub:Hub
     {
-
-
-        public async Task SendMessage(string table,string message)
+        public async Task JoinToGroup(Guid TableId)
         {
-            await Clients.All.SendAsync("ReceiveMessage", table, message);
+            
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, "Table");
+
+            await SendMessage();
+        }
+
+        public async Task SendMessage()
+        {
+            string message = "1";
+
+            await Groups.AddToGroupAsync("ReceiveMessage:", message);
+            
         }
     }
 }

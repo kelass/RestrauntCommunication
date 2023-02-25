@@ -1,11 +1,12 @@
-﻿<div class="table">
+﻿<input value="@ViewBag.access_token" id="access" hidden />
+
+<div class="table">
 <table class="table table-bordered table-striped">
     <tbody id="tbody">
         <tr>
             <th class="text-nowrap" scope="row">Названиие блюда</th>
             <td>Цена</td>
-            <td>Количество</td>
-           
+            <td>Количество</td>  
         </tr>
         
     </tbody>
@@ -14,7 +15,7 @@
 
 <div class="card-link d-flex">
     <input value="Delete order" type="submit" id="Delete" class="btn btn-danger" />
-        <input value="Order" type="submit" id="btnSend" class="btn btn-primary" />
+    <input value="Order" type="submit" id="btnSend" class="btn btn-primary" />
 </div>
 </div>
 
@@ -23,7 +24,7 @@
         
         {
    <script src="~/js/GetDishFromBasket.js"></script>
-           
+   <script src="~/js/DeleteBasket.js"></script>      
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.min.js"></script>
    <script src="~/js/Chat.js"></script>

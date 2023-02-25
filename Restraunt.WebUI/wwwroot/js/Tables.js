@@ -27,7 +27,7 @@ async function send() {
     });
 
     if (response.ok) {
-        window.location.replace('/Table/Tables');
+        window.location.replace('/Table/QrLink/' + data.Id);
     }
 
 }

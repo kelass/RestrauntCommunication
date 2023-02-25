@@ -78,7 +78,16 @@ namespace Restraunt.WebUI.Controllers
         }
         
         public IActionResult Menu(Guid id) => View(id);
-        public IActionResult Basket(Guid id) => View();
+
+
+        public async Task<IActionResult> Basket(Guid id)
+        {
+            var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
+
+
+            return View();
+        }
         //public IActionResult Menu() => View();
 
     }

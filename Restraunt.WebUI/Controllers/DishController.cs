@@ -25,7 +25,11 @@ namespace Restraunt.WebUI.Controllers
 
 
 
-        public IActionResult Dishes() => View();
-
+        public async Task<IActionResult> DishesAsync()
+        {
+           var access_token = await HttpContext.GetTokenAsync("access_token");
+            ViewBag.access_token = access_token;
+           return View();
+        }
     }
 }
