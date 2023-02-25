@@ -39,6 +39,8 @@ async function Table(dishes)
         var Button = document.createElement('button');
        
         Button.append('Delete');
+        Button.setAttribute('id', 'buttonDelete')
+        Button.setAttribute('value', element.id)
         Button.setAttribute('class', 'btn btn-danger');
         var th = document.createElement('th');
         th.setAttribute('class', 'text-nowrap')

@@ -33,7 +33,11 @@ namespace Restraunt.WebAPI.Controllers
             var item = _basket.FirstOrDefault(d => d.Id == Id);
             if (item != null)
             {
-                _basket.Remove(item);
+                item.Quantity--;
+                if (item.Quantity <= 0)
+                {
+                    _basket.Remove(item);
+                }
             }
             else
             {
