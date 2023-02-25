@@ -21,6 +21,10 @@ async function Delete(input) {
         body: JSON.stringify($(input).val())
     });
 
+    if (response.ok) {
+        window.location.replace('/Table/Tables');
+    }
+
 }
 
 

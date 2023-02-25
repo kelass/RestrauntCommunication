@@ -36,4 +36,9 @@ async function send(data) {
     if (!response.ok) {
         throw new Error("Failed to send request");
     }
+    else {
+        
+            window.location.replace('/Table/WaiterTables');
+        
+    }
 }
