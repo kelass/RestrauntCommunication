@@ -14,11 +14,19 @@
 
 <div class="card-link d-flex">
     <input value="Delete order" type="submit" id="Delete" class="btn btn-danger" />
-    <input value="Order" type="submit" id="Order" class="btn btn-primary" />
+        <input value="Order" type="submit" id="btnSend" class="btn btn-primary" />
 </div>
 </div>
 
 
-        @section Scripts {
-            <script src="~/js/GetDishFromBasket.js"></script>
+        @section Scripts 
+        
+        {
+   <script src="~/js/GetDishFromBasket.js"></script>
+           
+   <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
+   <script src="~/lib/aspnet/signalr/dist/browser/signalr.min.js"></script>
+   <script src="~/js/Chat.js"></script>
+    
         }
+        

@@ -51,7 +51,7 @@ namespace Restraunt.Data.Repositories
             return _db.Tables.Include(u=>u.User).ToList();
         }
 
-        public async Task<Table> Edit(TableDto entity)
+        public async Task<Table> Edit(EditTableDto entity)
         {
             var table = await _db.Tables.Where(t => t.Id == entity.Id).FirstOrDefaultAsync();
 

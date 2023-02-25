@@ -1,26 +1,28 @@
-﻿$(document).on('click', '#Delete',async function(event)
-{
-    var input = event.target;
-
-    await Delete(input);
+﻿$(document).ready(() => {
+    $('#submit').click(async () => await send());
 });
 
-
-async function Delete(input) {
+async function send() {
     var accessToken = $("#access").val();
+
+    const data =
+    {
+        Id: $('#Id').val(),
+        Name: $("#TableName").val()
+
+
+    };
 
     const response = await fetch("https://localhost:7167/api/Table", {
 
-        method: "DELETE",
-       
+        method: "PUT",
+        body: JSON.stringify(data),
         headers: {
             Authorization: `Bearer ${accessToken}`,
             "Accept": "application/json",
             "Content-Type": "application/json"
-        },
-        body: JSON.stringify($(input).val())
+        }
+
     });
 
 }
-
-

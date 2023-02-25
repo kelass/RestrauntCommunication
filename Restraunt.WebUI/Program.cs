@@ -2,12 +2,13 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Restraunt.Core;
+using Restraunt.WebUI.Hubs;
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddSignalR();
 
 
 
@@ -78,8 +79,12 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/chathub");
+});
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Panel}/{action=WaiterPanel}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

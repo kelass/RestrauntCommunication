@@ -52,7 +52,7 @@ namespace Restraunt.WebUI.Controllers
         {
             var access_token = await HttpContext.GetTokenAsync("access_token");
             ViewBag.access_token = access_token;
-            return View();
+            return View(id);
         }
         public async Task<IActionResult> Delete(Guid id)
         {

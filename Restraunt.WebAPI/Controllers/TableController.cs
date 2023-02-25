@@ -73,7 +73,7 @@ namespace Restraunt.WebAPI.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<ActionResult<List<Table>>> EditTable(TableDto table)
+        public async Task<ActionResult<List<Table>>> EditTable([FromBody] EditTableDto table)
         {
             await _unitOfWork.Tables.Edit(table);
             await _unitOfWork.Save();
@@ -82,7 +82,7 @@ namespace Restraunt.WebAPI.Controllers
 
         [HttpDelete]
         [Authorize]
-        public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
+        public async Task<ActionResult<List<Table>>> DeleteTable([FromBody] Guid Id)
         {
             var entity = await _unitOfWork.Tables.Get(Id);
             if (entity == null)

@@ -17,9 +17,12 @@ async function send() {
 
     await Table(dishes);
 
+    return dishes;
+
 }
 
-async function Table(dishes) {
+async function Table(dishes)
+{
     dishes.forEach(function (element) {
         var tr = document.createElement('tr')
 
@@ -55,3 +58,6 @@ async function Table(dishes) {
 
     });
 }
+
+
+
