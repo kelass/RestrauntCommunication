@@ -79,11 +79,15 @@ namespace Restraunt.Identity.Controllers
             
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
-                if (user != null)
-                {
+                
+            if (user != null)
+               
+            {
+                 
                     var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
-                    if (result.Succeeded)
-                    {
+                    
+                if (result.Succeeded)   
+                {
                        _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
                         .GetAwaiter().GetResult();
                     _userManager.AddClaimAsync(user, new Claim("roles", "big.roles.cookie"))
@@ -91,21 +95,17 @@ namespace Restraunt.Identity.Controllers
                     _userManager.AddClaimAsync(user,
                         new Claim("rc.api", "big.api.cookie"))
                         .GetAwaiter().GetResult();
-
-                    return Redirect(model.ReturnUrl);
+                    return Redirect(model.ReturnUrl);  
                 }
+                
                 else
                 {
                     ModelState.AddModelError("", "Invalid login or password");
                 }
 
-                }
-                else
-                {
-                    return View(model);
-                }
-            
-            return View();
+                
+            }
+            return View(model);
         }
 
         [HttpGet]

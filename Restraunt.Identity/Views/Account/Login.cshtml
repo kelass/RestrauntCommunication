@@ -18,12 +18,12 @@
 
 
         <form class="p-5" method="post" asp-controller="Account" asp-action="Login">
-            <div asp-validation-summary="All"></div>
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <input type="hidden" asp-for="ReturnUrl" />
             <input placeholder="@Localizer["Login"]" class="w-50 form-control-sm" asp-for="UserName" /><br />
             <input type="password" placeholder="@Localizer["Password"]" class="w-50 form-control-sm" asp-for="Password"/><br />
             <input type="submit" class="btn btn-dark" value="@Localizer["Sign in"]"/>
-           
+            
         </form>
 
 
@@ -36,3 +36,6 @@
         
     </div>
 </div>
+
+
+<script src="/_framework/aspnetcore-browser-refresh.js"></script>
