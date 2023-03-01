@@ -1,5 +1,5 @@
 ﻿<input value="@ViewBag.access_token" id="access" hidden />
-
+<input id="TableName" hidden></input>
 <div class="table">
 <table class="table table-bordered table-striped">
     <tbody id="tbody">
@@ -15,20 +15,21 @@
 
 <div class="card-link d-flex">
     <input value="Delete order" type="submit" id="Delete" class="btn btn-danger" />
-    <input value="Order" type="submit" id="btnSend" class="btn btn-primary" />
+    <button type="submit" id="btnSend" class="btn btn-primary">Order</button>
 </div>
 </div>
 
 
         @section Scripts 
         
-        {
-   <script src="~/js/GetDishFromBasket.js"></script>
+    {
+    
+    <script src="~/js/GetDishFromBasket.js"></script>
    <script src="~/js/DeleteBasket.js"></script>     
    <script src="~/js/DeleteDishQuantity.js"></script>
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.min.js"></script>
-   <script src="~/js/Chat.js"></script>
+    <script src="~/js/Chat.js"></script>
     
         }
         

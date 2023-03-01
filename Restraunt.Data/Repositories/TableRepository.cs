@@ -41,7 +41,7 @@ namespace Restraunt.Data.Repositories
         public async Task<Table> Get(Guid id)
         {
 
-            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
+            var table = await _db.Tables.Where(t => t.Id == id).Include(u=>u.User).FirstOrDefaultAsync();
 
             return table;
         }

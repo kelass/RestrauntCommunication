@@ -1,4 +1,8 @@
-﻿$(document).ready(send());
+﻿var DishGet = ["1","2"];
+
+$(document).ready(send());
+
+
 
 async function send() {
 
@@ -14,12 +18,14 @@ async function send() {
 
 
     var dishes = await response;
-
+    DishGet = dishes;
     await Table(dishes);
-
+   
     return dishes;
 
 }
+
+
 
 async function Table(dishes)
 {
@@ -60,6 +66,5 @@ async function Table(dishes)
 
     });
 }
-
 
 

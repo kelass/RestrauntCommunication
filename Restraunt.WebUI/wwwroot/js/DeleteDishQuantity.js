@@ -9,15 +9,17 @@
         
        
         try {
-            await send(data);
+           await sendData(data);
            
-        } catch (error) {
-            console.error(error);
+        }
+          catch (error) {
+          console.error(error);
         }
     });
 
 
-async function send(data) {
+async function sendData(data)
+{
     var accessToken = $("#access").val();
 
     const response = await fetch("https://localhost:7167/api/Basket", {

@@ -11,9 +11,9 @@ namespace Restraunt.WebUI.Controllers
             return View();
         }
 
-        public IActionResult Completed(Guid Id)
-        {
-            return RedirectToAction("Dishes","Dish");
+        public IActionResult Completed()
+        { 
+            return View();
         }
 
         public async Task<IActionResult> Create()

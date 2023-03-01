@@ -21,9 +21,9 @@ namespace Restraunt.WebAPI.Controllers
 
 
 
-        public SecretController(IHttpClientFactory httpClientFactory)
+        public SecretController()
         {
-            _httpClientFactory = httpClientFactory;
+            
         }
 
 
