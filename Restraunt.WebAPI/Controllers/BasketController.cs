@@ -49,7 +49,7 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet]
         public ActionResult ViewBasket()
         {
-            var dishes = _basket.ToList();
+            var dishes = _basket;
             var totalPrice = _basket.Sum(i => i.Price * i.Quantity);
 
            

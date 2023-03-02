@@ -18,11 +18,13 @@ namespace Restraunt.Data
        public DbSet<Role> Roles { get; set; }
       
 
+    
         // Migrate DB
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-           
             Database.Migrate();
         }
 
