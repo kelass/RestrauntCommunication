@@ -16,9 +16,9 @@ namespace Restraunt.Data
        public DbSet<Table> Tables { get; set; }
        public DbSet<User> Users { get; set; }
        public DbSet<Role> Roles { get; set; }
-      
 
-    
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, string m) : base(options) { Database.EnsureCreated(); }
         // Migrate DB
 
 
