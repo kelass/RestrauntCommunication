@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Restraunt.Core;
+
 using Restraunt.WebUI.Hubs;
+
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +36,9 @@ builder.Services.AddAuthentication(config =>
         config.ClaimActions.DeleteClaim("s_hash");
         config.ClaimActions.MapUniqueJsonKey("IdentityServer.RC", "rc.user");
 
+
         config.GetClaimsFromUserInfoEndpoint = true;
+
 
         //config.Scope.Clear();
         config.Scope.Add("openid");
@@ -85,6 +89,6 @@ app.UseEndpoints(endpoints =>
 });
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Panel}/{action=WaiterPanel}/{id?}");
 
 app.Run();

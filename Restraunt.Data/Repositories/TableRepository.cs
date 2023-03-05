@@ -54,7 +54,9 @@ namespace Restraunt.Data.Repositories
 
         public async Task<IEnumerable<Table>> Select()
         {
+
             return _db.Tables.Include(u => u.User).ToList();
+
         }
 
         public async Task<Table> Edit(EditTableDto entity)
@@ -62,13 +64,16 @@ namespace Restraunt.Data.Repositories
             var table = await _db.Tables.Where(t => t.Id == entity.Id).FirstOrDefaultAsync();
 
             if (table != null)
+
             {
                 table.Name = entity.Name;
+
 
                 _db.Update(table);
 
             }
             return table;
+
 
         }
 
@@ -91,6 +96,7 @@ namespace Restraunt.Data.Repositories
 
 
       
+
 
     }
 }

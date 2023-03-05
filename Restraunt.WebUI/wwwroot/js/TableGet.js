@@ -25,7 +25,9 @@ async function Table(tables) {
         var linkDelete = element.id;
         var Idtd = document.createElement('td');
         var LinkTd = document.createElement('td');
+
         LinkTd.setAttribute('id', 'links')
+
 
         var EditLink = document.createElement('button');
         var DeleteLink = document.createElement('button');
@@ -33,7 +35,9 @@ async function Table(tables) {
         var Usertd = document.createElement('td');
         var tr = document.createElement('tr');
 
+
         var a = document.createElement('a');
+
 
         
 
@@ -51,7 +55,9 @@ async function Table(tables) {
         Nametd.append(element.name);
         
 
+
         a.href ="/Table/Edit/" +element.id
+
 
         EditLink.setAttribute('value', linkEdit)
         EditLink.setAttribute('class', 'btn btn-primary')
@@ -68,8 +74,10 @@ async function Table(tables) {
 
 
 
+
         LinkTd.appendChild(a);
         a.appendChild(EditLink);
+
 
         LinkTd.appendChild(DeleteLink);
 

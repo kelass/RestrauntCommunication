@@ -1,3 +1,4 @@
+
 ﻿$(document).on('click', '#Delete',async function(event)
 {
     var input = event.target;
@@ -13,10 +14,12 @@ async function Delete(input) {
 
         method: "DELETE",
        
+
         headers: {
             Authorization: `Bearer ${accessToken}`,
             "Accept": "application/json",
             "Content-Type": "application/json"
+
         },
         body: JSON.stringify($(input).val())
     });
@@ -24,6 +27,7 @@ async function Delete(input) {
     if (response.ok) {
         window.location.replace('/Table/Tables');
     }
+
 
 }
 

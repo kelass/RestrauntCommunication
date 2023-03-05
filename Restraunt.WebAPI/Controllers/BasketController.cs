@@ -33,11 +33,13 @@ namespace Restraunt.WebAPI.Controllers
             var item = _basket.FirstOrDefault(d => d.Id == Id);
             if (item != null)
             {
+
                 item.Quantity--;
                 if (item.Quantity <= 0)
                 {
                     _basket.Remove(item);
                 }
+
             }
             else
             {
@@ -49,13 +51,16 @@ namespace Restraunt.WebAPI.Controllers
         [HttpGet]
         public ActionResult ViewBasket()
         {
+
             var dishes = _basket;
+
             var totalPrice = _basket.Sum(i => i.Price * i.Quantity);
 
            
 
             return Ok(dishes);
         }
+
 
         [HttpPatch]
         public ActionResult RemoveBasket()
@@ -66,6 +71,7 @@ namespace Restraunt.WebAPI.Controllers
 
             return Ok("Dishes on basket deleted!");
         }
+
         
     }
 }

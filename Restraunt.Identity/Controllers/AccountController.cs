@@ -21,14 +21,18 @@ namespace Restraunt.Identity.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IIdentityServerInteractionService _interactionService;
+
         private readonly IWebHostEnvironment _environment;
 
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interactionService, IWebHostEnvironment environment)
+
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _interactionService = interactionService;
+
             _environment = environment;
+
         }
 
 
@@ -88,9 +92,11 @@ namespace Restraunt.Identity.Controllers
             {
                  
                     var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
+
                     
                 if (result.Succeeded)   
                 {
+
                        _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
                         .GetAwaiter().GetResult();
                     _userManager.AddClaimAsync(user, new Claim("roles", "big.roles.cookie"))
@@ -98,7 +104,9 @@ namespace Restraunt.Identity.Controllers
                     _userManager.AddClaimAsync(user,
                         new Claim("rc.api", "big.api.cookie"))
                         .GetAwaiter().GetResult();
+
                     return Redirect(model.ReturnUrl);  
+
                 }
                 
                 else
@@ -126,6 +134,7 @@ namespace Restraunt.Identity.Controllers
             return Redirect(logoutRequest.PostLogoutRedirectUri);
             
         }
+
 
 
 
@@ -170,6 +179,7 @@ namespace Restraunt.Identity.Controllers
                 }
             }
             return Redirect("/");
+
         }
     }
 }

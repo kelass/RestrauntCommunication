@@ -16,6 +16,7 @@
     <div class="container text-center">
 
         <form class="p-5" method="post" asp-controller="Account" asp-action="Login">
+
             <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <input type="hidden" asp-for="ReturnUrl" />
             <input placeholder="@Localizer["Login"]" class="w-50 form-control-sm" asp-for="UserName" /><br />
@@ -32,6 +33,7 @@
         <a class="text-center" asp-controller="Account" asp-action="Register"
            asp-route-returnUrl="@Model.ReturnUrl">@Localizer["Didn't have a account?"]</a>
         
+
     </div>
 </div>
 
