@@ -1,25 +1,43 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     Layout = "_WaiterLayout";
 }
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <span>Name: </span><br />
-            <input type="text" id="txtUser" /><br />
-            <span>Message:</span><br />
-            <textarea rows="10" cols="50" id="txtMsg"></textarea><br />
-            <button type="submit" class="btn btn-info" id="btnSend">Send</button>
-        </div>
-        <div class="col-md-6">
-            <h3>Table Messages:</h3>
-            <ul id="list" class="alert alert-info"></ul>
+
+
+<div>
+    <div class="col-lg-12 mt-5 pt-5">
+        <input hidden value="@ViewBag.access_token" id="access" />
+        <h2 class="section-title">@Localizer["All orders"]</h2>
+        
+        <h5 class="danger-text">@TempData["Error"]</h5>
+        <div class="overflow-auto text-nowrap">
+            <table class="table basic-table">
+                <thead class="table-headers">
+                    <tr>
+                        
+                        <th>
+                            @Localizer["Name"]
+                        </th>
+
+                        <th>
+                            @Localizer["Order message"]
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" class="table-records">
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
+
 @section Scripts {
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
    <script src="~/lib/aspnet/signalr/dist/browser/signalr.min.js"></script>
-   <script src="~/js/Chat.js"></script>
-    
+   <script src="~/js/waiterchat.js"></script>
+   <script src="~/js/waiterOrders.js"></script>
 }

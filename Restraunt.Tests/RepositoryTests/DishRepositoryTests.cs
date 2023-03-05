@@ -53,7 +53,7 @@ namespace Restraunt.Tests.RepositoryTests
         public async Task Delete_ShouldDeleteDishToDatabase_Success()
         {
             // Arrange
-            Create_ShouldAddDishToDatabase();
+            
 
             Guid Id = Guid.Parse("9d64af9b-de56-43a7-94a1-f4cf169b7b35");
 
@@ -75,7 +75,7 @@ namespace Restraunt.Tests.RepositoryTests
 
             // Act
             var result = await _dishRepository.Delete(Id);
-            
+            _dbContext.SaveChanges();
             // Assert
             Assert.IsFalse(result);
         }
@@ -84,9 +84,7 @@ namespace Restraunt.Tests.RepositoryTests
         public async Task SelectAllDishes()
         {
             //Arrange
-            var dish = FakeDataBogus.GenerateOneDish();
-            _dbContext.Add(dish);
-            _dbContext.SaveChanges();
+            
 
             //Act 
             var result = await _dishRepository.Select();
@@ -98,8 +96,10 @@ namespace Restraunt.Tests.RepositoryTests
         public async Task GetDishById_False()
         {
             //Arrange
-            await Create_ShouldAddDishToDatabase();
-            Guid Id = Guid.Parse("9d64af9b-de56-43a7-94a1-f4cf169b7b35");
+            var dish = FakeDataBogus.GenerateOneDish();
+            _dbContext.Add(dish);
+            _dbContext.SaveChanges();
+            Guid Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6a");
 
             //Act 
             var result = await _dishRepository.Get(Id);

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Restraunt.Core;
 using Restraunt.Core.Dto;
 
@@ -20,12 +21,14 @@ namespace Restraunt.Identity.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IIdentityServerInteractionService _interactionService;
+        private readonly IWebHostEnvironment _environment;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interactionService)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IIdentityServerInteractionService interactionService, IWebHostEnvironment environment)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _interactionService = interactionService;
+            _environment = environment;
         }
 
 
@@ -122,6 +125,51 @@ namespace Restraunt.Identity.Controllers
 
             return Redirect(logoutRequest.PostLogoutRedirectUri);
             
+        }
+
+
+
+        public IActionResult SignInGoogle()
+        {
+            string redirectUrl = Url.Action("GoogleResponse", "Account");
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
+            return new ChallengeResult("Google", properties);
+        }
+
+        public async Task<IActionResult> GoogleResponse()
+        {
+            ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+                return RedirectToAction(nameof(Login));
+
+            var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
+            string[] userInfo = { info.Principal.FindFirst(ClaimTypes.Name).Value, info.Principal.FindFirst(ClaimTypes.Email).Value };
+            if (!result.Succeeded)
+            {
+                User user = new User
+                {
+                    Id = Guid.NewGuid(),
+                    Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
+                    UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
+
+                };
+                IdentityResult identResult = await _userManager.CreateAsync(user);
+                if (identResult.Succeeded)
+                {
+                    identResult = await _userManager.AddLoginAsync(user, info);
+                    if (identResult.Succeeded)
+                    {
+                        var roles = new List<string>() { "User" };
+                        if (!_environment.IsProduction())
+                        {
+                            roles.Add("Admin");
+                        }
+                        await _userManager.AddToRolesAsync(user, roles);
+                        await _signInManager.SignInAsync(user, false);
+                    }
+                }
+            }
+            return Redirect("/");
         }
     }
 }

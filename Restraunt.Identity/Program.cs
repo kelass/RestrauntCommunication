@@ -44,10 +44,8 @@ builder.Services.ConfigureApplicationCookie(config =>
 builder.Services.AddAuthentication()
     .AddGoogle(options =>
     {
-
-        options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
         options.ClientId = "937172952204-tm8qh7anmv6dbifhsseslmi7mrlnqpni.apps.googleusercontent.com";
-        options.ClientSecret = "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";
+        options.ClientSecret = "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";
     });
 
 

@@ -11,6 +11,7 @@ namespace Restraunt.Data
         private readonly ApplicationDbContext _db;
         private DishRepository _dishRepository;
         private TableRepository _tableRepository;
+        private OrderRepository _orderRepository;
 
 		public UnitOfWork(ApplicationDbContext db)
 		{
@@ -32,6 +33,14 @@ namespace Restraunt.Data
             get
             {
                 return _tableRepository = _tableRepository?? new TableRepository(_db);
+            }
+        }
+
+        public IOrderRepository Orders
+        {
+            get
+            {
+                return _orderRepository = _orderRepository ?? new OrderRepository(_db);
             }
         }
 

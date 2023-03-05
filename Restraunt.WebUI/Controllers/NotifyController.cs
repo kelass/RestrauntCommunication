@@ -6,6 +6,8 @@ namespace Restraunt.WebUI.Controllers
     {
         public IActionResult WaiterNotify()
         {
+
+
             return View();
         }
     }

@@ -43,6 +43,7 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<UnitOfWork>();
 
 // Add services to the container.

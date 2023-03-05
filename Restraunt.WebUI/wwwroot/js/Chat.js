@@ -25,8 +25,8 @@ async function send() {
     return tableName;
 }
 
-connection.on("ReceiveMessage", function (message) {
-    var msg =message;
+connection.on("ReceiveMessage", function (order) {
+    var msg =order.message;
     var li = document.createElement("li");
     li.textContent = msg;
     $('#list').prepend(li);
@@ -40,16 +40,27 @@ connection.start().then(() => {
 
 
 
-$('#btnSend').on('click',async function () {
+$('#btnSend').on('click', async function () {
+
+    
+
     var userId = $('#btnSend').val();
     var tableName = $('#TableName').val();
-    var message = `${tableName}:`;
+    var message = "";
     DishGet.forEach(function (element)
     {
         message += element.name + `(${element.quantity})`
     });
 
-    connection.invoke("SendMessage", message, userId);
+    const data =
+    {
+        Id: $('#id').val(),
+        Message: message,
+        TableName: $('#TableName').val(),
+        UserId: $('#btnSend').val()
+    };
+
+    connection.invoke("SendMessage", data);
 
    
         console.log(message);

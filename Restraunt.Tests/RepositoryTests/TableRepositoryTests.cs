@@ -45,37 +45,19 @@ namespace Restraunt.Tests.RepositoryTests
 
         }
 
-        //[Test]
-        //public async Task EditTable_Success()
-        //{
-        //    // Arrange
-            
-
-        //    var editTable = FakeDataBogus.EditOneTable();
-
-        //    // Act
-        //    var result = await _tableRepository.Edit(editTable);
-
-
-        //    // Assert
-        //    Assert.AreNotEqual(table.Name, result.Name);
-
-        //}
 
         [Test]
         public async Task DeleteTable_Success()
         {
             // Arrange
-            Create_ShouldAddTableToDatabase_Success();
-
+            
             var Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6a");
 
             // Act
             var result = await _tableRepository.Delete(Id);
-            _dbContext.SaveChanges();
-
+            
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.IsTrue(result);
 
         }
 
@@ -137,17 +119,12 @@ namespace Restraunt.Tests.RepositoryTests
         {
             //Arrange
             var user = FakeDataBogus.GenerateRestrauntUser();
-            
 
             var table = new Table { Id = Guid.Parse("9ef94f67-1753-4957-a686-14211a1d0cfc"), Link="Test", Name= "Test", User=null };
             BindUserToTableDto dto = new BindUserToTableDto { Id=table.Id, UserId=user.Id };
             _dbContext.Add(table);
             _dbContext.Add(user);
             _dbContext.SaveChanges();
-
-            
-
-            
 
             bool key = false;
             //Act

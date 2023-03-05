@@ -30,7 +30,7 @@ namespace Restraunt.Tests.TestHelper
         public static Dish GenerateOneDish()
         {
             var dish = new Faker<Dish>()
-                .RuleFor(Dish => Dish.Id, faker => Guid.NewGuid())
+                .RuleFor(Dish => Dish.Id, faker => Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6a"))
                 .RuleFor(Dish => Dish.Name, faker => faker.Name.FirstName())
                 .RuleFor(Dish => Dish.Price, faker => faker.IndexFaker + 1)
                 .RuleFor(Dish => Dish.Description, faker => faker.Lorem.ToString())
@@ -83,6 +83,18 @@ namespace Restraunt.Tests.TestHelper
                 .Generate();
 
             return user;
+        }
+
+        public static OrderDto GenerateOrder()
+        {
+            var order = new Faker<OrderDto>()
+                .RuleFor(Order => Order.Id, faker => Guid.Parse("9eb94f67-1753-4957-a687-14211a1d0cfc"))
+                .RuleFor(Order => Order.Message, faker => faker.Lorem.Text())
+                .RuleFor(Order => Order.TableName, Faker => Faker.Name.Prefix())
+                .RuleFor(Order => Order.UserId, faker => Guid.Parse("9ef94f67-1753-4957-a687-14211a1d0cfc"))
+                .Generate();
+
+            return order;
         }
     }
 }
