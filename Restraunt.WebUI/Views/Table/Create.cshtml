@@ -6,7 +6,9 @@
 <input value="@ViewBag.access_token" id="access" hidden />
 <input hidden id="TableId" value="@link"/>
     <input placeholder="@Localizer["Write name of table"]" id="TableName"/>
-    <a href="/Table/QrLink/@link"> <input value="@Localizer["Create"]" class="btn btn-dark" id="submit" type="submit"/></a>
+
+   <input value="@Localizer["Create"]" class="btn btn-dark" id="submit" type="submit"/>
+
 
 @section Scripts{
     <script src="~/js/Tables.js"></script>

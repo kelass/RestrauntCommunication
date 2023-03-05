@@ -11,5 +11,7 @@ namespace Restraunt.Core.Interfaces
     public interface IDishRepository:IBaseRepository<Dish>
     {
         Task<bool> Create(DishDto entity);
+        
+
     }
 }

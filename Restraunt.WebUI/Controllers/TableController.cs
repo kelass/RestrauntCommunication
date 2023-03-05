@@ -52,7 +52,9 @@ namespace Restraunt.WebUI.Controllers
         {
             var access_token = await HttpContext.GetTokenAsync("access_token");
             ViewBag.access_token = access_token;
-            return View();
+
+            return View(id);
+
         }
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -60,6 +62,7 @@ namespace Restraunt.WebUI.Controllers
             ViewBag.access_token = access_token;
             return RedirectToAction("Tables", "Table");
         }
+
 
 
         [Authorize(Roles = "Waiter, Admin")]
@@ -78,7 +81,17 @@ namespace Restraunt.WebUI.Controllers
         }
         
         public IActionResult Menu(Guid id) => View(id);
-        public IActionResult Basket(Guid id) => View();
+
+
+        public async Task<IActionResult> Basket(Guid id)
+        {
+            
+
+
+
+            return View(id);
+        }
+
         //public IActionResult Menu() => View();
 
     }

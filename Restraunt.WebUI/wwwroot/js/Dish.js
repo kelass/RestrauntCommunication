@@ -26,4 +26,8 @@ async function send() {
 
     });
 
+    if (response.ok) {
+        window.location.replace('/Dish/Dishes');
+    }
+
 }

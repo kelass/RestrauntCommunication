@@ -65,7 +65,9 @@ namespace Restraunt.WebAPI.Controllers
 
         [HttpDelete]
         [Authorize]
-        public async Task<ActionResult<List<Dish>>> Delete(Guid Id)
+
+        public async Task<ActionResult<List<Dish>>> Delete([FromBody] Guid Id)
+
         {
             var entity = await _unitOfWork.Dishes.Get(Id);
 

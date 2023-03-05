@@ -16,14 +16,16 @@ namespace Restraunt.Data
        public DbSet<Table> Tables { get; set; }
        public DbSet<User> Users { get; set; }
        public DbSet<Role> Roles { get; set; }
-      
+       public DbSet<Order> Orders { get; set; }
 
-        // Migrate DB
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, string m) : base(options) { Database.EnsureCreated(); }
+        
+
+
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-           
-            Database.Migrate();
+           Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)

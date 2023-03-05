@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
 using Restraunt.Core.Interfaces;
 using Restraunt.Data.Interfaces;
 using Restraunt.Data.Repositories;
@@ -10,6 +11,7 @@ namespace Restraunt.Data
         private readonly ApplicationDbContext _db;
         private DishRepository _dishRepository;
         private TableRepository _tableRepository;
+        private OrderRepository _orderRepository;
 
 		public UnitOfWork(ApplicationDbContext db)
 		{
@@ -34,10 +36,21 @@ namespace Restraunt.Data
             }
         }
 
+        public IOrderRepository Orders
+        {
+            get
+            {
+                return _orderRepository = _orderRepository ?? new OrderRepository(_db);
+            }
+        }
+
         public async Task Save()
         {
           await _db.SaveChangesAsync();
         }
+
+
+        
     }
 }
 

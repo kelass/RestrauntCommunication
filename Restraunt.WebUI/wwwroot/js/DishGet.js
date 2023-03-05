@@ -25,16 +25,27 @@ async function Table(dishes) {
         var Nametd = document.createElement('td');
         var Pricetd = document.createElement('td');
         var tr = document.createElement('tr');
+        var DeleteTd = document.createElement('td');
+
+
+        var DeleteLink = document.createElement('button');
+        DeleteLink.setAttribute('value', element.id)
+        DeleteLink.setAttribute('id', 'Delete')
+        DeleteLink.setAttribute('class', 'btn btn-danger')
+        DeleteLink.append('Delete');
+
 
 
         Idtd.append(element.id);
         Nametd.append(element.name);
         Pricetd.append(element.price);
 
+        DeleteTd.appendChild(DeleteLink)
 
         tr.appendChild(Idtd);
         tr.appendChild(Nametd);
         tr.appendChild(Pricetd);
+        tr.appendChild(DeleteTd);
         document.getElementById('tbody').appendChild(tr)
     });
 }

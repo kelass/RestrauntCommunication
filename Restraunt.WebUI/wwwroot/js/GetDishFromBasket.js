@@ -1,4 +1,10 @@
-﻿$(document).ready(send());
+
+﻿var DishGet = ["1","2"];
+
+$(document).ready(send());
+
+
+
 
 async function send() {
 
@@ -15,11 +21,18 @@ async function send() {
 
     var dishes = await response;
 
+    DishGet = dishes;
     await Table(dishes);
+   
+    return dishes;
 
 }
 
-async function Table(dishes) {
+
+
+async function Table(dishes)
+{
+
     dishes.forEach(function (element) {
         var tr = document.createElement('tr')
 
@@ -36,6 +49,10 @@ async function Table(dishes) {
         var Button = document.createElement('button');
        
         Button.append('Delete');
+
+        Button.setAttribute('id', 'buttonDelete')
+        Button.setAttribute('value', element.id)
+
         Button.setAttribute('class', 'btn btn-danger');
         var th = document.createElement('th');
         th.setAttribute('class', 'text-nowrap')
@@ -54,4 +71,8 @@ async function Table(dishes) {
         document.getElementById('tbody').appendChild(tr)
 
     });
+
 }
+
+
+

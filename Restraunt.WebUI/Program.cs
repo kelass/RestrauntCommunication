@@ -2,12 +2,15 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using Restraunt.Core;
+
+using Restraunt.WebUI.Hubs;
+
 using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddSignalR();
 
 
 
@@ -33,7 +36,9 @@ builder.Services.AddAuthentication(config =>
         config.ClaimActions.DeleteClaim("s_hash");
         config.ClaimActions.MapUniqueJsonKey("IdentityServer.RC", "rc.user");
 
+
         config.GetClaimsFromUserInfoEndpoint = true;
+
 
         //config.Scope.Clear();
         config.Scope.Add("openid");
@@ -78,6 +83,10 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ChatHub>("/chathub");
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Panel}/{action=WaiterPanel}/{id?}");
