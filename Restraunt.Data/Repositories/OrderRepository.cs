@@ -59,5 +59,10 @@ namespace Restraunt.Data.Repositories
         {
             return _db.Orders.Include(u => u.User);
         }
+
+        public async Task<IEnumerable<Order>> SelectOrderUserId(Guid UserId)
+        {
+            return _db.Orders.Where(o => o.User.Id == UserId);
+        }
     }
 }

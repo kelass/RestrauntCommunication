@@ -24,6 +24,13 @@ namespace Restraunt.WebAPI.Controllers
             return Ok(select);
 
         }
+        [HttpPost("{Id}")]
+        public async Task<ActionResult<IEnumerable<Order>>> SelectForWaiter([FromBody] Guid UserId)
+        {
+            var select = await _unitOfWork.Orders.SelectOrderUserId(UserId);
+            return Ok(select);
+
+        }
 
         [HttpGet("{Id}")]
         public async Task<ActionResult<Order>> Get(Guid Id)
@@ -56,7 +63,6 @@ namespace Restraunt.WebAPI.Controllers
         }
 
         [HttpDelete]
-       
         public async Task<ActionResult<List<Order>>> Delete([FromBody] Guid Id)
         {
             var entity = await _unitOfWork.Orders.Get(Id);

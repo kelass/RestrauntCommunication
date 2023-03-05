@@ -1,10 +1,11 @@
 $(document).ready(send());
 
 async function send() {
+    var Id = $('#userId').val();
+    const response = await fetch(`https://localhost:7167/api/Order/${Id}`, {
 
-    const response = await fetch("https://localhost:7167/api/Order", {
-
-        method: "GET",
+        method: "POST",
+        body:JSON.stringify(Id),
         headers: {
             "Accept": "application/json",
             "Content-Type": "application/json"

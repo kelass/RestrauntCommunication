@@ -10,7 +10,7 @@ namespace Restraunt.Core.Interfaces
     public interface IOrderRepository:IBaseRepository<Order>
     {
         Task<bool> Create(OrderDto entity);
-        
+        Task<IEnumerable<Order>> SelectOrderUserId(Guid UserId);
 
     }
 }
