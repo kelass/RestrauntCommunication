@@ -6,10 +6,11 @@
 
 <h2>Stack</h2>
 <li>ASP.NET Core MVC + API</li>
-<li>IdentityServer4 + Microsoft.Identity</li>
+<li>IdentityServer4 + Microsoft.Identity + Google auth</li>
 <li>JavaScript, jQuery</li>
-<li>Bootstrap</li>
-<li>EntityFramework Core 6</li>
+<li>Bootstrap, CSS, HTML</li>
+<li>EntityFramework Core</li>
+<li>SignalR</li>
 
 <h2 align="center">Tasks</h2>
 <li>Create DB</li>
