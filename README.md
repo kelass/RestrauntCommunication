@@ -27,6 +27,9 @@
 <li>CRUD operations of dishes</li>
 <ol>Create Entity Dish</ol>
 <ol>Create DishRepository</ol>
+<li>CRUD operations of orders</li>
+<ol>Create Entity Order</ol>
+<ol>Create OrderRepository</ol>
 <li>CRUD operations of tables</li>
 <ol>Create QRCode</ol>
 <ol>Create Entity Table</ol>
@@ -35,7 +38,6 @@
 <ol>CRM for administrator</ol>
 <ol>CRM for waiter</ol>
 <li>Notification</li>
-<ol>Read how working SignalR</ol>
 <ol>Notification on waiter's CRM</ol>
 
 
