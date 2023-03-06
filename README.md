@@ -61,5 +61,11 @@
 <h2 align="center">Site map</h2>
 <li>Main page</li>
 <li>QR menu</li>
+<li>Basket page</li>
 <li>CRM for waiter</li>
+<ol>Notify page of waiter</ol>
 <li>CRM for admin</li>
+<ol>Tables page</ol>
+<ol>Dishes page</ol>
+
+
