@@ -84,13 +84,16 @@ namespace Restraunt.WebAPI.Controllers
         [Authorize]
         public async Task<ActionResult<List<Table>>> DeleteTable([FromBody] Guid Id)
         {
-            var entity = await _unitOfWork.Tables.Get(Id);
-            if (entity == null)
-                return BadRequest("Id not found");
-
-            await _unitOfWork.Tables.Delete(Id);
-            _unitOfWork.Save();
-            return Ok("Table delete");
+            var result = await _unitOfWork.Tables.Delete(Id);
+            if (result == true)
+            {
+               await _unitOfWork.Save();
+                return Ok("Table delete");
+            }
+            else
+            {
+                return BadRequest("Table not found");
+            }
 
         }
         [HttpPatch]

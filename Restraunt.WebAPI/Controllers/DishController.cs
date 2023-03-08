@@ -67,15 +67,17 @@ namespace Restraunt.WebAPI.Controllers
         [Authorize]
         public async Task<ActionResult<List<Dish>>> Delete([FromBody] Guid Id)
         {
-            var entity = await _unitOfWork.Dishes.Get(Id);
-
-            if (entity == null)
-                return BadRequest("Id not found");
-
-           await _unitOfWork.Dishes.Delete(Id);
-            _unitOfWork.Save();
-            return Ok("Dish delete");
-
+            var result = await _unitOfWork.Dishes.Delete(Id);
+            if (result == true)
+            {
+               await _unitOfWork.Save();
+                return Ok("Dish delete");
+            }
+            else
+            {
+                return BadRequest("Dish not found");
+            }
+            
         }
 
 
