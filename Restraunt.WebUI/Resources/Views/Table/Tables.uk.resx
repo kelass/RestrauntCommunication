@@ -120,6 +120,9 @@
   <data name="Active" xml:space="preserve">
     <value>Активний</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Додати</value>
+  </data>
   <data name="All tables" xml:space="preserve">
     <value>Всі столи</value>
   </data>

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Identity.Client;
 using Restraunt.Core;
 using Restraunt.Core.Dto;
 
@@ -127,11 +128,14 @@ namespace Restraunt.Identity.Controllers
             
         }
 
+       
 
 
-        public IActionResult SignInGoogle()
+        public IActionResult SignInGoogle(string returnUrl = null)
         {
+
             string redirectUrl = Url.Action("GoogleResponse", "Account");
+            
             var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
             return new ChallengeResult("Google", properties);
         }
@@ -142,6 +146,7 @@ namespace Restraunt.Identity.Controllers
             if (info == null)
                 return RedirectToAction(nameof(Login));
 
+
             var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, false);
             string[] userInfo = { info.Principal.FindFirst(ClaimTypes.Name).Value, info.Principal.FindFirst(ClaimTypes.Email).Value };
             if (!result.Succeeded)
@@ -151,7 +156,6 @@ namespace Restraunt.Identity.Controllers
                     Id = Guid.NewGuid(),
                     Email = info.Principal.FindFirst(ClaimTypes.Email).Value,
                     UserName = info.Principal.FindFirst(ClaimTypes.Email).Value,
-
                 };
                 IdentityResult identResult = await _userManager.CreateAsync(user);
                 if (identResult.Succeeded)
@@ -169,6 +173,7 @@ namespace Restraunt.Identity.Controllers
                     }
                 }
             }
+            
             return Redirect("/");
         }
     }

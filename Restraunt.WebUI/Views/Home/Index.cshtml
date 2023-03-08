@@ -5,13 +5,70 @@
 }
 
 
-<div class="customContainer blockMain btn-group-vertical">
-    <div class="container text-center">
-        <h1 class="btn-group-vertical">@Localizer["Welcome to the restraunt!"]</h1>
+<div class="customContainer blockMain" data-mdb-scale="1">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light text-white box-shadow mb-3 top-block h3 flex-column-reverse">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="d-flex h4">
+                        @await Html.PartialAsync("_SelectLanguagePartial")
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a>
+                    </li>
+                    
+
+                
+            
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Panel" asp-action="Adminpanel">@Localizer["Admin panel"]</a>
+                        </li>
+
+                    }
+                    else if (User.IsInRole("Waiter"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Panel" asp-action="Waiterpanel">@Localizer["Waiter panel"]</a>
+                        </li>
+                    }
+
+
+                    @if (!User.Identity.IsAuthenticated)
+
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-controller="Account" asp-action="Login">@Localizer["Login"]</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-white">@User.Identity.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container centered-block">
+        <div class="text-center text__main">
+        <h1 class="text-white display-1">@Localizer["THE RESTO"]</h1>
+        <h1 class="text-white display-2">@Localizer["An industry that starts with your stomach"]</h1>      
+        <a class="btn btn-lg text-white border border-white display-3" asp-controller="Table" asp-action="Menu">@Localizer["MENU"]</a>
+        </div>
     </div>
 </div>
 
-<div class="customContainer">
+<div class="customContainer mt-5">
     <h1 class="text-center">@Localizer["What do you do?"]</h1>
     <div class="row frame" data-aos="fade-up"
          data-aos-anchor-placement="top-center">
@@ -23,7 +80,7 @@
                 <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z" />
                 <path d="M12 9h2V8h-2v1Z" />
             </svg>
-            <h2>Scan QR Code</h2>
+            <h2>@Localizer["Scan QR Code"]</h2>
         </div>
         <div class="col-sm-4 text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
@@ -42,7 +99,7 @@
     </div>
 </div>
 
-<div class="customContainer">
+<div class="customContainer mt-5">
    
     <div class="row">
         <div class="col-6 align-content-lg-center" data-aos="fade-right">
@@ -60,14 +117,14 @@
     </div> 
 </div>
 
-<div class="customContainer">
+<div class="customContainer mt-5">
 
     <div class="row">
         <div class="col-6 btn-group-vertical" data-aos="fade-right">
             <div class="container text-center">
             <h1>@Localizer["Our restraunt have a good menu."]</h1>
             <h1>@Localizer["You can check"]</h1>
-                <h1><a asp-controller="Table" asp-action="Menu" class="btn-link">@Localizer["CLICK HERE"]</a></h1>
+                <h1><a asp-controller="Table" asp-action="Menu" class="btn btn-dark">@Localizer["CLICK HERE"]</a></h1>
             </div>
         </div>
         <div class="col-6 align-content-lg-center" data-aos="fade-left">
@@ -77,32 +134,5 @@
     </div>
 </div>
 
-
-<div class="customContainer">
-    <div class="row m-5">
-        <div class="col-6 align-content-lg-center" data-aos="zoom-in-right">
-            <div class="container m-5">
-                
-                <div class="w-100 p-1">
-                    <input type="text" class="form-control" placeholder="@Localizer["Full name"]" aria-label="Full name">
-                </div>
-                <div class="w-100 p-1">
-                    <input type="email" class="form-control" placeholder="@Localizer["Email"]" aria-label="Email">
-                </div><br />
-                <div class="w-100 p-1">
-                    <input id="D" type="submit" value="@Localizer["Send"]" class="btn-dark form-control w-25 form-control-lg" />
-                </div>
-                
-            </div>
-            
-        </div>
-        <div class="col-6 btn-group-vertical" data-aos="zoom-in-left">
-            <div class="container text-center">
-           <h1>@Localizer["Do you want work with us?"]</h1>
-           </div>
-        </div>
-
-    </div>
-</div>
 <script src="~/js/site.js" asp-append-version="true"></script>
            <script>AOS.init();</script>

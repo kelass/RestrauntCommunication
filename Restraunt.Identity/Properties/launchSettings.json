@@ -10,7 +10,7 @@
   "profiles": {
     "Restraunt.Identity": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "applicationUrl": "https://localhost:16819",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

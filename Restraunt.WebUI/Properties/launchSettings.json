@@ -10,7 +10,7 @@
   "profiles": {
     "Restraunt.WebUI": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
       "applicationUrl": "https://localhost:45591",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -1,13 +1,16 @@
-﻿<input value="@ViewBag.access_token" id="access" hidden />
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<input value="@ViewBag.access_token" id="access" hidden />
 <input value="@Guid.NewGuid()" id="id" hidden/>
 <input id="TableName" hidden></input>
 <div class="table">
 <table class="table table-bordered table-striped">
     <tbody id="tbody">
         <tr>
-            <th class="text-nowrap" scope="row">Названиие блюда</th>
-            <td>Цена</td>
-            <td>Количество</td>  
+            <th class="text-nowrap" scope="row">@Localizer["Name of the dish"]</th>
+            <td>@Localizer["Price"]</td>
+            <td>@Localizer["Quantity"]</td>  
         </tr>
         
     </tbody>
@@ -16,7 +19,7 @@
 
 <div class="card-link d-flex">
     <input value="Delete order" type="submit" id="Delete" class="btn btn-danger" />
-    <button type="submit" id="btnSend" class="btn btn-primary">Order</button>
+    <button type="submit" id="btnSend" class="btn btn-primary">@Localizer["Order"]</button>
 </div>
 </div>
 

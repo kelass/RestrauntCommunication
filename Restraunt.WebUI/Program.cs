@@ -11,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSignalR();
 
 
-
 //Auth
 builder.Services.AddAuthentication(config =>
 {
