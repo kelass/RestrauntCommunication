@@ -19,7 +19,6 @@ namespace Restraunt.WebUI.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 

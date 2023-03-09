@@ -54,7 +54,7 @@ async function Table(tables) {
         a.href ="/Table/Edit/" +element.id
 
         EditLink.setAttribute('value', linkEdit)
-        EditLink.setAttribute('class', 'btn btn-primary')
+        EditLink.setAttribute('class', 'btn btn-primary m-1')
         EditLink.setAttribute('id', 'Edit')
         EditLink.append('Edit');
 

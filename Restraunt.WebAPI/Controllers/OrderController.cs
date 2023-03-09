@@ -71,7 +71,7 @@ namespace Restraunt.WebAPI.Controllers
                 return BadRequest("Id not found");
 
             await _unitOfWork.Orders.Delete(Id);
-            _unitOfWork.Save();
+            await _unitOfWork.Save();
             return Ok("Order delete");
 
         }

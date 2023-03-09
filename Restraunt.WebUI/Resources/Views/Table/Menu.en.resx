@@ -123,4 +123,7 @@
   <data name="Hello, we have a good menu for you:" xml:space="preserve">
     <value>Hello, we have a good menu for you:</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>

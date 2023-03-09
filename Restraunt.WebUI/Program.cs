@@ -17,7 +17,10 @@ builder.Services.AddAuthentication(config =>
     config.DefaultScheme = "Cookie";
     config.DefaultChallengeScheme = "oidc";
 })
-    .AddCookie("Cookie")
+    .AddCookie("Cookie", cookies =>
+    {
+        cookies.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    })
     .AddOpenIdConnect("oidc", config =>
     {
         config.Authority = "https://localhost:16819";

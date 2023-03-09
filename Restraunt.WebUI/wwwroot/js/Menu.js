@@ -18,12 +18,8 @@ async function send() {
     var dishes = await response;
 
     dishes.forEach(function (element) {
-        
-        
-
-
-        var col = document.createElement('div');
-        col.setAttribute('class', 'col-sm-3')
+        col = document.createElement('div');
+        col.setAttribute('class', 'col-sm-3 mb-3')
         var div = document.createElement('div');
         var divBody = document.createElement('div')
 

@@ -123,4 +123,7 @@
   <data name="Hello, we have a good menu for you:" xml:space="preserve">
     <value>Привіт, у нас для вас гарне меню:</value>
   </data>
+  <data name="Home" xml:space="preserve">
+    <value>Головна</value>
+  </data>
 </root>
