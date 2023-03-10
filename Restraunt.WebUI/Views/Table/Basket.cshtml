@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<input value="@ViewBag.access_token" id="access" hidden />
+<input value="@Guid.NewGuid()" id="id" hidden/>
+<input id="TableName" hidden></input>
+<div class="table">
+<table class="table table-bordered table-striped">
+    <tbody id="tbody">
+        <tr>
+            <th class="text-nowrap" scope="row">@Localizer["Name of the dish"]</th>
+            <td>@Localizer["Price"]</td>
+            <td>@Localizer["Quantity"]</td>  
+        </tr>
+        
+    </tbody>
+</table>
+
+
+<div class="card-link d-flex">
+    <input value="@Localizer["Delete order"]" type="submit" id="Delete" class="btn btn-danger" />
+    <button type="submit" id="btnSend" class="btn btn-primary">@Localizer["Order"]</button>
+</div>
+</div>
+
+
+        @section Scripts 
+        
+    {
+    
+    <script src="~/js/GetDishFromBasket.js"></script>
+   <script src="~/js/DeleteBasket.js"></script>     
+   <script src="~/js/DeleteDishQuantity.js"></script>
+   <script src="~/lib/aspnet/signalr/dist/browser/signalr.js"></script>
+   <script src="~/lib/aspnet/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/Chat.js"></script>
+    
+        }
+        

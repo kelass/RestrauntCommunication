@@ -1,7 +1,17 @@
-﻿   <input id="TableId" value="@Guid.NewGuid()"/>
-    <input id="TableName"/>
-    <input id="submit" type="submit"/>
-
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    var link = @Guid.NewGuid();
+} 
+<div class="vh-100 vw-100 mt-5">
+    <div class="container vw-100 text-center">
+            <input value="@ViewBag.access_token" id="access" hidden />
+            <input hidden id="TableId" value="@link"/>
+            <input class="form-control-plaintext" placeholder="@Localizer["Write name of table"]" id="TableName" />
+            <input value="@Localizer["Create"]" class="btn btn-dark" id="submit" type="submit"/>
+    </div>
+   
+</div>
 @section Scripts{
     <script src="~/js/Tables.js"></script>
 }

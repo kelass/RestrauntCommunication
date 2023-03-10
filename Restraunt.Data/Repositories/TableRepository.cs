@@ -22,46 +22,80 @@ namespace Restraunt.Data.Repositories
         }
         public async Task<bool> Create(TableDto? entity)
         {
-           var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link};
+
+            var result = new Table { Id = entity.Id, Name = entity.Name, Link = entity.Link };
 
             await _db.Tables.AddAsync(result);
-            
+
+
             return true;
         }
 
         public async Task<bool> Delete(Guid Id)
         {
             var entity = await _db.Tables.Where(t => t.Id == Id).FirstOrDefaultAsync();
-            _db.Tables.Remove(entity);
+            if (entity != null)
+            {
+                _db.Tables.Remove(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
-            
-            return true;
         }
 
         public async Task<Table> Get(Guid id)
         {
+            var table = await _db.Tables.Where(t => t.Id == id).Include(u => u.User).FirstOrDefaultAsync();
 
-            var table = await _db.Tables.Where(t => t.Id == id).FirstOrDefaultAsync();
+
 
             return table;
         }
 
         public async Task<IEnumerable<Table>> Select()
         {
-            return _db.Tables.ToList();
+
+            return _db.Tables.Include(u => u.User).ToList();
         }
 
-        public async Task<Table> Edit(TableDto entity)
+        public async Task<Table> Edit(EditTableDto entity)
         {
             var table = await _db.Tables.Where(t => t.Id == entity.Id).FirstOrDefaultAsync();
 
-            if(table != null)
+            if (table != null)
             {
-                table.Name = entity.Name; table.User = entity.User;
+                table.Name = entity.Name;
+
+                _db.Update(table);
+
+            }
+            return table;
+
+        }
+
+        public async Task<Table> BindUserToTable(BindUserToTableDto model)
+        {
+            Table? table = await _db.Tables.Where(t => t.Id == model.Id).FirstOrDefaultAsync();
+
+            User? user = await _db.Users.FirstOrDefaultAsync(u => u.Id == model.UserId);
+
+            if (table != null)
+            {
+                table.User = user;
+
+
 
                 _db.Update(table);
             }
             return table;
+
         }
+
+
+      
+
     }
 }

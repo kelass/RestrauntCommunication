@@ -1,0 +1,26 @@
+{
+  "ApiUrl": "https://localhost:7167",
+
+  "projects": [
+    {
+      "id": 1,
+      "name": "Tables",
+      "url": "https://localhost:7167/api/Table"
+    },
+    {
+      "id": 2,
+      "name": "Orders",
+      "url": "https://localhost:7167/api/Order"
+    },
+    {
+      "id": 3,
+      "name": "Dishes",
+      "url": "https://localhost:7167/api/Dish"
+    },
+    {
+      "id": 4,
+      "name": "Basket",
+      "url": "https://localhost:7167/api/Basket"
+    }
+  ]
+}

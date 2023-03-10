@@ -1,11 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
     Layout = "_AdminLayout";
 }
-
+<input id="access" value="@ViewBag.access_token" hidden />
 <div>
     <div class="col-lg-12 mt-5 pt-5">
-        <h2 class="section-title">All dishes</h2>
-        <div><a asp-controller="Dish" asp-action="create" class="basic-button col-1">Add</a></div>
+        <h2 class="section-title">@Localizer["All dishes"]</h2>
+        <div><a asp-controller="Dish" asp-action="create" class="basic-button btn btn-dark col-1">@Localizer["Add"]</a></div>
         <h5 class="danger-text">@TempData["Error"]</h5>
         <div class="overflow-auto text-nowrap">
             <table class="table basic-table">
@@ -15,36 +17,17 @@
                             @Html.Label("Id")
                         </th>
                         <th>
-                            @Html.Label("Name")
+                            @Localizer["Name"]
                         </th>
 
                         <th>
-                            @Html.Label("Price")
+                            @Localizer["Price"]
                         </th>
 
                         <th></th>
                     </tr>
                 </thead>
-                <tbody class="table-records">
-
-                    <tr>
-                        <td>
-                            Dish id
-                        </td>
-                        <td>
-                            Dish name
-                        </td>
-                        <td>
-                            Dish price
-                        </td>
-
-
-                        <td class="crud-block">
-                            <a asp-controller="Dish" asp-action="Edit" asp-route-id="3" class="basic-link">Edit</a> |
-                            <a asp-controller="Dish" asp-action="Delete" asp-route-id="3" class="basic-link">Delete</a>
-                        </td>
-                    </tr>
-
+                <tbody id="tbody" class="table-records">
                 </tbody>
             </table>
         </div>
@@ -52,5 +35,8 @@
 </div>
 
 @section Scripts{
-    <script src="../js/DishGet.js"></script>
+
+    <script src="/js/DishGet.js"></script>
+    <script src="~/js/DeleteDish.js"></script>
+
 }

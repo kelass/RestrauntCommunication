@@ -1,0 +1,14 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+
+<div class="vh-100 vw-100 btn-group-vertical">
+    <div class="container vw-100 text-center">
+        <h1>@Localizer["Thank you for order!"]</h1><br />
+        <h2>@Localizer["waiter already notified"]</h2>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-dark">@Localizer["Go to home page"]</a>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/DeleteBasketAtCompleted.js"></script>
+}

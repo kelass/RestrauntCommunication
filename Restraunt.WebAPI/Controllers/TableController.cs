@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QRCoder;
@@ -17,11 +19,12 @@ namespace Restraunt.WebAPI.Controllers
     public class TableController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-
+       
 
         public TableController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+          
         }
 
 
@@ -31,8 +34,8 @@ namespace Restraunt.WebAPI.Controllers
         {
             return Ok(await _unitOfWork.Tables.Select());
 
-        } 
-       
+        }
+
 
         [HttpGet("{Id}")]
         public async Task<ActionResult<Table>> Get(Guid Id)
@@ -43,32 +46,38 @@ namespace Restraunt.WebAPI.Controllers
 
             return Ok(await _unitOfWork.Tables.Get(Id));
 
-        }  
+        }
 
 
-        
-         [HttpPost]
+
+        [HttpPost]
+        [Authorize]
         public async Task<ActionResult<List<Table>>> AddTable([FromBody] TableDto? table)
         {
             if (ModelState.IsValid)
             {
-               
-                table.Link = $"{HttpContext.Request.Scheme}://localhost:7165/Table/{table.Id.ToString()}";
 
-                   await _unitOfWork.Tables.Create(table);
-                   await _unitOfWork.Save();
-                    return Ok(table.Link);
+
+                table.Link = $"{HttpContext.Request.Scheme}://localhost:45591/Table/Menu/{table.Id.ToString()}";
+
+                await _unitOfWork.Tables.Create(table);
+                await _unitOfWork.Save();
+                return Ok(table.Link);
+
             }
             else
             {
-              return BadRequest("Problem..");
+                return BadRequest("Problem..");
             }
-            
+
         }
 
 
         [HttpPut]
-        public async Task<ActionResult<List<Table>>> EditTable(TableDto table)
+
+        [Authorize]
+        public async Task<ActionResult<List<Table>>> EditTable([FromBody] EditTableDto table)
+
         {
             await _unitOfWork.Tables.Edit(table);
             await _unitOfWork.Save();
@@ -76,17 +85,32 @@ namespace Restraunt.WebAPI.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult<List<Table>>> DeleteTable(Guid Id)
+        [Authorize]
+        public async Task<ActionResult<List<Table>>> DeleteTable([FromBody] Guid Id)
         {
-            var entity = await _unitOfWork.Tables.Get(Id);
-            if (entity == null)
-                return BadRequest("Id not found");
-
-            await _unitOfWork.Tables.Delete(Id);
-            _unitOfWork.Save();
-            return Ok(await _unitOfWork.Tables.Select());
+            var result = await _unitOfWork.Tables.Delete(Id);
+            if (result == true)
+            {
+               await _unitOfWork.Save();
+                return Ok("Table delete");
+            }
+            else
+            {
+                return BadRequest("Table not found");
+            }
 
         }
+
+        [HttpPatch]
+        [Authorize]
+        public async Task<ActionResult<List<Table>>> BindUserToTable(BindUserToTableDto model)
+        {
+            await _unitOfWork.Tables.BindUserToTable(model);
+            await _unitOfWork.Save();
+            return Ok("User bind to table");
+        }
+
+
 
     }
 }

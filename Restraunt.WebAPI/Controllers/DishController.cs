@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,11 +17,12 @@ namespace Restraunt.WebAPI.Controllers
     public class DishController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-        
+       
        
         public DishController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            
         }
 
         [HttpGet]
@@ -49,6 +51,7 @@ namespace Restraunt.WebAPI.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<List<Dish>>> Add([FromBody] DishDto dish)
         {
             if (ModelState.IsValid)
@@ -56,22 +59,27 @@ namespace Restraunt.WebAPI.Controllers
                 await _unitOfWork.Dishes.Create(dish);
                 await _unitOfWork.Save();
             }
-            return Ok(_unitOfWork.Dishes.Select());
+
+            return Ok();
+                
 
         }
 
         [HttpDelete]
-        public async Task<ActionResult<List<Dish>>> Delete(Guid Id)
+        [Authorize]
+        public async Task<ActionResult<List<Dish>>> Delete([FromBody] Guid Id)
         {
-            var entity = await _unitOfWork.Dishes.Get(Id);
-
-            if (entity == null)
-                return BadRequest("Id not found");
-
-           await _unitOfWork.Dishes.Delete(Id);
-            _unitOfWork.Save();
-            return Ok(await _unitOfWork.Dishes.Select());
-
+            var result = await _unitOfWork.Dishes.Delete(Id);
+            if (result == true)
+            {
+               await _unitOfWork.Save();
+                return Ok("Dish delete");
+            }
+            else
+            {
+                return BadRequest("Dish not found");
+            }
+            
         }
 
 

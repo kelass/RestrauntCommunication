@@ -21,21 +21,26 @@ namespace Restraunt.Data.Repositories
 
         public async Task<bool> Create(DishDto entity)
         {
-            var result = new Dish { Id= entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
+            var result = new Dish { Id = entity.Id, Description= entity.Description, Name= entity.Name, Price= entity.Price };
             await _db.Dishes.AddAsync(result);
-          
 
-           
             return true;
         }
 
         public async Task<bool> Delete(Guid Id)
         {
-            var entity = await _db.Dishes.Where(d => d.Id == Id).FirstOrDefaultAsync();
-            _db.Remove<Dish>(entity);
-           await _db.SaveChangesAsync();
             
-            return true;
+            var entity = await _db.Dishes.Where(d => d.Id == Id).FirstOrDefaultAsync();
+            if (entity != null)
+            {
+                _db.Remove<Dish>(entity);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+           
         }
 
         public async Task<Dish> Get(Guid Id)
