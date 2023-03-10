@@ -117,79 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Admin panel" xml:space="preserve">
-    <value>Admin panel</value>
+  <data name="Notify" xml:space="preserve">
+    <value>Notify</value>
   </data>
-  <data name="An industry that starts with your stomach" xml:space="preserve">
-    <value>An industry that starts with your stomach</value>
-  </data>
-  <data name="carbohydrates, fats, water, minerals and vitamins." xml:space="preserve">
-    <value>carbohydrates, fats, water, minerals and vitamins.</value>
-  </data>
-  <data name="CLICK HERE" xml:space="preserve">
-    <value>CLICK HERE</value>
-  </data>
-  <data name="Delicious to eat" xml:space="preserve">
-    <value>Delicious to eat</value>
-  </data>
-  <data name="Do you want work with us?" xml:space="preserve">
-    <value>Do you want work with us?</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="Full name" xml:space="preserve">
-    <value>Full name</value>
-  </data>
-  <data name="Go to home page" xml:space="preserve">
-    <value>Go to home page</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="Home Page" xml:space="preserve">
-    <value>Home Page</value>
-  </data>
-  <data name="in the required quantity and optimal ratios," xml:space="preserve">
-    <value>in the required quantity and optimal ratios,</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Login</value>
-  </data>
-  <data name="MENU" xml:space="preserve">
-    <value>MENU</value>
-  </data>
-  <data name="must receive many nutrients - proteins," xml:space="preserve">
-    <value>must receive many nutrients - proteins,</value>
-  </data>
-  <data name="Order the dish" xml:space="preserve">
-    <value>Order the dish</value>
-  </data>
-  <data name="Our restraunt have a good menu." xml:space="preserve">
-    <value>Our restraunt have a good menu.</value>
-  </data>
-  <data name="Proper nutrition implies that the body regularly," xml:space="preserve">
-    <value>Proper nutrition implies that the body regularly,</value>
-  </data>
-  <data name="Scan QR Code" xml:space="preserve">
-    <value>Scan QR Code</value>
-  </data>
-  <data name="Send" xml:space="preserve">
-    <value>Send</value>
-  </data>
-  <data name="Sign out" xml:space="preserve">
-    <value>Sign out</value>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
   </data>
   <data name="Waiter panel" xml:space="preserve">
     <value>Waiter panel</value>
-  </data>
-  <data name="Welcome to the restraunt!" xml:space="preserve">
-    <value>Welcome to the restraunt!</value>
-  </data>
-  <data name="What do you do?" xml:space="preserve">
-    <value>What do you do?</value>
-  </data>
-  <data name="You can check" xml:space="preserve">
-    <value>You can check</value>
   </data>
 </root>
