@@ -6,6 +6,7 @@ using Restraunt.Core.Interfaces;
 using Restraunt.Data;
 using Restraunt.Data.Repositories;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -15,6 +16,7 @@ string connect = builder.Configuration.GetConnectionString("PersonalConnection")
 //builder.Services.AddIdentity<User, Role>()
 //.AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connect, b=> b.MigrationsAssembly("Restraunt.Data")));
+
 
 
             //Auth
@@ -27,6 +29,7 @@ builder.Services.AddAuthentication("Bearer")
     });
 
 builder.Services.AddHttpClient();
+
 
 builder.Services.AddCors(options =>
 {
@@ -43,8 +46,10 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IDishRepository, DishRepository>();
 builder.Services.AddScoped<ITableRepository, TableRepository>();
+
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<UnitOfWork>();
+
 
 // Add services to the container.
 

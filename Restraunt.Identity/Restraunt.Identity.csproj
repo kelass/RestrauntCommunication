@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+
   <ItemGroup>
     <ProjectReference Include="..\Restraunt.Core\Restraunt.Core.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
@@ -32,4 +33,5 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
 </Project>

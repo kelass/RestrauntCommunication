@@ -36,12 +36,14 @@ namespace Restraunt.Data
             }
         }
 
+
         public IOrderRepository Orders
         {
             get
             {
                 return _orderRepository = _orderRepository ?? new OrderRepository(_db);
             }
+
         }
 
         public async Task Save()
