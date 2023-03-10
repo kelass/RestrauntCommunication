@@ -177,9 +177,11 @@
   <data name="Send" xml:space="preserve">
     <value>Send</value>
   </data>
+
   <data name="Sign out" xml:space="preserve">
     <value>Sign out</value>
   </data>
+
   <data name="Waiter panel" xml:space="preserve">
     <value>Waiter panel</value>
   </data>

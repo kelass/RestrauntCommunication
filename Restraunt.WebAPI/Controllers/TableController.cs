@@ -57,16 +57,19 @@ namespace Restraunt.WebAPI.Controllers
             if (ModelState.IsValid)
             {
 
+
                 table.Link = $"{HttpContext.Request.Scheme}://localhost:45591/Table/Menu/{table.Id.ToString()}";
 
                 await _unitOfWork.Tables.Create(table);
                 await _unitOfWork.Save();
                 return Ok(table.Link);
+
             }
             else
             {
                 return BadRequest("Problem..");
             }
+
 
         }
 
@@ -74,6 +77,7 @@ namespace Restraunt.WebAPI.Controllers
         [HttpPut]
         [Authorize]
         public async Task<ActionResult<List<Table>>> EditTable([FromBody] EditTableDto table)
+
         {
             await _unitOfWork.Tables.Edit(table);
             await _unitOfWork.Save();
@@ -96,6 +100,7 @@ namespace Restraunt.WebAPI.Controllers
             }
 
         }
+
         [HttpPatch]
         [Authorize]
         public async Task<ActionResult<List<Table>>> BindUserToTable(BindUserToTableDto model)
@@ -104,6 +109,7 @@ namespace Restraunt.WebAPI.Controllers
             await _unitOfWork.Save();
             return Ok("User bind to table");
         }
+
 
 
     }

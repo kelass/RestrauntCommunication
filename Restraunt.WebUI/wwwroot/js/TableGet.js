@@ -1,8 +1,10 @@
+
 ﻿$(document).ready(send());
 
 async function send() {
     const url = "https://localhost:7167/api/Table"
     const response = await fetch(url, {
+
 
         method: "GET",
         headers: {
@@ -11,6 +13,7 @@ async function send() {
         }
 
     }).then(r=>r.json());
+
 
     var tables = await response;
 
@@ -81,4 +84,5 @@ async function Table(tables) {
 
         document.getElementById('tbody').appendChild(tr)
     });
+
 }

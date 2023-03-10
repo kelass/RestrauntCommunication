@@ -1,3 +1,4 @@
+
 using System.Data;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
@@ -44,9 +45,11 @@ builder.Services.ConfigureApplicationCookie(config =>
 builder.Services.AddAuthentication()
     .AddGoogle(options =>
     {
+
         options.ClientId = "937172952204-tm8qh7anmv6dbifhsseslmi7mrlnqpni.apps.googleusercontent.com";
         options.ClientSecret = "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";
         options.ReturnUrlParameter = "localhost:45591/Home/Index";
+
     });
 
 
@@ -76,6 +79,7 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddControllersWithViews().AddViewLocalization();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -85,12 +89,14 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 app.UseRequestLocalization();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseIdentityServer();
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
