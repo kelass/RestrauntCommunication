@@ -27,8 +27,8 @@
 
 
 async function send(data) {
-
-    const response = await fetch("https://localhost:7167/api/Basket", {
+    const url = "https://localhost:7167/api/Basket"
+    const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {

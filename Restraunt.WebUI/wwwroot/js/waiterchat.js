@@ -50,8 +50,8 @@ $(document).on('click', '#btnDelete', async (event) => {
 
 async function sendData(data) {
     
-
-    const response = await fetch("https://localhost:7167/api/Order", {
+    const url = "https://localhost:7167/api/Order"
+    const response = await fetch(url, {
         method: "DELETE",
         body: JSON.stringify(data),
         headers: {

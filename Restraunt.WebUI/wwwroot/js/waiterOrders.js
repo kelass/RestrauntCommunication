@@ -2,7 +2,8 @@ $(document).ready(send());
 
 async function send() {
     var Id = $('#userId').val();
-    const response = await fetch(`https://localhost:7167/api/Order/${Id}`, {
+    const url = `https://localhost:7167/api/Order/${Id}`
+    const response = await fetch(url, {
 
         method: "POST",
         body:JSON.stringify(Id),

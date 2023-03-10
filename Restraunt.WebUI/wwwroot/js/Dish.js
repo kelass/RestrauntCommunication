@@ -13,8 +13,8 @@ async function send() {
         Description: $("#DishDescription").val(),
         Price: $("#DishPrice").val()
     };
-
-    const response = await fetch("https://localhost:7167/api/Dish", {
+    const url = "https://localhost:7167/api/Dish"
+    const response = await fetch(url, {
 
         method: "POST",
         body: JSON.stringify(data),

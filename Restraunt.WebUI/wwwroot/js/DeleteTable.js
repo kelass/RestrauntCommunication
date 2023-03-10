@@ -8,8 +8,8 @@
 
 async function Delete(input) {
     var accessToken = $("#access").val();
-
-    const response = await fetch("https://localhost:7167/api/Table", {
+    const url = "https://localhost:7167/api/Table"
+    const response = await fetch(url, {
 
         method: "DELETE",
        

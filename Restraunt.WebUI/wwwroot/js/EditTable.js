@@ -4,7 +4,7 @@
 
 async function send() {
     var accessToken = $("#access").val();
-
+    const url = "https://localhost:7167/api/Table"
     const data =
     {
         Id: $('#Id').val(),
@@ -12,8 +12,8 @@ async function send() {
 
 
     };
-
-    const response = await fetch("https://localhost:7167/api/Table", {
+    
+    const response = await fetch(url, {
 
         method: "PUT",
         body: JSON.stringify(data),

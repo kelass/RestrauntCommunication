@@ -1,8 +1,8 @@
 ﻿$(document).ready(send());
 
 async function send() {
-
-    const response = await fetch("https://localhost:7167/api/Table", {
+    const url = "https://localhost:7167/api/Table"
+    const response = await fetch(url, {
 
         method: "GET",
         headers: {

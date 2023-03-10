@@ -6,8 +6,8 @@ async function send() {
 
     var url = location.href;
     var id = url.substring(url.lastIndexOf('/') + 1);
-
-    const response = await fetch(`https://localhost:7167/api/Table/${id}`, {
+    const urlApi = `https://localhost:7167/api/Table/${id}`
+    const response = await fetch(urlApi, {
 
         method: "GET",
         
