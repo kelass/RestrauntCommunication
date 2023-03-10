@@ -117,81 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Admin panel" xml:space="preserve">
-    <value>Адмiн панель</value>
+  <data name="Notify" xml:space="preserve">
+    <value>Нотифiкацiя</value>
   </data>
-  <data name="An industry that starts with your stomach" xml:space="preserve">
-    <value>Індустрія, яка починається зі шлунка</value>
+  <data name="Tables" xml:space="preserve">
+    <value>Столи</value>
   </data>
-  <data name="carbohydrates, fats, water, minerals and vitamins." xml:space="preserve">
-    <value>вуглеводів, жирів, води, мінеральних речовин і вітамінів.</value>
-  </data>
-  <data name="CLICK HERE" xml:space="preserve">
-    <value>НАТИСНІТЬ ТУТ</value>
-  </data>
-  <data name="Delicious to eat" xml:space="preserve">
-    <value>Смачно їсти</value>
-  </data>
-  <data name="Do you want work with us?" xml:space="preserve">
-    <value>Ви хочете працювати з нами?</value>
-  </data>
-  <data name="Email" xml:space="preserve">
-    <value>Електронна пошта</value>
-  </data>
-  <data name="Full name" xml:space="preserve">
-    <value>Повне ім'я</value>
-  </data>
-  <data name="Go to home page" xml:space="preserve">
-    <value>Перейти на головну сторінку</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Головна</value>
-  </data>
-  <data name="Home Page" xml:space="preserve">
-    <value>Домашня сторінка</value>
-  </data>
-  <data name="in the required quantity and optimal ratios," xml:space="preserve">
-    <value>в необхідній кількості та оптимальних співвідношеннях,</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Авторизацiя</value>
-  </data>
-  <data name="MENU" xml:space="preserve">
-    <value>МЕНЮ</value>
-  </data>
-  <data name="must receive many nutrients - proteins," xml:space="preserve">
-    <value>повинні отримувати багато поживних речовин - білків,</value>
-  </data>
-  <data name="Order the dish" xml:space="preserve">
-    <value>Замовляйте страву</value>
-  </data>
-  <data name="Our restraunt have a good menu." xml:space="preserve">
-    <value>У нашому ресторані хороше меню.</value>
-  </data>
-  <data name="Proper nutrition implies that the body regularly," xml:space="preserve">
-    <value>Правильне харчування передбачає, що організм регулярно,</value>
-  </data>
-  <data name="Scan QR Code" xml:space="preserve">
-    <value>Відскануйте QR-код</value>
-  </data>
-  <data name="Send" xml:space="preserve">
-    <value>Надіслати</value>
-  </data>
-
-  <data name="Sign out" xml:space="preserve">
-    <value>Вийти</value>
-  </data>
-
   <data name="Waiter panel" xml:space="preserve">
     <value>Офіціантська панель</value>
-  </data>
-  <data name="Welcome to the restraunt!" xml:space="preserve">
-    <value>Ласкаво просимо до ресторану!</value>
-  </data>
-  <data name="What do you do?" xml:space="preserve">
-    <value>Що ти робиш?</value>
-  </data>
-  <data name="You can check" xml:space="preserve">
-    <value>Ви можете перевірити</value>
   </data>
 </root>

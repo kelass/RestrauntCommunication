@@ -74,6 +74,7 @@ namespace Restraunt.Data.Repositories
             }
             return table;
 
+
         }
 
         public async Task<Table> BindUserToTable(BindUserToTableDto model)
@@ -87,12 +88,12 @@ namespace Restraunt.Data.Repositories
                 table.User = user;
 
 
-
                 _db.Update(table);
             }
             return table;
 
         }
+
 
 
       

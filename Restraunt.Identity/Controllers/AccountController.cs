@@ -1,4 +1,6 @@
-﻿using System;
+
+﻿ using System;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -131,16 +133,18 @@ namespace Restraunt.Identity.Controllers
        
 
 
-        public IActionResult SignInGoogle(string returnUrl = null)
-        {
 
+        public IActionResult SignInGoogle()
+        {
             string redirectUrl = Url.Action("GoogleResponse", "Account");
-            
+
             var properties = _signInManager.ConfigureExternalAuthenticationProperties("Google", redirectUrl);
             return new ChallengeResult("Google", properties);
         }
 
-        public async Task<IActionResult> GoogleResponse()
+
+        public async Task<IActionResult> GoogleResponse(string returnUrl)
+
         {
             ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
@@ -174,7 +178,9 @@ namespace Restraunt.Identity.Controllers
                 }
             }
             
-            return Redirect("/");
+
+            return Redirect("https://localhost:45591");
+
         }
     }
 }

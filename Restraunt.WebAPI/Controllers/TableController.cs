@@ -70,11 +70,11 @@ namespace Restraunt.WebAPI.Controllers
                 return BadRequest("Problem..");
             }
 
+
         }
 
 
         [HttpPut]
-
         [Authorize]
         public async Task<ActionResult<List<Table>>> EditTable([FromBody] EditTableDto table)
 

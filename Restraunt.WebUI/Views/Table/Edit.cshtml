@@ -1,9 +1,15 @@
-﻿<div class="vh-100 vw-100 mt-5">
+
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<div class="vh-100 vw-100 mt-5">
+
     <div class="container vw-100 text-center">
         <input id="access" value="@ViewBag.access_token" hidden />
         <input hidden id="Id" value="@Model"/>
         <input hidden value="@ViewBag.access_token" id="access"/>
-        <input class="form-control-plaintext" id="TableName" type="text" />
+
+        <input class="form-control-plaintext" id="TableName" type="text" placeholder="@Localizer["Enter the table name"]/>
+
         <input class="btn btn-dark" type="submit" id="submit" />
     </div>
 </div>
