@@ -15,6 +15,7 @@ namespace Restraunt.Core.Interfaces
         Task<Table> Edit(EditTableDto entity);
 
         Task<Table> BindUserToTable(BindUserToTableDto model);
+        Task<Table> UnBindUserToTable(UnBindUserToTableDto model);
 
     }
 }

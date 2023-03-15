@@ -19,12 +19,12 @@ namespace Restraunt.WebAPI.Controllers
     public class TableController : ControllerBase
     {
         private readonly UnitOfWork _unitOfWork;
-       
+
 
         public TableController(UnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-          
+
         }
 
 
@@ -77,7 +77,6 @@ namespace Restraunt.WebAPI.Controllers
         [HttpPut]
         [Authorize]
         public async Task<ActionResult<List<Table>>> EditTable([FromBody] EditTableDto table)
-
         {
             await _unitOfWork.Tables.Edit(table);
             await _unitOfWork.Save();
@@ -91,7 +90,7 @@ namespace Restraunt.WebAPI.Controllers
             var result = await _unitOfWork.Tables.Delete(Id);
             if (result == true)
             {
-               await _unitOfWork.Save();
+                await _unitOfWork.Save();
                 return Ok("Table delete");
             }
             else
@@ -110,7 +109,14 @@ namespace Restraunt.WebAPI.Controllers
             return Ok("User bind to table");
         }
 
-
+        [HttpPut("{Id}")]
+        [Authorize]
+        public async Task<ActionResult<List<Table>>> UnBindUserToTable(UnBindUserToTableDto model)
+        {
+            await _unitOfWork.Tables.UnBindUserToTable(model);
+            await _unitOfWork.Save();
+            return Ok("User bind to table");
+        }
 
     }
 }
