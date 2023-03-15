@@ -27,6 +27,15 @@ async function Table(tables) {
         var Nametd = document.createElement('td');
         var Usertd = document.createElement('td');
         var tr = document.createElement('tr');
+       
+
+        var unBindBtn = document.createElement('button');
+        unBindBtn.setAttribute('type', 'submit');
+        unBindBtn.setAttribute('class', 'btn btn-danger m-1');
+        unBindBtn.setAttribute('value', element.id);
+        unBindBtn.setAttribute('id', 'UnBindBtn');
+        unBindBtn.append('Clear')
+
 
         var UserName = document.createElement('button');
         UserName.setAttribute('type', 'submit');
@@ -41,8 +50,9 @@ async function Table(tables) {
             UserName.append(element.user.userName);
         }
         Nametd.append(element.name);
-        Usertd.append(UserName);
-
+        Usertd.appendChild(UserName);
+        Usertd.appendChild(unBindBtn);
+        
        
 
         

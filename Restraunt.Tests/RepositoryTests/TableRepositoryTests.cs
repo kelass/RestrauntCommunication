@@ -35,82 +35,11 @@ namespace Restraunt.Tests.RepositoryTests
             // Arrange
             var dish = FakeDataBogus.GenerateOneTable();
 
-            
-            
             // Act
             var result = await _tableRepository.Create(dish);
             _dbContext.SaveChanges();
             // Assert
             Assert.IsTrue(result);
-
-        }
-
-
-        [Test]
-        public async Task DeleteTable_Success()
-        {
-            // Arrange
-            
-            var Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6a");
-
-            // Act
-            var result = await _tableRepository.Delete(Id);
-            
-            // Assert
-            Assert.IsTrue(result);
-
-        }
-
-        [Test]
-        public async Task DeleteTable_NotSuccess()
-        {
-            // Arrange
-            Create_ShouldAddTableToDatabase_Success();
-
-            var Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6c");
-
-            // Act
-            var result = await _tableRepository.Delete(Id);
-            _dbContext.SaveChanges();
-
-            // Assert
-            Assert.AreEqual(false, result);
-
-        }
-
-
-        [Test]
-        public async Task GetTableById_Success()
-        {
-            // Arrange
-            Create_ShouldAddTableToDatabase_Success();
-
-            var Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6a");
-
-            // Act
-            var result = await _tableRepository.Get(Id);
-            
-
-            // Assert
-            Assert.AreEqual(Id,result.Id);
-
-        }
-
-
-        [Test]
-        public async Task SelectTables_Success()
-        {
-            // Arrange
-            Create_ShouldAddTableToDatabase_Success();
-
-            
-
-            // Act
-            var result = await _tableRepository.Select();
-
-
-            // Assert
-            Assert.AreEqual(_dbContext.Tables.Count(), result.Count());
 
         }
 
@@ -120,8 +49,8 @@ namespace Restraunt.Tests.RepositoryTests
             //Arrange
             var user = FakeDataBogus.GenerateRestrauntUser();
 
-            var table = new Table { Id = Guid.Parse("9ef94f67-1753-4957-a686-14211a1d0cfc"), Link="Test", Name= "Test", User=null };
-            BindUserToTableDto dto = new BindUserToTableDto { Id=table.Id, UserId=user.Id };
+            var table = new Table { Id = Guid.Parse("9ef94f67-1753-4957-a686-14211a1d0cfc"), Link = "Test", Name = "Test", User = null };
+            BindUserToTableDto dto = new BindUserToTableDto { Id = table.Id, UserId = user.Id };
             _dbContext.Add(table);
             _dbContext.Add(user);
             _dbContext.SaveChanges();
@@ -143,6 +72,73 @@ namespace Restraunt.Tests.RepositoryTests
             //Assert
 
             Assert.True(key);
+
+        }
+
+        [Test]
+        public async Task GetTableById_Success()
+        {
+            // Arrange
+
+            var Id = Guid.Parse("9ef94f67-1753-4957-a686-14211a1d0cfc");
+
+            // Act
+            var result = await _tableRepository.Get(Id);
+
+
+            // Assert
+            Assert.AreEqual(Id, result.Id);
+
+        }
+
+        [Test]
+        public async Task DeleteTable_NotSuccess()
+        {
+            // Arrange
+
+
+            var Id = Guid.Parse("d11c14e0-323e-4176-b269-fd799ba4da6c");
+
+            // Act
+            var result = await _tableRepository.Delete(Id);
+            _dbContext.SaveChanges();
+
+            // Assert
+            Assert.AreEqual(false, result);
+
+        }
+
+        [Test]
+        public async Task DeleteTable_Success()
+        {
+            // Arrange
+            
+            var Id = Guid.Parse("9ef94f67-1753-4957-a686-14211a1d0cfc");
+
+            // Act
+            var result = await _tableRepository.Delete(Id);
+            
+            // Assert
+            Assert.IsTrue(result);
+
+        }
+
+        
+
+        [Test]
+        public async Task SelectTables_Success()
+        {
+            // Arrange
+            Create_ShouldAddTableToDatabase_Success();
+
+            
+
+            // Act
+            var result = await _tableRepository.Select();
+
+
+            // Assert
+            Assert.AreEqual(_dbContext.Tables.Count(), result.Count());
 
         }
 

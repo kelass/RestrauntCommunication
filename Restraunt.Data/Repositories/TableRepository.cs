@@ -94,9 +94,21 @@ namespace Restraunt.Data.Repositories
 
         }
 
+        public async Task<Table> UnBindUserToTable(UnBindUserToTableDto model)
+        {
+            Table? table = await _db.Tables.Where(t => t.Id == model.Id).Include(u=>u.User).FirstOrDefaultAsync();
+
+            if (table != null)
+            {
+                table.User = null;
+                
+                _db.Update(table);
+            }
+            return table;
+
+        }
 
 
-      
 
     }
 }
