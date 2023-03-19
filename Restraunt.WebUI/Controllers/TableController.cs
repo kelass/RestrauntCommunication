@@ -87,7 +87,7 @@ namespace Restraunt.WebUI.Controllers
         public IActionResult Menu(Guid id) => View(id);
 
 
-        public async Task<IActionResult> Basket(Guid id)
+        public IActionResult Basket(Guid id)
         {
             
             return View(id);

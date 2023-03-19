@@ -129,4 +129,10 @@
   <data name="Waiter tables" xml:space="preserve">
     <value>Столики офіціантів</value>
   </data>
+  <data name="You binded to table" xml:space="preserve">
+    <value>Ви зайняв стiл</value>
+  </data>
+  <data name="You clear table" xml:space="preserve">
+    <value>Ви очистили стiл</value>
+  </data>
 </root>

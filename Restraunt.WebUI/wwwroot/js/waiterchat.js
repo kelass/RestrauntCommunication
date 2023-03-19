@@ -1,4 +1,4 @@
-var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
+﻿var connection = new signalR.HubConnectionBuilder().withUrl("/chathub").build();
 
 connection.on("ReceiveMessage", function (order) {
     var button = document.createElement('button')
@@ -65,6 +65,16 @@ async function sendData(data) {
         throw new Error("Failed to send request");
     }
     else {
-        location.reload();
+        $(document).ready(function () {
+            $('#exampleModal').modal('show'); // Показываем модальное окно
+            setTimeout(function () {
+                $('#exampleModal').modal('hide'); // Скрываем модальное окно через 2 секунды
+            }, 2000);
+        });
+        setTimeout(function () {
+            location.reload();
+        }, 1800);
+        
+        
     }
 }

@@ -120,4 +120,7 @@
   <data name="Enter the table name" xml:space="preserve">
     <value>Enter the table name</value>
   </data>
+  <data name="You edited table" xml:space="preserve">
+    <value>You edited table</value>
+  </data>
 </root>

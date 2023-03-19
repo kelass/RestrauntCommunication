@@ -94,8 +94,8 @@ namespace Restraunt.Identity.Controllers
                     
                 if (result.Succeeded)   
                 {
-                       _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
-                        .GetAwaiter().GetResult();
+                    _userManager.AddClaimAsync(user, new Claim("rc.user", "big.cookie"))
+                     .GetAwaiter().GetResult();
                     _userManager.AddClaimAsync(user, new Claim("roles", "big.roles.cookie"))
                         .GetAwaiter().GetResult();
                     _userManager.AddClaimAsync(user,

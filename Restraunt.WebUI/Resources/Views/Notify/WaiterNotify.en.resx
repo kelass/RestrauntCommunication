@@ -129,4 +129,7 @@
   <data name="Order message" xml:space="preserve">
     <value>Order message</value>
   </data>
+  <data name="You deleted order" xml:space="preserve">
+    <value>You deleted order</value>
+  </data>
 </root>

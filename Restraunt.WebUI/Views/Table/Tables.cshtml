@@ -1,11 +1,19 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-
-@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
 @{
     Layout = "_AdminLayout";
 }
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Localizer["You deleted table"]
+            </div>
+        </div>
+    </div>
+</div>
+
 <div>
     <div class="col-lg-12 mt-5 pt-5">
         <input hidden value="@ViewBag.access_token" id="access" />

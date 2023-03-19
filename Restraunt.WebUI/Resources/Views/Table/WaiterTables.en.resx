@@ -129,4 +129,10 @@
   <data name="Waiter tables" xml:space="preserve">
     <value>Waiter tables</value>
   </data>
+  <data name="You binded to table" xml:space="preserve">
+    <value>You binded to table</value>
+  </data>
+  <data name="You clear table" xml:space="preserve">
+    <value>You clear table</value>
+  </data>
 </root>

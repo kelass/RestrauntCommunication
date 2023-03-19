@@ -129,4 +129,7 @@
   <data name="Order message" xml:space="preserve">
     <value>Повідомлення про замовлення</value>
   </data>
+  <data name="You deleted order" xml:space="preserve">
+    <value>Ви видалили замовлення</value>
+  </data>
 </root>
