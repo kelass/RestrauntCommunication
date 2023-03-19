@@ -129,4 +129,7 @@
   <data name="Name" xml:space="preserve">
     <value>Ім'я</value>
   </data>
+  <data name="You deleted table" xml:space="preserve">
+    <value>Ви видалили стол</value>
+  </data>
 </root>

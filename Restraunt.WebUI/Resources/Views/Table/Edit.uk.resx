@@ -120,4 +120,7 @@
   <data name="Enter the table name" xml:space="preserve">
     <value>Введіть назву таблиці</value>
   </data>
+  <data name="You edited table" xml:space="preserve">
+    <value>Ви редагували стол</value>
+  </data>
 </root>

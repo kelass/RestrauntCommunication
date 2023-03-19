@@ -38,9 +38,6 @@ builder.Services.ConfigureApplicationCookie(config =>
     config.LogoutPath= "/Account/LogOut";
    
 });
-
-
-
 //Add google authentication
 builder.Services.AddAuthentication()
     .AddGoogle(options =>
@@ -48,7 +45,7 @@ builder.Services.AddAuthentication()
 
         options.ClientId = "937172952204-tm8qh7anmv6dbifhsseslmi7mrlnqpni.apps.googleusercontent.com";
         options.ClientSecret = "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";
-        options.ReturnUrlParameter = "localhost:45591/Home/Index";
+        options.ReturnUrlParameter = "/";
 
     });
 

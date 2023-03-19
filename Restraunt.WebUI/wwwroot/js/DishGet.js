@@ -1,5 +1,4 @@
 ﻿$(document).ready(send());
-
 async function send() {
 
     const url = "https://localhost:7167/api/Dish"

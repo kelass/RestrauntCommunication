@@ -129,4 +129,10 @@
   <data name="Price" xml:space="preserve">
     <value>Ціна</value>
   </data>
+  <data name="You create new dish" xml:space="preserve">
+    <value>Ви створили нову страву</value>
+  </data>
+  <data name="You deleted dish" xml:space="preserve">
+    <value>Ви видалили страву</value>
+  </data>
 </root>

@@ -126,4 +126,7 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="You deleted table" xml:space="preserve">
+    <value>You deleted table</value>
+  </data>
 </root>

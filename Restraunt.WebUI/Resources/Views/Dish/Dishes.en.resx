@@ -129,4 +129,10 @@
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
+  <data name="You create new dish" xml:space="preserve">
+    <value>You create new dish</value>
+  </data>
+  <data name="You deleted dish" xml:space="preserve">
+    <value>You deleted dish</value>
+  </data>
 </root>

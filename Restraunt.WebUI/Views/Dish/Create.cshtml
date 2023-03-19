@@ -1,5 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
+
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Localizer["You create new dish"]
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="vh-100 vw-100 mt-5">
     <div class="container vw-100 text-center">
         <input hidden value="@ViewBag.access_token" id="access" />

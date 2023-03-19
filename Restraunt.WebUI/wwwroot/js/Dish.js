@@ -27,7 +27,18 @@ async function send() {
     });
 
     if (response.ok) {
-        window.location.replace('/Dish/Dishes');
+        
+       
+        $(document).ready(function () {
+            $('#exampleModal').modal('show'); // Показываем модальное окно
+            setTimeout(function () {
+                $('#exampleModal').modal('hide'); // Скрываем модальное окно через 2 секунды
+            }, 2000);
+        });
+        setTimeout(function () {
+            window.location.replace('/Dish/Dishes');
+        },1800);
+        
     }
 
 }

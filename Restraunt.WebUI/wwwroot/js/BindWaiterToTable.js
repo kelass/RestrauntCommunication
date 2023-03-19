@@ -53,7 +53,15 @@ async function send(data) {
     }
     else {
         
+        $(document).ready(function () {
+            $('#exampleModal').modal('show'); // Показываем модальное окно
+            setTimeout(function () {
+                $('#exampleModal').modal('hide'); // Скрываем модальное окно через 2 секунды
+            }, 2000);
+        });
+        setTimeout(function () {
             window.location.replace('/Table/WaiterTables');
+        }, 1800);
         
     }
 }
@@ -76,7 +84,17 @@ async function UnBind(data) {
     }
     else {
 
-        window.location.replace('/Table/WaiterTables');
+
+        $(document).ready(function () {
+            $('#Modal').modal('show'); // Показываем модальное окно
+            setTimeout(function () {
+                $('#Modal').modal('hide'); // Скрываем модальное окно через 2 секунды
+            }, 2000);
+        });
+        setTimeout(function () {
+            window.location.replace('/Table/WaiterTables');
+        }, 1800);
+
 
     }
 }

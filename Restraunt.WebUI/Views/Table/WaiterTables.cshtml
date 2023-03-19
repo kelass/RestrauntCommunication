@@ -5,7 +5,26 @@
     Layout = "_WaiterLayout";
     ViewData["Title"] = "Waiter panel";
 }
-
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Localizer["You binded to table"]
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Модальное окно -->
+<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Localizer["You clear table"]
+            </div>
+        </div>
+    </div>
+</div>
 <div>
     <input value="@ViewBag.access_token" id="access" hidden />
     <input id="userId" value="@ViewBag.UserId" hidden />
