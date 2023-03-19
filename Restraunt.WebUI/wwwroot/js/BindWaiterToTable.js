@@ -84,6 +84,7 @@ async function UnBind(data) {
     }
     else {
 
+
         $(document).ready(function () {
             $('#Modal').modal('show'); // Показываем модальное окно
             setTimeout(function () {
@@ -93,6 +94,7 @@ async function UnBind(data) {
         setTimeout(function () {
             window.location.replace('/Table/WaiterTables');
         }, 1800);
+
 
     }
 }

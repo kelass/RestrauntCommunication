@@ -9,7 +9,9 @@
 <li>JavaScript, jQuery</li>
 <li>Bootstrap</li>
 <li>EntityFramework Core 6</li>
-
+<li>SignalR</li>
+<li>IdentityServer4 (OAuth 2.0)</li>
+<li>Google Auth</li>
 <h2 align="center">Tasks</h2>
 <li>Create DB</li>
 <li>Setting up relationships in the database</li>
