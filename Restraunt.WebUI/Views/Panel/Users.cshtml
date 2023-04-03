@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    Layout = "_AdminLayout";
+}
+<!-- Модальное окно -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                @Localizer["You deleted table"]
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="col-lg-12 mt-5 pt-5">
+        <input hidden value="@ViewBag.access_token" id="access" />
+        <h2 class="section-title">@Localizer["All tables"]</h2>
+        <div><a asp-controller="Table" asp-action="Create" class="basic-button btn btn-dark col-1">@Localizer["Add"]</a></div>
+        <h5 class="danger-text">@TempData["Error"]</h5>
+        <div class="overflow-auto text-nowrap">
+            <table class="table basic-table">
+                <thead class="table-headers">
+                    <tr>
+                        <th>
+                            @Html.Label("Id")
+                        </th>
+                        <th>
+                            @Localizer["Full name"]
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" class="table-records">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    
+    }

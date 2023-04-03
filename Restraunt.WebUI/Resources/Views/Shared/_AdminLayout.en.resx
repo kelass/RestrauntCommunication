@@ -129,4 +129,7 @@
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>
   </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
+  </data>
 </root>

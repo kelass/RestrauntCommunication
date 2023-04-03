@@ -12,6 +12,7 @@ namespace Restraunt.Data
         private DishRepository _dishRepository;
         private TableRepository _tableRepository;
         private OrderRepository _orderRepository;
+        private UserRepository _userRepository;
 
 		public UnitOfWork(ApplicationDbContext db)
 		{
@@ -32,7 +33,7 @@ namespace Restraunt.Data
         {
             get
             {
-                return _tableRepository = _tableRepository?? new TableRepository(_db);
+                return _tableRepository = _tableRepository ?? new TableRepository(_db);
             }
         }
 
@@ -44,7 +45,17 @@ namespace Restraunt.Data
                 return _orderRepository = _orderRepository ?? new OrderRepository(_db);
             }
 
+        }  
+        public IUserRepository Users
+        {
+            get
+            {
+                return _userRepository = _userRepository ?? new UserRepository(_db);
+            }
+
         }
+
+        
 
         public async Task Save()
         {
